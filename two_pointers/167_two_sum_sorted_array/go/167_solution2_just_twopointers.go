@@ -1,4 +1,4 @@
-package main
+package solution
 
 func twoSum(numbers []int, target int) []int {
 	left, right := 0, len(numbers)-1
