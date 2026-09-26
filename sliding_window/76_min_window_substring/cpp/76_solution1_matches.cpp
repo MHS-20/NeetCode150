@@ -7,7 +7,6 @@ public:
   string minWindow(string s, string t) {
     unordered_map<char, int> tfreq;
     unordered_map<char, int> wfreq;
-    unordered_map<char, int> widxs;
 
     int left = 0;
     int matches = 0;
