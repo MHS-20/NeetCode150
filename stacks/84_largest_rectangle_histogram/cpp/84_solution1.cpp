@@ -10,7 +10,8 @@ public:
         st.pop();
 
         int prev = st.empty() ? -1 : st.top();
-        int newArea = heights[idx] * (i - prev - 1);
+        int width = (i - 1) - (prev + 1) + 1;
+        int newArea = heights[idx] * width;
         maxArea = max(maxArea, newArea);
       }
       st.push(i);
