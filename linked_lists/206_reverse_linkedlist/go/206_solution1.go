@@ -1,10 +1,5 @@
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
+package linkedlists
+
 func reverseList(head *ListNode) *ListNode {
 	var prev *ListNode
 	cur := head

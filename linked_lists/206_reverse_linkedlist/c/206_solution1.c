@@ -1,10 +1,5 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     struct ListNode *next;
- * };
- */
+#include "list_node.h"
+
 struct ListNode *reverseList(struct ListNode *head) {
   struct ListNode *prev = NULL;
   struct ListNode *cur = head;
