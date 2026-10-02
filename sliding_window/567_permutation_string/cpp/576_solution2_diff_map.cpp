@@ -9,13 +9,12 @@ public:
     unordered_map<char, int> diff;
     int mismatched = 0;
 
-    // shift a letter's diff by delta, keeping `mismatched` in sync
     auto update = [&](char c, int delta) {
       if (diff[c] == 0)
-        mismatched++; // was balanced, about to break
+        mismatched++;
       diff[c] += delta;
       if (diff[c] == 0)
-        mismatched--; // now balanced again
+        mismatched--;
     };
 
     for (char c : s1)
