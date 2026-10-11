@@ -7,6 +7,9 @@ public:
     ListNode *left = &dummy;
     ListNode *right = &dummy;
 
+    if (!head || n <= 0)
+      return head;
+
     for (int i = 0; i < n; i++)
       right = right->next;
 
