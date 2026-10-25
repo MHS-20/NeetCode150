@@ -1,18 +1,21 @@
 package trees
 
 func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
-	lo, hi := min(p.Val, q.Val), max(p.Val, q.Val)
+	if p.Val > q.Val {
+		return lowestCommonAncestor(root, q, p)
+	}
 
-	// the LCA is the first node whose value falls between p and q
 	for root != nil {
-		if root.Val < lo {
-			root = root.Right
-		} else if root.Val > hi {
-			root = root.Left
-		} else {
+		if root.Val >= p.Val && root.Val <= q.Val {
 			return root
+		}
+
+		if root.Val < p.Val {
+			root = root.Right
+		} else {
+			root = root.Left
 		}
 	}
 
-	return nil
+	return root
 }

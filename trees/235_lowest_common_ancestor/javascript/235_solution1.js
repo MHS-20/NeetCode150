@@ -1,15 +1,14 @@
 const TreeNode = require("./tree_node");
 
 var lowestCommonAncestor = function (root, p, q) {
-  const lo = Math.min(p.val, q.val);
-  const hi = Math.max(p.val, q.val);
+  if (p.val > q.val) return lowestCommonAncestor(root, q, p);
 
-  // the LCA is the first node whose value falls between p and q
   while (root) {
-    if (root.val < lo) root = root.right;
-    else if (root.val > hi) root = root.left;
-    else return root;
+    if (root.val >= p.val && root.val <= q.val) return root;
+
+    if (root.val < p.val) root = root.right;
+    else root = root.left;
   }
 
-  return null;
+  return root;
 };

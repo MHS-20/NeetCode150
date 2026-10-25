@@ -12,7 +12,7 @@ public:
 
       if (root->val < p->val)
         root = root->right;
-      else if (root->val > q->val)
+      else
         root = root->left;
     }
 
