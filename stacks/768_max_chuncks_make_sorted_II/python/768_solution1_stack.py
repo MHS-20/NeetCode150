@@ -6,11 +6,11 @@ class Solution:
         st = []
 
         for n in arr:
-            if not st or n > st[-1]:
+            if not st or n >= st[-1]:
                 st.append(n)
             else:
                 mx = st.pop()
-                while st and n <= st[-1]:
+                while st and n < st[-1]:
                     st.pop()
                 st.append(mx)
 

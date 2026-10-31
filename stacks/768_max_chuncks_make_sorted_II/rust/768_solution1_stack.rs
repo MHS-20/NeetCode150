@@ -4,9 +4,9 @@ impl Solution {
 
         for n in arr {
             match st.last() {
-                Some(&top) if n <= top => {
+                Some(&top) if n < top => {
                     let mx = st.pop().unwrap();
-                    while st.last().is_some_and(|&t| n <= t) {
+                    while st.last().is_some_and(|&t| n < t) {
                         st.pop();
                     }
                     st.push(mx);

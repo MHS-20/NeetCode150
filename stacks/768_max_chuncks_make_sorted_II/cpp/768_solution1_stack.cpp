@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <stack>
 #include <vector>
 
 using namespace std;
@@ -9,12 +10,12 @@ public:
     stack<int> st;
 
     for (int n : arr) {
-      if (st.empty() || n > st.top()) {
+      if (st.empty() || n >= st.top()) {
         st.push(n);
       } else {
         int mx = st.top();
         st.pop();
-        while (!st.empty() && n <= st.top())
+        while (!st.empty() && n < st.top())
           st.pop();
         st.push(mx);
       }

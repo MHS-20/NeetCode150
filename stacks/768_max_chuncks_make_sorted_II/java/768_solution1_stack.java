@@ -6,11 +6,11 @@ class Solution {
         Deque<Integer> st = new ArrayDeque<>();
 
         for (int n : arr) {
-            if (st.isEmpty() || n > st.peek()) {
+            if (st.isEmpty() || n >= st.peek()) {
                 st.push(n);
             } else {
                 int mx = st.pop();
-                while (!st.isEmpty() && n <= st.peek())
+                while (!st.isEmpty() && n < st.peek())
                     st.pop();
                 st.push(mx);
             }
