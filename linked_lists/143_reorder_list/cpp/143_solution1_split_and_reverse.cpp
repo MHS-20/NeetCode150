@@ -13,11 +13,12 @@ public:
       fast = fast->next->next;
     }
 
-    // 2. cut the list and reverse the second half
+    // 2. cut the list
     ListNode *prev = nullptr;
     ListNode *curr = slow->next;
-    slow->next = nullptr; // split into two lists
+    slow->next = nullptr;
 
+    // reverse the second half
     while (curr) {
       ListNode *next = curr->next;
       curr->next = prev;
