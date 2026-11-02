@@ -15,6 +15,7 @@ class Solution:
         prices[src] = 0
 
         flights_used = 0
+        # BFS by level, one level per flight (at most k + 1 levels)
         while flights_used <= k and q:
             for _ in range(len(q)):
                 c, p = q.popleft()

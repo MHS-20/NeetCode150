@@ -13,6 +13,7 @@ impl Solution {
         prices[src as usize] = 0;
 
         let mut flights_used = 0;
+        // BFS by level, one level per flight (at most k + 1 levels)
         while flights_used <= k && !q.is_empty() {
             for _ in 0..q.len() {
                 let (c, p) = q.pop_front().unwrap();

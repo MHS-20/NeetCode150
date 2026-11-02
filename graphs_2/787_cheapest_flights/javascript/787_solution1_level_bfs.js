@@ -14,6 +14,7 @@ var findCheapestPrice = function (n, flights, src, dst, k) {
   let q = [[src, 0]]; // [city, cost so far]
   prices[src] = 0;
 
+  // BFS by level, one level per flight (at most k + 1 levels)
   for (let flightsUsed = 0; flightsUsed <= k && q.length > 0; flightsUsed++) {
     // fresh array per level: Array.shift() is O(n)
     const next = [];

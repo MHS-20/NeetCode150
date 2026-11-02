@@ -18,6 +18,7 @@ func findCheapestPrice(n int, flights [][]int, src int, dst int, k int) int {
 	q := []state{{src, 0}}
 	prices[src] = 0
 
+	// BFS by level, one level per flight (at most k + 1 levels)
 	for flightsUsed := 0; flightsUsed <= k && len(q) > 0; flightsUsed++ {
 		sz := len(q)
 		for i := 0; i < sz; i++ {

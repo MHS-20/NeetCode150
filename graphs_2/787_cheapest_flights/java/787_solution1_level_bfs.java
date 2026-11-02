@@ -18,6 +18,7 @@ class Solution {
         prices[src] = 0;
         q.offer(new int[] { src, 0 });
 
+        // BFS by level, one level per flight (at most k + 1 levels)
         for (int flightsUsed = 0; flightsUsed <= k && !q.isEmpty(); flightsUsed++) {
             int sz = q.size();
             for (int i = 0; i < sz; i++) {

@@ -33,6 +33,7 @@ int findCheapestPrice(int n, int **flights, int flightsSize,
   prices[src] = 0;
   cur[curSize++] = (State){src, 0};
 
+  // BFS by level, one level per flight (at most k + 1 levels)
   for (int flightsUsed = 0; flightsUsed <= k && curSize > 0; flightsUsed++) {
     int nxtSize = 0;
     for (int i = 0; i < curSize; i++) {
