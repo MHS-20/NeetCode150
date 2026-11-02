@@ -111,7 +111,7 @@ Nodes are labelled `1..n`, so `dist` has size `n + 1`, and the maximum must skip
 
 Dijkstra pops node 1 at distance 2 and marks it final. The true distance is `3 + (-2) = 1`, through node 2, which is popped later. A version with a `visited` set never revisits node 1 and returns 2.
 
-The lazy version without `visited` happens to fix this example, because it relaxes `2→1` and pushes node 1 again. It then behaves like a label-correcting search, and its worst case is exponential. Use **Bellman-Ford** instead: relax every edge `V - 1` times, O(V · E). If a `V`-th round still improves some distance, the graph has a negative cycle and shortest paths are undefined.
+The lazy version without `visited` happens to fix this example, because it relaxes `2→1` and pushes node 1 again. It then behaves like a label-correcting search, and its worst case is exponential. Use **Bellman-Ford** instead, which takes O(V · E) and also detects negative cycles (`bellman_ford.md`).
 
 **A limit on the number of edges.** Cheapest Flights Within K Stops (787) asks for the cheapest route with at most `k` stops. Plain Dijkstra finalises each city at its cheapest cost, whatever the number of stops. A cheap path with too many stops can then block a more expensive path that fits the limit:
 
@@ -125,8 +125,10 @@ Only 0→1→2→3 = 3 reaches 3, and it uses 2 stops.
 
 There are two correct fixes:
 
-- **Bellman-Ford limited to `k + 1` rounds.** Each round allows one more edge, so after `k + 1` rounds `dist` holds the cheapest cost using at most `k + 1` flights. Each round must read the *previous* round's distances (a copy), or one round can chain several edges and exceed the limit.
-- **BFS by level**, with one level per flight, stopping after `k + 1` levels. Each queue entry carries its own cost so far. A cost is pushed only if it beats the best known cost for that city. That pruning is safe because BFS processes fewer-stop paths first, so anything it drops uses at least as many stops and costs more.
+- **Bellman-Ford limited to `k + 1` rounds**, each reading a copy of the previous round's distances.
+- **BFS by level**, one level per flight, stopping after `k + 1` levels.
+
+`bellman_ford.md` covers both, with code and a trace of what goes wrong without the copy.
 
 Augmented Dijkstra on `(city, stops)` also works, at the cost of `V · (k + 2)` states.
 

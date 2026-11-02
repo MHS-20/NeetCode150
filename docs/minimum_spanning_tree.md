@@ -25,7 +25,35 @@ Both algorithms add edges greedily and never undo a choice. Two properties make 
 
 **Cycle property.** On any cycle, the most expensive edge is not needed. Removing it leaves the nodes connected through the rest of the cycle.
 
-Prim applies the cut property with the split "tree so far" versus "everything else". Kruskal applies it with the split "this edge's component" versus "everything else", and uses the cycle property to reject edges.
+Both algorithms keep choosing a split and taking the cheapest edge across it. They differ in which split they choose. The examples below use the graph above.
+
+**Prim's split: the tree built so far, versus every other node.** Suppose the tree so far is `{0, 1}`:
+
+```
+group A (tree): {0, 1}        group B (rest): {2, 3, 4}
+
+edges crossing A–B:  1-2 (2)   0-2 (3)   1-3 (5)
+cheapest: 1-2 (2)  → safe, add it
+```
+
+Prim's heap holds the edges leaving the tree, so popping the minimum picks the cheapest crossing edge. Every step is the cut property applied to "tree versus rest".
+
+**Kruskal's split: one endpoint's component, versus everything else.** Kruskal walks the edges in weight order, and its pieces are separate components rather than a single tree. When it reaches `2-3 (4)`, the components are `{0, 1, 2}`, `{3}` and `{4}`. Split the nodes into "the component containing 2" and the rest:
+
+```
+group A: {0, 1, 2}        group B: {3, 4}
+
+edges crossing A–B:  2-3 (4)   1-3 (5)   2-4 (7)
+```
+
+Every cheaper edge has already been processed: it either joined two components or was skipped. So `2-3` is the cheapest edge crossing this split, and the cut property says it is safe.
+
+**Kruskal's rejections are the cycle property.** When Kruskal reaches `0-2 (3)`, nodes 0 and 2 are already connected through `0-1 (1)` and `1-2 (2)`. Adding `0-2` would close the cycle `0-1-2-0`, and as the last edge reached in weight order, it is the most expensive edge on that cycle. The cycle property says such an edge is never needed. The Union-Find check "same component, skip" applies exactly this rule.
+
+In short:
+
+- **Prim** always splits "my tree / the rest" and takes the cheapest edge leaving the tree.
+- **Kruskal** goes through the edges cheapest-first. It keeps an edge that joins two separate components (cut property) and drops an edge that would close a cycle, since that edge is the most expensive one on the cycle (cycle property).
 
 ## Kruskal: sort the edges, join components
 
