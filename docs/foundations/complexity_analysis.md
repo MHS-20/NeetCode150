@@ -9,7 +9,7 @@ Big-O describes how the running time **grows** as the input grows. It is not a m
 
 The reason for throwing that detail away is that it is machine-dependent and the growth rate is not. An O(n log n) algorithm beats an O(n²) one on large inputs regardless of language, hardware, or how tight the inner loop is.
 
-The cost of the abstraction: on *small* inputs, constants decide everything. Insertion sort is O(n²) and beats merge sort below roughly 16 elements, which is why real library sorts switch to it (see `sorting.md`). Big-O answers "will this scale", not "which is faster here".
+The cost of the abstraction: on *small* inputs, constants decide everything. Insertion sort is O(n²) and beats merge sort below roughly 16 elements, which is why real library sorts switch to it (see [`sorting.md`](../sorting_and_searching/sorting.md)). Big-O answers "will this scale", not "which is faster here".
 
 ```
 n=10      n=100       n=1,000      n=1,000,000
@@ -67,7 +67,7 @@ for right in range(n):
     stack.append(nums[right])
 ```
 
-This looks quadratic and is **O(n)**. Each element is pushed exactly once and popped at most once, so there are at most `n` pops across the entire run. Count the total work, not the nesting depth. The same argument makes the monotonic stack (`stacks.md`), the monotonic deque (`queues_and_deques.md`), and the sliding window linear.
+This looks quadratic and is **O(n)**. Each element is pushed exactly once and popped at most once, so there are at most `n` pops across the entire run. Count the total work, not the nesting depth. The same argument makes the monotonic stack ([`stacks.md`](../data_structures/stacks.md)), the monotonic deque ([`queues_and_deques.md`](../data_structures/queues_and_deques.md)), and the sliding window linear.
 
 **Work proportional to something other than `n`.** String operations are the usual surprise. `s[i:j]` costs O(j − i), not O(1), so slicing inside a loop adds a factor. Comparing two strings costs up to their length, so sorting `n` strings of length `L` is O(L · n log n).
 
@@ -114,9 +114,9 @@ merge sort:   n
 
 **Halving with constant work per level** is O(log n); **halving but following only one branch** is what makes binary search logarithmic while merge sort is linearithmic. The difference is whether you recurse into one half or both.
 
-**Tree and graph recursion** is O(V + E) — each node visited once, each edge examined once. For a binary tree that is O(n). See `graphs_bfs_dfs.md`.
+**Tree and graph recursion** is O(V + E) — each node visited once, each edge examined once. For a binary tree that is O(n). See [`graphs_bfs_dfs.md`](../graphs/graphs_bfs_dfs.md).
 
-**Memoized recursion** is the cleanest case: `number of distinct states × work per state`, because each state is computed once and thereafter read from the cache (see `dynamic_programming.md`).
+**Memoized recursion** is the cleanest case: `number of distinct states × work per state`, because each state is computed once and thereafter read from the cache (see [`dynamic_programming.md`](../dynamic_programming/dynamic_programming.md)).
 
 ## Worst, average, and amortised
 
@@ -138,7 +138,7 @@ total copying across n pushes:  1 + 2 + 4 + ... + n  <  2n
 cost per push:                  2n / n = O(1) amortised
 ```
 
-The expensive operations get rarer at exactly the rate they get more expensive, so the sum stays linear. The same argument justifies O(1) amortised hash map insertion (`hashing.md`) and the O(n) monotonic stack above.
+The expensive operations get rarer at exactly the rate they get more expensive, so the sum stays linear. The same argument justifies O(1) amortised hash map insertion ([`hashing.md`](../data_structures/hashing.md)) and the O(n) monotonic stack above.
 
 ## Space complexity
 

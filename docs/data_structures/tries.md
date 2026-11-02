@@ -87,7 +87,7 @@ For exact lookup, a hash set is simpler and about as fast: hashing a length-L st
 | "words matching `c.t`" (wildcards) | O(N·L) | prune during DFS |
 | memory on overlapping words | full copy of each | shared prefixes |
 
-A hash of `"car"` bears no relation to the hash of `"ca"` — hashing deliberately destroys that relationship (see `hashing.md`). A trie preserves it structurally, which is exactly what prefix queries need.
+A hash of `"car"` bears no relation to the hash of `"ca"` — hashing deliberately destroys that relationship (see [`hashing.md`](hashing.md)). A trie preserves it structurally, which is exactly what prefix queries need.
 
 ## What it's used for
 
@@ -107,7 +107,7 @@ def search(node, word, i):
 
 A `.` costs a branching factor of 26 at that position, so a query of `k` wildcards is O(26ᵏ · L) in the worst case.
 
-**Word Search II** — the problem that justifies the structure. Finding one word in a grid is a backtracking DFS (see `backtracking.md`); finding *all* of several thousand words means running that search once per word. Instead, build a trie of the whole word list and run a single DFS over the grid, carrying a trie node alongside the grid position. The moment the path spells something that is not a prefix of any word, the trie node has no matching child and the entire branch is abandoned.
+**Word Search II** — the problem that justifies the structure. Finding one word in a grid is a backtracking DFS (see [`backtracking.md`](../techniques/backtracking.md)); finding *all* of several thousand words means running that search once per word. Instead, build a trie of the whole word list and run a single DFS over the grid, carrying a trie node alongside the grid position. The moment the path spells something that is not a prefix of any word, the trie node has no matching child and the entire branch is abandoned.
 
 ```
 grid path "ca"  →  trie node exists  →  keep exploring

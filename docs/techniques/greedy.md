@@ -41,7 +41,7 @@ Under interview time pressure, the sequence that works:
 1. **Guess a greedy rule.** Largest first, earliest deadline, ends soonest, closest, cheapest.
 2. **Attack it with small adversarial cases.** Deliberately try to construct an input where the greedy choice loses. Two or three elements is usually enough — the `[1, 3, 4]` counterexample above is size three.
 3. **If no counterexample appears, sketch the exchange argument.** If the swap clearly works, commit.
-4. **If a counterexample appears, switch to DP.** The exponential space of choices is exactly what a table is for (see `dynamic_programming.md`).
+4. **If a counterexample appears, switch to DP.** The exponential space of choices is exactly what a table is for (see [`dynamic_programming.md`](../dynamic_programming/dynamic_programming.md)).
 
 A useful signal from the problem statement: greedy tends to fit when the answer is a **count**, a **feasibility check**, or a **single scan quantity**, and the input has an obvious ordering. It tends to fail when the question asks for the minimum *number* of items chosen from a set with a capacity or exact-target constraint — that family is almost always knapsack-shaped.
 
@@ -51,7 +51,7 @@ Greedy is usually O(n) after an O(n log n) sort, and the sort dominates. That is
 
 ## The recurring shapes
 
-**Sort, then sweep.** Most interval problems (see `intervals.md`). Non-Overlapping Intervals sorts by end and keeps everything compatible.
+**Sort, then sweep.** Most interval problems (see [`intervals.md`](intervals.md)). Non-Overlapping Intervals sorts by end and keeps everything compatible.
 
 **Track a running best or a reachable frontier.**
 
@@ -91,7 +91,7 @@ Kadane's sits exactly on the boundary between greedy and DP — it is a 1D DP wh
 
 **Counting with a rule.** Partition Labels (extend the current partition to the last occurrence of every character seen in it), Task Scheduler (schedule the most frequent task first, since it constrains the idle slots).
 
-**Heap-assisted greedy.** When "best right now" changes as the input arrives, a priority queue supplies it in O(log n) — the top-K family in `heaps_and_priority_queues.md`.
+**Heap-assisted greedy.** When "best right now" changes as the input arrives, a priority queue supplies it in O(log n) — the top-K family in [`heaps_and_priority_queues.md`](../data_structures/heaps_and_priority_queues.md).
 
 ## Pitfalls
 

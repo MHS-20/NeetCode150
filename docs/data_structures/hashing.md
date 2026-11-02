@@ -56,7 +56,7 @@ The **load factor** is `entries / buckets`. As it rises, collisions rise with it
 
 Reinsertion is required because the bucket index is `hash % capacity`, and changing the capacity changes every index. That makes a resize O(n).
 
-Resizes happen after 1, 2, 4, 8, … doublings of content, so the copying across `n` inserts sums to less than `2n`, and the per-insert cost stays **O(1) amortised** — the same argument as array doubling in `stacks.md`. The practical consequence: a single insert can occasionally be slow, which matters for latency-sensitive code and never for interview complexity. If the final size is known, presizing the table skips the rehashing entirely.
+Resizes happen after 1, 2, 4, 8, … doublings of content, so the copying across `n` inserts sums to less than `2n`, and the per-insert cost stays **O(1) amortised** — the same argument as array doubling in [`stacks.md`](stacks.md). The practical consequence: a single insert can occasionally be slow, which matters for latency-sensitive code and never for interview complexity. If the final size is known, presizing the table skips the rehashing entirely.
 
 ## What can be a key
 
@@ -96,9 +96,9 @@ for i, x in enumerate(nums):
 
 **Grouping.** `defaultdict(list)` keyed by some canonical form — the sorted string for anagrams, `(row//3, col//3)` for Sudoku boxes.
 
-**Memoization.** Every top-down DP cache is a hash map from state tuple to answer (see `dynamic_programming.md`).
+**Memoization.** Every top-down DP cache is a hash map from state tuple to answer (see [`dynamic_programming.md`](../dynamic_programming/dynamic_programming.md)).
 
-**Visited tracking.** Graph traversal, cycle detection, backtracking (see `graphs_bfs_dfs.md`).
+**Visited tracking.** Graph traversal, cycle detection, backtracking (see [`graphs_bfs_dfs.md`](../graphs/graphs_bfs_dfs.md)).
 
 **Sliding window state.** A count map of the current window, updated as it moves rather than recomputed.
 
@@ -160,7 +160,7 @@ Reach for a sorted map only when the extra operations are actually required: "th
 | membership, counting, grouping | hash map / hash set |
 | the above, plus stable output order | insertion-ordered map |
 | LRU eviction | hash map + doubly linked list |
-| smallest/largest only | heap (`heaps_and_priority_queues.md`) |
+| smallest/largest only | heap ([`heaps_and_priority_queues.md`](heaps_and_priority_queues.md)) |
 | predecessor, successor, range queries | sorted map / balanced BST |
 | all keys sorted, built once | hash map, then sort at the end |
 

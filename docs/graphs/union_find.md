@@ -62,7 +62,7 @@ before find(5):   1 ← 2 ← 3 ← 4 ← 5
 after  find(5):   1 ← 2,  1 ← 3,  1 ← 4,  1 ← 5
 ```
 
-Each optimisation on its own gives O(log n) amortised per operation. Together they give **O(α(n))** amortised, where α is the inverse Ackermann function. α(n) is at most 4 for any n that fits in memory, so in practice each operation is constant time (`complexity_analysis.md`).
+Each optimisation on its own gives O(log n) amortised per operation. Together they give **O(α(n))** amortised, where α is the inverse Ackermann function. α(n) is at most 4 for any n that fits in memory, so in practice each operation is constant time ([`complexity_analysis.md`](../foundations/complexity_analysis.md)).
 
 ### Template
 
@@ -160,7 +160,7 @@ Union-Find is a good candidate when:
 
 ## When it's the wrong tool
 
-- **Directed relationships.** In Course Schedule (207), `a` depending on `b` does not mean `b` depends on `a`. Union-Find puts both in one group and loses the direction. A graph `0 → 1, 0 → 2, 1 → 2` has no cycle, but Union-Find reports the third edge as one, because 1 and 2 are already in the same group. Use DFS with three colours or Kahn's topological sort instead (`graphs_bfs_dfs.md`).
+- **Directed relationships.** In Course Schedule (207), `a` depending on `b` does not mean `b` depends on `a`. Union-Find puts both in one group and loses the direction. A graph `0 → 1, 0 → 2, 1 → 2` has no cycle, but Union-Find reports the third edge as one, because 1 and 2 are already in the same group. Use DFS with three colours or Kahn's topological sort instead ([`graphs_bfs_dfs.md`](graphs_bfs_dfs.md)).
 - **Deleting edges or splitting groups.** No operation undoes a union. If all deletions are known in advance, process the operations in reverse: deletions become additions, and Union-Find applies again.
 - **Needing the actual path** between two nodes, or its length. Union-Find only says whether a path exists. For the shortest path, use BFS, or Dijkstra when the edges are weighted.
 - **A single static question about a graph whose edges are all known in advance.** For example, "how many components?" with no updates. DFS or BFS is O(V + E), just as fast, and needs no extra structure.

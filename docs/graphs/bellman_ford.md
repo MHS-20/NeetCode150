@@ -2,7 +2,7 @@
 
 ## What it solves
 
-Bellman-Ford finds the shortest path from one source to every node, like Dijkstra (`dijkstra.md`), and also handles two cases Dijkstra cannot:
+Bellman-Ford finds the shortest path from one source to every node, like Dijkstra ([`dijkstra.md`](dijkstra.md)), and also handles two cases Dijkstra cannot:
 
 - **Negative edge weights.** It still returns correct distances, and it reports when a **negative cycle** makes some distances undefined.
 - **A limit on the number of edges.** "Cheapest route with at most `k` stops" is answered by stopping after `k + 1` rounds.
@@ -79,7 +79,7 @@ Not every node is affected. A node that cannot be reached from the cycle keeps a
 
 ## Limiting the number of edges: Cheapest Flights Within K Stops (787)
 
-Find the cheapest price from `src` to `dst` using at most `k` stops, which is at most `k + 1` flights. Plain Dijkstra fails here (`dijkstra.md` has a counterexample). Bellman-Ford fits directly: after round `i`, `dist` covers every path of at most `i` edges, so **`k + 1` rounds** give the answer.
+Find the cheapest price from `src` to `dst` using at most `k` stops, which is at most `k + 1` flights. Plain Dijkstra fails here ([`dijkstra.md`](dijkstra.md) has a counterexample). Bellman-Ford fits directly: after round `i`, `dist` covers every path of at most `i` edges, so **`k + 1` rounds** give the answer.
 
 That only holds if a round cannot chain several new edges. In the trace above, round 2 used `2→1` and then `1→3` in the same pass, which helps when the number of edges does not matter. With a limit, the same effect breaks it:
 
@@ -134,7 +134,7 @@ O(k · E) time and O(V) space. A BFS that goes one level per flight solves the s
 | Negative weights, or negative cycle detection | Bellman-Ford | O(V · E) |
 | At most `k` edges per path | Bellman-Ford, `k + 1` rounds with a copy, or BFS by level | O(k · E) |
 | Every pair of nodes, small V | Floyd-Warshall | O(V³) |
-| DAG, any weights | relax in topological order (`topological_sort.md`) | O(V + E) |
+| DAG, any weights | relax in topological order ([`topological_sort.md`](topological_sort.md)) | O(V + E) |
 
 ## How to spot it
 

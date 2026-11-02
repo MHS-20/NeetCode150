@@ -1,6 +1,6 @@
 # 1D vs 2D Dynamic Programming
 
-A companion to `dynamic_programming.md`, which covers memoization, tabulation, and complexity. This file answers one question: **how many dimensions does the table need, and how do you shrink it afterwards?**
+A companion to [`dynamic_programming.md`](dynamic_programming.md), which covers memoization, tabulation, and complexity. This file answers one question: **how many dimensions does the table need, and how do you shrink it afterwards?**
 
 ## The rule
 

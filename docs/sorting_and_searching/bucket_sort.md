@@ -4,7 +4,7 @@
 
 Bucket sort replaces comparisons with array indexing. You compute a bucket number from each element's key, drop the element into that slot, and read the slots back in index order. The slot order is the sorted order, so nothing is ever compared with anything else.
 
-This is how it gets under the O(n log n) bound from `sorting.md`. That bound only applies to sorts that learn the order through comparisons. Bucket sort learns it from the key's numeric value, so it needs extra information: the keys have to fall into a range small enough to allocate one slot per value, or per group of values.
+This is how it gets under the O(n log n) bound from [`sorting.md`](sorting.md). That bound only applies to sorts that learn the order through comparisons. Bucket sort learns it from the key's numeric value, so it needs extra information: the keys have to fall into a range small enough to allocate one slot per value, or per group of values.
 
 ```
 keys:     3  1  3  0  2  1  3        range 0..3
@@ -17,7 +17,7 @@ bucket 3: [3, 3, 3]
 read 0 → 3:  0 1 1 2 3 3 3
 ```
 
-Counting sort (`sorting.md`) is the special case where the buckets hold only a tally. Bucket sort keeps the elements themselves. You need that when the key is not the whole element, for example when you sort values *by their frequency* and want the values back, not the frequencies.
+Counting sort ([`sorting.md`](sorting.md)) is the special case where the buckets hold only a tally. Bucket sort keeps the elements themselves. You need that when the key is not the whole element, for example when you sort values *by their frequency* and want the values back, not the frequencies.
 
 ## Two flavours
 

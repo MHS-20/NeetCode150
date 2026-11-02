@@ -1,6 +1,6 @@
 # Recognising Which Pattern a Problem Wants
 
-The other files in this folder explain the tools. This one is about picking the right one up. Most of the time you lose on a problem is spent here, not on writing the code — once the pattern is named, the implementation is usually short.
+The other lessons explain the tools. This one is about picking the right one up. Most of the time you lose on a problem is spent here, not on writing the code — once the pattern is named, the implementation is usually short.
 
 ## Start with the constraints
 
@@ -33,22 +33,22 @@ What the problem *asks for* narrows the technique more than what it is about.
 
 | The question asks for | Technique | File |
 |---|---|---|
-| **All** solutions, every combination/permutation/arrangement | backtracking | `backtracking.md` |
-| **How many ways**, count of arrangements | DP (counting) | `dynamic_programming.md` |
-| **Minimum / maximum** value over a sequence of choices | DP, or greedy if a safe rule exists | `dynamic_programming.md`, `greedy.md` |
-| **Fewest steps / shortest path**, unweighted | BFS | `graphs_bfs_dfs.md` |
-| **Shortest path with weights** | Dijkstra (heap) | `heaps_and_priority_queues.md` |
-| **Is it possible / can it reach** | DFS, or greedy feasibility | `graphs_bfs_dfs.md` |
-| **Kth largest / smallest, top K** | bounded heap or quickselect | `heaps_and_priority_queues.md` |
-| **Best contiguous subarray/substring** | sliding window, or Kadane's | `sliding_window/`, `greedy.md` |
-| **A pair or triple summing to a target** | sort + two pointers, or a hash map | `two_pointers/`, `hashing.md` |
-| **Next greater / smaller element, spans** | monotonic stack | `stacks.md` |
-| **Max/min over a moving window** | monotonic deque | `queues_and_deques.md` |
-| **Merge, overlap, schedule, rooms** | sort intervals, sweep | `intervals.md` |
-| **Prefix matching, dictionary of words** | trie | `tries.md` |
-| **Ordering under dependencies** | topological sort | `graphs_bfs_dfs.md` |
-| **Are these connected / how many groups** | DFS, BFS, or union-find | `graphs_bfs_dfs.md` |
-| **Seen this before, counts, grouping** | hash map / hash set | `hashing.md` |
+| **All** solutions, every combination/permutation/arrangement | backtracking | [`backtracking.md`](../techniques/backtracking.md) |
+| **How many ways**, count of arrangements | DP (counting) | [`dynamic_programming.md`](../dynamic_programming/dynamic_programming.md) |
+| **Minimum / maximum** value over a sequence of choices | DP, or greedy if a safe rule exists | [`dynamic_programming.md`](../dynamic_programming/dynamic_programming.md), [`greedy.md`](../techniques/greedy.md) |
+| **Fewest steps / shortest path**, unweighted | BFS | [`graphs_bfs_dfs.md`](../graphs/graphs_bfs_dfs.md) |
+| **Shortest path with weights** | Dijkstra (heap) | [`heaps_and_priority_queues.md`](../data_structures/heaps_and_priority_queues.md) |
+| **Is it possible / can it reach** | DFS, or greedy feasibility | [`graphs_bfs_dfs.md`](../graphs/graphs_bfs_dfs.md) |
+| **Kth largest / smallest, top K** | bounded heap or quickselect | [`heaps_and_priority_queues.md`](../data_structures/heaps_and_priority_queues.md) |
+| **Best contiguous subarray/substring** | sliding window, or Kadane's | `sliding_window/`, [`greedy.md`](../techniques/greedy.md) |
+| **A pair or triple summing to a target** | sort + two pointers, or a hash map | `two_pointers/`, [`hashing.md`](../data_structures/hashing.md) |
+| **Next greater / smaller element, spans** | monotonic stack | [`stacks.md`](../data_structures/stacks.md) |
+| **Max/min over a moving window** | monotonic deque | [`queues_and_deques.md`](../data_structures/queues_and_deques.md) |
+| **Merge, overlap, schedule, rooms** | sort intervals, sweep | [`intervals.md`](../techniques/intervals.md) |
+| **Prefix matching, dictionary of words** | trie | [`tries.md`](../data_structures/tries.md) |
+| **Ordering under dependencies** | topological sort | [`graphs_bfs_dfs.md`](../graphs/graphs_bfs_dfs.md) |
+| **Are these connected / how many groups** | DFS, BFS, or union-find | [`graphs_bfs_dfs.md`](../graphs/graphs_bfs_dfs.md) |
+| **Seen this before, counts, grouping** | hash map / hash set | [`hashing.md`](../data_structures/hashing.md) |
 
 ## Keyword triggers
 
@@ -60,7 +60,7 @@ Phrases that reliably point somewhere. Not proof, but a strong first guess.
 
 **"Sorted array" + "find"** → binary search. If it is sorted and the expected complexity is better than O(n), there is no other candidate.
 
-**"Minimise the maximum"**, "maximum minimum", "smallest capacity such that…" → **binary search on the answer**. Rather than searching the array, search the space of possible answers and write a feasibility check. Koko Eating Bananas and Capacity to Ship Packages are this pattern, and it is the one most often missed, because the array being searched never appears in the input.
+**"Minimise the maximum"**, "maximum minimum", "smallest capacity such that…" → **binary search on the answer** ([`binary_search.md`](../sorting_and_searching/binary_search.md)). Rather than searching the array, search the space of possible answers and write a feasibility check. Koko Eating Bananas and Capacity to Ship Packages are this pattern, and it is the one most often missed, because the array being searched never appears in the input.
 
 **"K most/least frequent"**, "top K", "Kth" → heap of size K, or bucket sort when the values are frequencies bounded by n.
 
@@ -86,13 +86,13 @@ Phrases that reliably point somewhere. Not proof, but a strong first guess.
 
 **Backtracking vs. DP.** Same decision tree underneath. Backtracking *lists* the solutions; DP *counts or optimises* over them without listing. If the output is a list of arrangements you must enumerate — exponential is unavoidable. If the output is one number, look for a state that collapses many arrangements into one table cell.
 
-**Greedy vs. DP.** Greedy commits to a choice and never revisits it; DP tries all choices and keeps the best. Try greedy first because it is far simpler, but only after you have spent thirty seconds trying to build a counterexample. If one appears, it is DP. See `greedy.md`.
+**Greedy vs. DP.** Greedy commits to a choice and never revisits it; DP tries all choices and keeps the best. Try greedy first because it is far simpler, but only after you have spent thirty seconds trying to build a counterexample. If one appears, it is DP. See [`greedy.md`](../techniques/greedy.md).
 
 **BFS vs. DFS.** BFS for *fewest* anything, DFS for *existence*, structure, and per-subtree answers. Weighted edges break BFS's guarantee entirely.
 
 **Heap vs. sorting.** Sorting is O(n log n) and gives you everything; a bounded heap is O(n log k) and gives you only the top K. When K is small relative to n, or the data streams, the heap wins. When you need the whole thing ordered anyway, just sort.
 
-**Hash map vs. sorted map.** Hash for membership and counting. A balanced BST only when the problem needs predecessors, successors, or range queries — the O(log n) is a real cost otherwise. See `hashing.md`.
+**Hash map vs. sorted map.** Hash for membership and counting. A balanced BST only when the problem needs predecessors, successors, or range queries — the O(log n) is a real cost otherwise. See [`hashing.md`](../data_structures/hashing.md).
 
 **Monotonic stack vs. monotonic deque.** The stack answers "nearest greater/smaller element" over a whole array; the deque answers "max/min inside a moving window". Same popping logic, but a window needs both ends available.
 

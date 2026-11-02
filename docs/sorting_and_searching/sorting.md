@@ -4,7 +4,7 @@
 
 You will almost never implement a sort. You will constantly *use* one, and three things about it affect your answers: the O(n log n) it adds to your complexity, whether it is stable, and the fact that sorting is itself the solution to a surprising number of problems.
 
-Sorting converts an unstructured array into one where binary search, two pointers, and single-pass sweeps all become available. Paying O(n log n) up front to make the rest of the algorithm O(n) or O(log n) is one of the most common trades in the whole field — every problem in `intervals.md` and half of `greedy.md` opens with a sort.
+Sorting converts an unstructured array into one where binary search, two pointers, and single-pass sweeps all become available. Paying O(n log n) up front to make the rest of the algorithm O(n) or O(log n) is one of the most common trades in the whole field — every problem in [`intervals.md`](../techniques/intervals.md) and half of [`greedy.md`](../techniques/greedy.md) opens with a sort.
 
 ## The O(n log n) barrier
 
@@ -33,7 +33,7 @@ A sort that only ever compares elements cannot learn enough from fewer compariso
 
 **Quicksort** picks a pivot, partitions everything smaller to its left and larger to its right, and recurses on both sides. Average O(n log n), but a pivot that always lands at an extreme gives partitions of size `n-1` and `0`, producing `n` levels of O(n) work — O(n²). Randomising the pivot makes that case astronomically unlikely rather than merely rare. Quicksort still wins in practice because partitioning is a tight in-place scan with excellent locality.
 
-**Heapsort** builds a heap in O(n), then pops `n` times at O(log n) each (see `heaps_and_priority_queues.md`). Worst-case O(n log n) with O(1) extra space, which sounds ideal, but jumping around the heap array misses cache constantly and it loses to quicksort on real data.
+**Heapsort** builds a heap in O(n), then pops `n` times at O(log n) each (see [`heaps_and_priority_queues.md`](../data_structures/heaps_and_priority_queues.md)). Worst-case O(n log n) with O(1) extra space, which sounds ideal, but jumping around the heap array misses cache constantly and it loses to quicksort on real data.
 
 **Insertion sort** is O(n²) and still matters: on an array that is already nearly sorted, each element moves a constant distance and the whole thing runs in O(n). Every production sort switches to it for subarrays below roughly 16 elements, where the recursion overhead exceeds the quadratic cost.
 
@@ -91,11 +91,11 @@ The tuple key is the idiom for multi-level ordering, and negating a number rever
 
 **Sort to enable two pointers.** 3Sum sorts first, then fixes one element and walks two pointers inward — the sorted order is what makes "too big, move left" meaningful. O(n²) overall, with the sort disappearing into it.
 
-**Sort to enable a sweep.** All of `intervals.md`.
+**Sort to enable a sweep.** All of [`intervals.md`](../techniques/intervals.md).
 
 **Sort as a canonical form.** Sorted characters as an anagram key; sorting both arrays to compare multisets.
 
-**Partial sorting.** When only the top K matter, do not sort everything. A bounded heap is O(n log k) and quickselect averages O(n) — both beat O(n log n). See `heaps_and_priority_queues.md`.
+**Partial sorting.** When only the top K matter, do not sort everything. A bounded heap is O(n log k) and quickselect averages O(n) — both beat O(n log n). See [`heaps_and_priority_queues.md`](../data_structures/heaps_and_priority_queues.md).
 
 ## Quickselect
 

@@ -42,7 +42,7 @@ Both appear, and the choice is not arbitrary.
 
 **Sort by start** when you are building or combining intervals as you scan — merging, inserting, detecting any conflict. Processing in start order means each new interval either extends the current one or begins a fresh one.
 
-**Sort by end** when you are *choosing a subset* and want to leave as much room as possible for whatever comes next. Finishing earliest keeps the most remaining space, which is the greedy argument behind interval scheduling (see `greedy.md`).
+**Sort by end** when you are *choosing a subset* and want to leave as much room as possible for whatever comes next. Finishing earliest keeps the most remaining space, which is the greedy argument behind interval scheduling (see [`greedy.md`](greedy.md)).
 
 ## Merge Overlapping Intervals
 
@@ -115,7 +115,7 @@ keep [1,2], last_end = 2
 removed: 1
 ```
 
-Sorting by *start* here gives wrong answers: a long early interval would be kept and block several short ones behind it. Ending soonest is what leaves the most room, and the exchange argument in `greedy.md` is why that is provably optimal.
+Sorting by *start* here gives wrong answers: a long early interval would be kept and block several short ones behind it. Ending soonest is what leaves the most room, and the exchange argument in [`greedy.md`](greedy.md) is why that is provably optimal.
 
 ## Meeting Rooms
 
@@ -123,7 +123,7 @@ Sorting by *start* here gives wrong answers: a long early interval would be kept
 
 **Meeting Rooms II** — how many rooms are needed at once? This is the maximum number of intervals overlapping at any instant. Two standard solutions.
 
-*Min-heap of end times.* Sort by start; for each meeting, discard every heap entry that has already finished, then push this meeting's end. The heap size is the number of concurrent rooms, and its maximum is the answer. O(n log n) — see `heaps_and_priority_queues.md`.
+*Min-heap of end times.* Sort by start; for each meeting, discard every heap entry that has already finished, then push this meeting's end. The heap size is the number of concurrent rooms, and its maximum is the answer. O(n log n) — see [`heaps_and_priority_queues.md`](../data_structures/heaps_and_priority_queues.md).
 
 *Sweep line / chronological events.* Split each interval into a `+1` at its start and a `−1` at its end, sort all events by time, and scan keeping a running count.
 

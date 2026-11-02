@@ -4,7 +4,7 @@
 
 Dijkstra finds the **shortest path from one source to every other node** in a graph whose edges have **non-negative weights**. The weight can be time, cost, distance, or any quantity that adds up along a path. The graph can be directed or undirected.
 
-BFS already solves this when every edge has the same weight: it visits nodes in order of hop count, so the first visit is the shortest. With weights, hop count stops being the measure. Three edges of weight 1 beat one edge of weight 10, and BFS would pick the single edge because it has fewer hops (`graphs_bfs_dfs.md`). Dijkstra keeps the BFS idea and changes the order: instead of a FIFO queue, it uses a **min-heap keyed by distance from the source**, so it always expands the closest unfinished node next.
+BFS already solves this when every edge has the same weight: it visits nodes in order of hop count, so the first visit is the shortest. With weights, hop count stops being the measure. Three edges of weight 1 beat one edge of weight 10, and BFS would pick the single edge because it has fewer hops ([`graphs_bfs_dfs.md`](graphs_bfs_dfs.md)). Dijkstra keeps the BFS idea and changes the order: instead of a FIFO queue, it uses a **min-heap keyed by distance from the source**, so it always expands the closest unfinished node next.
 
 ## How it works
 
@@ -33,7 +33,7 @@ The direct edge `0→1` costs 4, but `0→2→1` costs 3. Node 1 is first discov
 
 ### Stale entries
 
-C++ `priority_queue`, Python `heapq` and Java `PriorityQueue` have no way to lower the priority of an element already in the heap (no "decrease-key"). Dijkstra works around this with **lazy deletion**: when `dist[v]` improves, push a new entry and leave the old one in the heap (`heaps_and_priority_queues.md`). A node can then sit in the heap several times. The `d > dist[u]` check discards every entry except the one matching the current best distance.
+C++ `priority_queue`, Python `heapq` and Java `PriorityQueue` have no way to lower the priority of an element already in the heap (no "decrease-key"). Dijkstra works around this with **lazy deletion**: when `dist[v]` improves, push a new entry and leave the old one in the heap ([`heaps_and_priority_queues.md`](../data_structures/heaps_and_priority_queues.md)). A node can then sit in the heap several times. The `d > dist[u]` check discards every entry except the one matching the current best distance.
 
 Without that check, the algorithm still gives correct distances. However, each stale pop re-relaxes all of the node's edges, and on dense graphs this repeated work dominates the running time. A `visited` set, marked when a node is popped, does the same job as the `d > dist[u]` check.
 
@@ -111,7 +111,7 @@ Nodes are labelled `1..n`, so `dist` has size `n + 1`, and the maximum must skip
 
 Dijkstra pops node 1 at distance 2 and marks it final. The true distance is `3 + (-2) = 1`, through node 2, which is popped later. A version with a `visited` set never revisits node 1 and returns 2.
 
-The lazy version without `visited` happens to fix this example, because it relaxes `2→1` and pushes node 1 again. It then behaves like a label-correcting search, and its worst case is exponential. Use **Bellman-Ford** instead, which takes O(V · E) and also detects negative cycles (`bellman_ford.md`).
+The lazy version without `visited` happens to fix this example, because it relaxes `2→1` and pushes node 1 again. It then behaves like a label-correcting search, and its worst case is exponential. Use **Bellman-Ford** instead, which takes O(V · E) and also detects negative cycles ([`bellman_ford.md`](bellman_ford.md)).
 
 **A limit on the number of edges.** Cheapest Flights Within K Stops (787) asks for the cheapest route with at most `k` stops. Plain Dijkstra finalises each city at its cheapest cost, whatever the number of stops. A cheap path with too many stops can then block a more expensive path that fits the limit:
 
@@ -128,7 +128,7 @@ There are two correct fixes:
 - **Bellman-Ford limited to `k + 1` rounds**, each reading a copy of the previous round's distances.
 - **BFS by level**, one level per flight, stopping after `k + 1` levels.
 
-`bellman_ford.md` covers both, with code and a trace of what goes wrong without the copy.
+[`bellman_ford.md`](bellman_ford.md) covers both, with code and a trace of what goes wrong without the copy.
 
 Augmented Dijkstra on `(city, stops)` also works, at the cost of `V · (k + 2)` states.
 

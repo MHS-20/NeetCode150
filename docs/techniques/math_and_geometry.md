@@ -2,7 +2,7 @@
 
 ## What this category is
 
-Unlike the other files here, this one has no single unifying structure. "Math and geometry" is where problems land that are not really about a data structure at all — the difficulty is a formula, an index manipulation, or an observation about numbers, and once you have it the code is a few lines.
+Unlike the other lessons, this one has no single unifying structure. "Math and geometry" is where problems land that are not really about a data structure at all — the difficulty is a formula, an index manipulation, or an observation about numbers, and once you have it the code is a few lines.
 
 That changes how to study it. There is no technique to internalise, only a set of specific facts and tricks. The list below is what recurs.
 
@@ -157,7 +157,7 @@ Testing a **single** number for primality needs only trial division up to `√n`
 
 **Palindrome Number without strings.** Reverse only the second half and compare it to the first, stopping when the reversed part is at least the remainder. Avoids overflow and halves the work.
 
-**Cycle detection in a numeric sequence.** Happy Number repeats forever if it never reaches 1. Detect the loop with a set of seen values, or with the fast/slow pointer trick from `linked_lists.md` — the sequence is a linked list whose `next` is a computed function.
+**Cycle detection in a numeric sequence.** Happy Number repeats forever if it never reaches 1. Detect the loop with a set of seen values, or with the fast/slow pointer trick from [`linked_lists.md`](../data_structures/linked_lists.md) — the sequence is a linked list whose `next` is a computed function.
 
 ## Combinatorics worth knowing
 
@@ -190,7 +190,7 @@ d² = (x₁ − x₂)² + (y₁ − y₂)²
 
 Use this rather than comparing slopes as `dy/dx`, which divides by zero on vertical lines and accumulates floating-point error. When slopes must be used as hash keys (Max Points on a Line), store the reduced fraction `(dy/g, dx/g)` with `g = gcd(dy, dx)` and a normalised sign — never a float.
 
-**Rectangle overlap.** Two axis-aligned rectangles overlap when they overlap on *both* axes independently, which is the interval condition from `intervals.md` applied twice.
+**Rectangle overlap.** Two axis-aligned rectangles overlap when they overlap on *both* axes independently, which is the interval condition from [`intervals.md`](intervals.md) applied twice.
 
 **Areas.** The shoelace formula gives a polygon's area from its vertices; triangle area is half the absolute cross product of two edge vectors.
 

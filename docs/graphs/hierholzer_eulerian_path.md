@@ -12,7 +12,7 @@ Typical problems:
 - **Valid Arrangement of Pairs (2097):** order pairs `[a, b]` so each pair's `b` equals the next pair's `a`.
 - **Cracking the Safe (753):** the shortest string containing every `n`-digit code. This is an Eulerian circuit on a graph whose edges are the codes, and its answer is called a de Bruijn sequence.
 
-Do not confuse this with a **Hamiltonian path**, which visits every *node* exactly once. Hamiltonian path is NP-hard, and the only known exact algorithms are exponential (`p_np_nphard_npcomplete.md`). Eulerian path runs in O(E).
+Do not confuse this with a **Hamiltonian path**, which visits every *node* exactly once. Hamiltonian path is NP-hard, and the only known exact algorithms are exponential ([`p_np_nphard_npcomplete.md`](../foundations/p_np_nphard_npcomplete.md)). Eulerian path runs in O(E).
 
 ## When one exists
 
@@ -161,7 +161,7 @@ void dfs(int u) {
 
 - **Every node once, not every edge.** That is a Hamiltonian path, which is NP-hard. For small n, roughly n ≤ 16, use bitmask DP or backtracking.
 - **A path between two nodes, not through all edges.** Use BFS or Dijkstra.
-- **A dependency order.** That is topological sort (`topological_sort.md`). It shares the post-order-then-reverse step, but it visits each node once and never uses edges up.
+- **A dependency order.** That is topological sort ([`topological_sort.md`](topological_sort.md)). It shares the post-order-then-reverse step, but it visits each node once and never uses edges up.
 
 ## Pitfalls
 

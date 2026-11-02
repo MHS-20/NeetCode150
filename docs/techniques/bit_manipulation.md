@@ -186,9 +186,9 @@ for mask in range(1 << n):              # all 2ⁿ subsets
     subset = [items[i] for i in range(n) if mask & (1 << i)]
 ```
 
-This is the iterative alternative to the recursive subsets in `backtracking.md`, and it is often shorter. Both are O(2ⁿ · n).
+This is the iterative alternative to the recursive subsets in [`backtracking.md`](backtracking.md), and it is often shorter. Both are O(2ⁿ · n).
 
-**Bitmask DP** uses the mask as a DP state: `dp[mask]` is the best answer for the set of items in `mask` (see `dynamic_programming.md`). This is why the constraint table in `pattern_recognition.md` lists `n ≤ 20` as a bitmask signal — `2²⁰` is about a million states, which fits, while `2³⁰` does not. Travelling Salesman is the standard example: `dp[mask][i]` = shortest route visiting exactly the cities in `mask` and ending at `i`.
+**Bitmask DP** uses the mask as a DP state: `dp[mask]` is the best answer for the set of items in `mask` (see [`dynamic_programming.md`](../dynamic_programming/dynamic_programming.md)). This is why the constraint table in [`pattern_recognition.md`](../foundations/pattern_recognition.md) lists `n ≤ 20` as a bitmask signal — `2²⁰` is about a million states, which fits, while `2³⁰` does not. Travelling Salesman is the standard example: `dp[mask][i]` = shortest route visiting exactly the cities in `mask` and ending at `i`.
 
 A useful idiom for iterating the **submasks** of a mask:
 

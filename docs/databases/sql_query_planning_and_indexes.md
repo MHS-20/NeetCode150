@@ -84,7 +84,7 @@ Four consequences, each of them a design decision:
 
 ### Why the height is 3 or 4, not 30
 
-A binary tree over a million rows is about 20 levels deep (`binary_trees.md`), and if each level were a separate disk read that would be 20 reads per lookup. A B+ tree node holding a few hundred keys has a fan-out of a few hundred, so the height is `log₍fanout₎ n` rather than `log₂ n`:
+A binary tree over a million rows is about 20 levels deep ([`binary_trees.md`](../data_structures/binary_trees.md)), and if each level were a separate disk read that would be 20 reads per lookup. A B+ tree node holding a few hundred keys has a fan-out of a few hundred, so the height is `log₍fanout₎ n` rather than `log₂ n`:
 
 ```
 fan-out 400:
@@ -95,11 +95,11 @@ fan-out 400:
   level 4:   25,600,000,000 rows
 ```
 
-Four levels index 25 billion rows. In practice the top levels are permanently cached, so a lookup costs one or two actual disk reads. The complexity is still O(log n) — the base of the logarithm vanishes in big-O — but the base is what makes it usable, which is a good example of big-O hiding something that matters (`complexity_analysis.md`).
+Four levels index 25 billion rows. In practice the top levels are permanently cached, so a lookup costs one or two actual disk reads. The complexity is still O(log n) — the base of the logarithm vanishes in big-O — but the base is what makes it usable, which is a good example of big-O hiding something that matters ([`complexity_analysis.md`](../foundations/complexity_analysis.md)).
 
 ### Why B+ rather than a hash index
 
-Hash indexes give O(1) equality lookup and are available in some databases, but they cannot do ranges, ordering, or prefix matching — hashing destroys the relationship between a key's value and its location, exactly as in `hashing.md`. A B+ tree serves equality, ranges, `ORDER BY`, and `MIN`/`MAX` from one structure, which is why it is the default.
+Hash indexes give O(1) equality lookup and are available in some databases, but they cannot do ranges, ordering, or prefix matching — hashing destroys the relationship between a key's value and its location, exactly as in [`hashing.md`](../data_structures/hashing.md). A B+ tree serves equality, ranges, `ORDER BY`, and `MIN`/`MAX` from one structure, which is why it is the default.
 
 ## Clustered and secondary indexes
 
@@ -180,9 +180,9 @@ for row in outer:
         emit(row, match)
 ```
 
-**Hash join.** Build a hash table on the smaller table's join key, then scan the larger table probing it. O(n + m), the same trick as the seen-before hash map in `hashing.md`. It needs memory to hold the build side, and it only works for equality joins.
+**Hash join.** Build a hash table on the smaller table's join key, then scan the larger table probing it. O(n + m), the same trick as the seen-before hash map in [`hashing.md`](../data_structures/hashing.md). It needs memory to hold the build side, and it only works for equality joins.
 
-**Merge join.** If both inputs are already sorted on the join key — because an index provides that order — walk them together with two pointers, exactly the merge step from `sorting.md`. O(n + m) with no memory overhead, or O(n log n) if a sort is required first.
+**Merge join.** If both inputs are already sorted on the join key — because an index provides that order — walk them together with two pointers, exactly the merge step from [`sorting.md`](../sorting_and_searching/sorting.md). O(n + m) with no memory overhead, or O(n log n) if a sort is required first.
 
 Reading a plan, the join algorithm chosen tells you what the optimizer believed about the sizes: nested loop means it expected few outer rows, hash join means it expected a large unsorted input.
 

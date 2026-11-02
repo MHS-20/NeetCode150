@@ -18,7 +18,7 @@ subsets of [1,2,3]                  at each level: include this element, or don'
 
 Eight leaves, and each leaf is one answer. That is the whole method: enumerate a combinatorial space without ever materialising it.
 
-Use it when the problem asks for **all** solutions, or for **one** solution to a constraint-satisfaction problem, and no formula or DP state captures the structure. If the problem asks only for a *count* or an *optimum*, check for a DP formulation first — backtracking is exponential and DP is usually polynomial (see `dynamic_programming.md`).
+Use it when the problem asks for **all** solutions, or for **one** solution to a constraint-satisfaction problem, and no formula or DP state captures the structure. If the problem asks only for a *count* or an *optimum*, check for a DP formulation first — backtracking is exponential and DP is usually polynomial (see [`dynamic_programming.md`](../dynamic_programming/dynamic_programming.md)).
 
 ## The template
 

@@ -61,7 +61,7 @@ In short:
 2. Walk them in order. For edge `(u, v)`, if `u` and `v` are in different components, keep the edge and merge the components. Otherwise skip it, because it would close a cycle.
 3. Stop after keeping `V - 1` edges.
 
-The "different components" test and the merge are exactly what Union-Find provides (`union_find.md`).
+The "different components" test and the merge are exactly what Union-Find provides ([`union_find.md`](union_find.md)).
 
 ```
 sorted:  0-1(1)  1-2(2)  0-2(3)  2-3(4)  1-3(5)  3-4(6)  2-4(7)
@@ -184,7 +184,7 @@ int minCostConnectPoints(vector<vector<int>> &points) {
 
 ## MST and shortest paths
 
-Prim's loop is Dijkstra's loop with a different heap key (`dijkstra.md`). Dijkstra pushes `dist[u] + w`, the total distance from the source. Prim pushes `w`, the cost of the single edge that attaches `v` to the tree.
+Prim's loop is Dijkstra's loop with a different heap key ([`dijkstra.md`](dijkstra.md)). Dijkstra pushes `dist[u] + w`, the total distance from the source. Prim pushes `w`, the cost of the single edge that attaches `v` to the tree.
 
 The two produce different trees:
 
@@ -197,7 +197,7 @@ shortest paths from 0:  0-1, 0-2      dist[2] = 3, not 4
 
 The MST minimises the total weight of the tree. The path from 0 to 2 inside it costs 4, more than the direct edge. A shortest-path tree minimises each node's distance from one source, and its total weight can be higher.
 
-**Bottleneck paths.** Between any two nodes, the path through the MST minimises the *largest* edge on the path, over every possible path. So "find a route whose worst edge is as small as possible" can be answered with an MST. It can also be answered by processing edges in Kruskal order until the two nodes join, or with minimax Dijkstra (problems 1631 and 778 in `dijkstra.md`).
+**Bottleneck paths.** Between any two nodes, the path through the MST minimises the *largest* edge on the path, over every possible path. So "find a route whose worst edge is as small as possible" can be answered with an MST. It can also be answered by processing edges in Kruskal order until the two nodes join, or with minimax Dijkstra (problems 1631 and 778 in [`dijkstra.md`](dijkstra.md)).
 
 ## How to spot it
 

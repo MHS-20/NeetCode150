@@ -11,9 +11,9 @@ The variants differ in how many times each item can be used:
 | **0/1** | at most once | Partition Equal Subset Sum (416), Target Sum (494), Last Stone Weight II (1049) |
 | **Unbounded** | any number of times | Coin Change (322), Coin Change II (518), Perfect Squares (279) |
 | **Bounded** | at most `k[i]` times | reduces to 0/1 (see below) |
-| **Fractional** | any fraction | greedy by value/weight, no DP (`greedy.md`) |
+| **Fractional** | any fraction | greedy by value/weight, no DP ([`greedy.md`](../techniques/greedy.md)) |
 
-Greedy fails for 0/1: taking the best value-per-weight item first can block a better combination (`greedy.md` has a counterexample). Trying every subset is O(2ⁿ). The DP below runs in O(n · W).
+Greedy fails for 0/1: taking the best value-per-weight item first can block a better combination ([`greedy.md`](../techniques/greedy.md) has a counterexample). Trying every subset is O(2ⁿ). The DP below runs in O(n · W).
 
 ## The 0/1 recurrence
 
@@ -44,7 +44,7 @@ answer dp[3][6] = 6     items (1,1) + (4,5)
 
 ### One row is enough
 
-Row `i` only reads row `i-1`, so a single array of size `W + 1` can be overwritten in place. The capacity loop must run **descending**, so that `dp[c - w]` still holds the previous row's value when `dp[c]` reads it (`dp_1d_vs_2d.md` walks through why).
+Row `i` only reads row `i-1`, so a single array of size `W + 1` can be overwritten in place. The capacity loop must run **descending**, so that `dp[c - w]` still holds the previous row's value when `dp[c]` reads it ([`dp_1d_vs_2d.md`](dp_1d_vs_2d.md) walks through why).
 
 ```cpp
 int knapsack01(vector<int> &w, vector<int> &v, int W) {
@@ -191,7 +191,7 @@ The 1D array keeps only the best value. To recover *which* items were taken, kee
 
 ## Complexity, and when W is too large
 
-O(n · W) is **pseudo-polynomial**. It grows with the *value* of `W`, not with the number of digits needed to write it (`p_np_nphard_npcomplete.md`). A capacity of 10⁹ makes the table impossible to allocate, whatever `n` is. Options then:
+O(n · W) is **pseudo-polynomial**. It grows with the *value* of `W`, not with the number of digits needed to write it ([`p_np_nphard_npcomplete.md`](../foundations/p_np_nphard_npcomplete.md)). A capacity of 10⁹ makes the table impossible to allocate, whatever `n` is. Options then:
 
 - **Swap the dimensions.** If the *values* are small, let `dp[v]` be the minimum weight needed to reach value `v`. Then the answer is the largest `v` with `dp[v] ≤ W`, in O(n · Σv) time.
 - **Meet in the middle**, for n up to about 40. Enumerate the subsets of each half (2²⁰ ≈ 10⁶ each), sort one side, and match pairs.

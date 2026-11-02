@@ -120,9 +120,9 @@ The relationship in one line: **NP-complete = NP ∩ NP-hard.**
 
 Recognising NP-hardness is not a dead end; it tells you to stop looking for an exact polynomial algorithm and choose a compromise instead. Five standard escapes:
 
-**Exponential but smart.** Brute force with heavy pruning (`backtracking.md`) or bitmask DP. TSP by dynamic programming is O(2ⁿ · n²) rather than O(n!) — still exponential, but 20 cities become feasible where 20! would not.
+**Exponential but smart.** Brute force with heavy pruning ([`backtracking.md`](../techniques/backtracking.md)) or bitmask DP. TSP by dynamic programming is O(2ⁿ · n²) rather than O(n!) — still exponential, but 20 cities become feasible where 20! would not.
 
-**Pseudo-polynomial DP.** Knapsack is NP-complete, yet the standard DP runs in O(n·W) (`dp_1d_vs_2d.md`). There is no contradiction: W is a *value*, and writing it takes only log W bits, so O(n·W) is exponential in the input's actual size. It is fast whenever W happens to be small, and hopeless when W is 10¹⁸.
+**Pseudo-polynomial DP.** Knapsack is NP-complete, yet the standard DP runs in O(n·W) ([`dp_1d_vs_2d.md`](../dynamic_programming/dp_1d_vs_2d.md)). There is no contradiction: W is a *value*, and writing it takes only log W bits, so O(n·W) is exponential in the input's actual size. It is fast whenever W happens to be small, and hopeless when W is 10¹⁸.
 
 **Approximation with a guarantee.** Accept an answer provably within a factor of optimal. Greedy vertex cover is within 2×; bin packing has simple algorithms within 11/9 of optimal.
 
@@ -136,11 +136,11 @@ Several problems in this set are NP-complete in general, and are tractable only 
 
 - **Subset Sum / Partition Equal Subset Sum** — NP-complete; solved by pseudo-polynomial DP because the target sum is bounded.
 - **0/1 Knapsack** — same.
-- **Travelling Salesman / Hamiltonian path** — bitmask DP, hence the `n ≤ 20` constraint (`bit_manipulation.md`).
+- **Travelling Salesman / Hamiltonian path** — bitmask DP, hence the `n ≤ 20` constraint ([`bit_manipulation.md`](../techniques/bit_manipulation.md)).
 - **N-Queens, Sudoku solver, Word Search II** — exhaustive search with pruning.
 - **Graph colouring**, when it appears, is usually restricted to 2 colours, which is bipartiteness checking and is in P.
 
-The practical lesson connects straight to `pattern_recognition.md`: **when a problem's constraints are tiny (n ≤ 20), that is often a signal the problem is NP-hard** and the setter knows exponential search is the intended answer. You are not missing a clever polynomial trick, because none is known to exist.
+The practical lesson connects straight to [`pattern_recognition.md`](pattern_recognition.md): **when a problem's constraints are tiny (n ≤ 20), that is often a signal the problem is NP-hard** and the setter knows exponential search is the intended answer. You are not missing a clever polynomial trick, because none is known to exist.
 
 ---
 
@@ -174,7 +174,7 @@ Given a set of integers, is there a subset summing exactly to a target T? The si
 
 ### 6. Graph Colouring — NP-complete
 
-Can every vertex be coloured using ≤ k colours so that no two adjacent vertices share a colour? NP-complete for k ≥ 3; **in P for k = 2**, where it is just a bipartiteness check (`graphs_bfs_dfs.md`).
+Can every vertex be coloured using ≤ k colours so that no two adjacent vertices share a colour? NP-complete for k ≥ 3; **in P for k = 2**, where it is just a bipartiteness check ([`graphs_bfs_dfs.md`](../graphs/graphs_bfs_dfs.md)).
 
 ### 7. Hamiltonian Cycle — NP-complete
 
