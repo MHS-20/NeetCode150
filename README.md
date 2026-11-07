@@ -48,6 +48,8 @@ To pick a technique for a new problem, start with [pattern recognition](docs/fou
 - [Dynamic programming](docs/dynamic_programming/dynamic_programming.md): memoization, tabulation, and the common state shapes.
 - [1D vs 2D DP](docs/dynamic_programming/dp_1d_vs_2d.md): how many dimensions the table needs, and how to shrink it.
 - [Knapsack](docs/dynamic_programming/knapsack.md): 0/1 and unbounded, counting and min/max variants, and disguised knapsacks.
+- [String DP](docs/dynamic_programming/string_dp.md): two-sequence tables for LCS, Edit Distance, Distinct Subsequences, Interleaving String and Regex Matching.
+- [Interval DP](docs/dynamic_programming/interval_dp.md): answers for every range `[i, j]`, filled by length; shrink-the-ends and split-point recurrences.
 
 ## Databases
 
