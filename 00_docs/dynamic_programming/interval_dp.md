@@ -53,7 +53,7 @@ The range `[i, j]` is reduced by removing `s[i]`, `s[j]`, or both. Each cell rea
 dp[i][j] = s[i] == s[j] and (j - i < 2 or dp[i+1][j-1])
 ```
 
-`s[i..j]` is a palindrome when its two end characters match and the part between them, `s[i+1..j-1]`, is a palindrome. Ranges of length 1 and 2 have an empty or single-character inside, so they only need the end check, which is what `j - i < 2` covers. Problem 5 keeps the longest `true` range; 647 counts all of them. `5_solution1_dp.cpp` and `647_solution1.cpp` in `dp_1D/` both fill this table by length.
+`s[i..j]` is a palindrome when its two end characters match and the part between them, `s[i+1..j-1]`, is a palindrome. Ranges of length 1 and 2 have an empty or single-character inside, so they only need the end check, which is what `j - i < 2` covers. Problem 5 keeps the longest `true` range; 647 counts all of them. `5_solution1_dp.cpp` and `647_solution1.cpp` in `13_dp_1D/` both fill this table by length.
 
 Both problems also have an O(1)-space solution that expands outward from each of the `2n - 1` centres, as in `5_solution2_no_dp.cpp`. It runs in the same O(n²) time.
 

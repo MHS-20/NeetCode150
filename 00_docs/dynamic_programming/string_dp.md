@@ -10,7 +10,7 @@ For strings `a` (length `n`) and `b` (length `m`):
 
 > `dp[i][j]` = the answer for the first `i` characters of `a` and the first `j` characters of `b`.
 
-`i` and `j` are **lengths**, so they run from `0` to `n` and `0` to `m`, and the table is `(n+1) × (m+1)`. The last character of each prefix is therefore `a[i-1]` and `b[j-1]`, which is why every solution in `dp_2D/` compares `a[i-1] == b[j-1]` and never `a[i] == b[j]`.
+`i` and `j` are **lengths**, so they run from `0` to `n` and `0` to `m`, and the table is `(n+1) × (m+1)`. The last character of each prefix is therefore `a[i-1]` and `b[j-1]`, which is why every solution in `14_dp_2D/` compares `a[i-1] == b[j-1]` and never `a[i] == b[j]`.
 
 The extra row and column hold the empty prefix (`i = 0` or `j = 0`). Without them, the first real row would need its own special-case code. With them, the base case becomes data in the table, and the main double loop runs from 1 with no bounds checks. The answer is always in the bottom-right cell, `dp[n][m]`.
 
