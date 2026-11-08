@@ -266,4 +266,4 @@ left     5          5          5        5 - 5 = 0        9
 
 ### Solution 3: a monotonic stack
 
-The third solution measures the water in horizontal layers, using a stack of indices whose heights decrease from bottom to top. When a taller bar arrives, it closes off a pool above the bar on top of the stack. It is O(n) time and O(n) space, like solution 1. A trace of this solution on the same input is in [monotonic stack](../02_data_structures/2d_monotonic_stack.md#trapping-rain-water-42-solution-3-water-in-layers).
+The third solution measures the water in horizontal layers, using a stack of indices whose heights decrease from bottom to top. When a taller bar arrives, it closes off a pool above the bar on top of the stack. It is O(n) time and O(n) space, like solution 1. A trace of this solution on the same input is in [monotonic stack](../02_data_structures/2c_monotonic_stack.md#trapping-rain-water-42-solution-3-water-in-layers).

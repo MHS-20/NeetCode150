@@ -2,7 +2,7 @@
 
 Sliding Window Maximum (239) asks for the largest value in every window of length `k`. A running sum can be updated when an element leaves by subtracting it, but a running maximum cannot. When the largest element leaves, the next largest is not known without looking at the rest of the window. Rescanning the window at each step costs O(k), and O(n · k) in total. A **monotonic deque** keeps, in order, the only elements that can still become the maximum, and gives the answer for each window in O(1) amortised time.
 
-A deque is a list with push and pop at both ends, explained in [`2e_queues_and_deques.md`](../02_data_structures/2e_queues_and_deques.md#the-deque). The trace on this page was produced by running the repo's C++ solution logic on the input shown.
+A deque is a list with push and pop at both ends, explained in [`2d_queues_and_deques.md`](../02_data_structures/2d_queues_and_deques.md#the-deque). The trace on this page was produced by running the repo's C++ solution logic on the input shown.
 
 ## Which elements can still be the maximum
 
@@ -70,4 +70,4 @@ For the minimum, the comparison in step 2 is reversed: pop from the back while `
 
 The same deque works for windows whose size changes, as long as both ends only move forward. Step 1 then pops from the front while the front index is less than `left`, instead of checking against `i - k + 1`.
 
-Without the pops from the front, the same structure is a monotonic stack, which finds the nearest greater or smaller element for every position of an array. It is covered in [monotonic stack](../02_data_structures/2d_monotonic_stack.md).
+Without the pops from the front, the same structure is a monotonic stack, which finds the nearest greater or smaller element for every position of an array. It is covered in [monotonic stack](../02_data_structures/2c_monotonic_stack.md).
