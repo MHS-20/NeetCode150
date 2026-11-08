@@ -6,6 +6,7 @@ docs_dir: site_src
 
 theme:
   name: dracula
+  show_footer: false
 
 markdown_extensions:
   - tables

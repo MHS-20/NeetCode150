@@ -42,3 +42,7 @@ body, code, pre { font-variant-ligatures: none; font-feature-settings: "liga" 0,
 
 /* File name above each solution when a language has several. */
 .tabbed-block > p > code:only-child { color: #ffb86c; }
+
+/* Plain grey frame: the top bar and the strip beside the sidebar match the sidebar. */
+.navbar.drac-bg-purple { background: #21222c !important; }
+.divider.drac-bg-purple-cyan { background: #21222c !important; }
