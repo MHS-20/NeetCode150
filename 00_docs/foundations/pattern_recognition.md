@@ -40,10 +40,10 @@ What the problem *asks for* narrows the technique more than what it is about.
 | **Shortest path with weights** | Dijkstra (heap) | [`heaps_and_priority_queues.md`](../data_structures/heaps_and_priority_queues.md) |
 | **Is it possible / can it reach** | DFS, or greedy feasibility | [`graphs_bfs_dfs.md`](../graphs/graphs_bfs_dfs.md) |
 | **Kth largest / smallest, top K** | bounded heap or quickselect | [`heaps_and_priority_queues.md`](../data_structures/heaps_and_priority_queues.md) |
-| **Best contiguous subarray/substring** | sliding window, or Kadane's | `03_sliding_window/`, [`greedy.md`](../techniques/greedy.md) |
-| **A pair or triple summing to a target** | sort + two pointers, or a hash map | `02_two_pointers/`, [`hashing.md`](../data_structures/hashing.md) |
+| **Best contiguous subarray/substring** | sliding window, or Kadane's | [variable-size windows](../sliding_window/02_variable_size.md), [`greedy.md`](../techniques/greedy.md) |
+| **A pair or triple summing to a target** | sort + two pointers, or a hash map | [two pointers](../two_pointers/01_opposite_ends.md), [`hashing.md`](../data_structures/hashing.md) |
 | **Next greater / smaller element, spans** | monotonic stack | [`stacks.md`](../data_structures/stacks.md) |
-| **Max/min over a moving window** | monotonic deque | [`queues_and_deques.md`](../data_structures/queues_and_deques.md) |
+| **Max/min over a moving window** | monotonic deque | [window maximum](../sliding_window/03_window_max_and_min.md), [`queues_and_deques.md`](../data_structures/queues_and_deques.md) |
 | **Merge, overlap, schedule, rooms** | sort intervals, sweep | [`intervals.md`](../techniques/intervals.md) |
 | **Prefix matching, dictionary of words** | trie | [`tries.md`](../data_structures/tries.md) |
 | **Ordering under dependencies** | topological sort | [`graphs_bfs_dfs.md`](../graphs/graphs_bfs_dfs.md) |

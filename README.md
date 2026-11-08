@@ -26,6 +26,11 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 
 ## Techniques
 
+- [Two pointers from opposite ends](00_docs/two_pointers/01_opposite_ends.md): why moving one pointer is safe; Two Sum II, Container With Most Water, 3Sum and Trapping Rain Water.
+- [Two pointers in the same direction](00_docs/two_pointers/02_same_direction.md): read/write pointers for in-place filtering, and merging from the back.
+- [Fixed-size sliding windows](00_docs/sliding_window/01_fixed_size.md): add one element, remove one, and track letter counts with a match counter.
+- [Variable-size sliding windows](00_docs/sliding_window/02_variable_size.md): longest vs shortest windows, why the cost is O(n), and when a window does not work.
+- [Sliding window maximum](00_docs/sliding_window/03_window_max_and_min.md): the monotonic deque, traced step by step.
 - [Greedy](00_docs/techniques/greedy.md): when a locally best choice is globally optimal, and how to find a counterexample.
 - [Intervals](00_docs/techniques/intervals.md): sort, then sweep: merging, inserting, and counting overlaps.
 - [Backtracking](00_docs/techniques/backtracking.md): choose, explore, undo: subsets, permutations, and pruning.
