@@ -29,4 +29,4 @@ public:
 // maxFreq never decreases, so the window can stay invalid for a while without
 // changing the answer: every length it reaches has some valid window of that
 // length. Full argument and trace in
-// 00_docs/sliding_window/02_variable_size.md (Longest Repeating Character Replacement).
+// 00_docs/04_sliding_window/4b_variable_size.md (Longest Repeating Character Replacement).
