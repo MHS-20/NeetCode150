@@ -22,6 +22,14 @@ Run the tests in an exercise's folder with `python3 test_<name>.py`, or `pytest`
 
 ## Storage (Java)
 
-Database-company style: key-value stores, transactions, caches, on-disk structures. Each solution is a single Java program whose `main` runs the checks: `java <Name>.java`.
+Database-company style: key-value stores, transactions, caches, on-disk structures. Each solution is a single Java program whose `main` runs the checks: `java <Name>.java` (Java 21+).
 
-[storage/](storage/) is empty for now.
+| Exercise | Stages |
+|---|---|
+| [Key-value store with transactions](storage/kv_store_transactions/) | get/set/delete, value counts, nested transactions |
+| [LRU cache](storage/lru_cache/) | LRU eviction, time to live, resize |
+| [Free page list](storage/free_page_list/) | allocate and free, double-free checks, file growth, statistics |
+| [B+ tree](storage/bplus_tree/) | single leaf, splits, range scans, updates |
+| [In-memory file system](storage/file_system_tree/) | directories, files, errors, removal and size |
+| [MVCC key-value store](storage/mvcc_kv/) | snapshots, deletes, write conflicts, garbage collection |
+| [Write-ahead log recovery](storage/wal_recovery/) | logging, crash recovery, checkpoints, torn writes |
