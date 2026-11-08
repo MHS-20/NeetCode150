@@ -3,7 +3,7 @@
 # Then swap 4-bit groups, then 2-bit groups, then single bits
 class Solution:
     def reverseBits(self, n: int) -> int:
-        M = 0xFFFFFFFF  # Python ints are unbounded, so << must be masked to 32 bits
+        M = 0xFFFFFFFF  # optional: the 8-bit swap masks below already drop bits above 31
         x = n
         x = ((x >> 16) | (x << 16)) & M
         x = ((x & 0xFF00FF00) >> 8) | ((x & 0x00FF00FF) << 8)

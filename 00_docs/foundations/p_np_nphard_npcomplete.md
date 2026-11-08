@@ -136,7 +136,7 @@ Several problems in this set are NP-complete in general, and are tractable only 
 
 - **Subset Sum / Partition Equal Subset Sum** — NP-complete; solved by pseudo-polynomial DP because the target sum is bounded.
 - **0/1 Knapsack** — same.
-- **Travelling Salesman / Hamiltonian path** — bitmask DP, hence the `n ≤ 20` constraint ([`bit_manipulation.md`](../techniques/bit_manipulation.md)).
+- **Travelling Salesman / Hamiltonian path** — bitmask DP, hence the `n ≤ 20` constraint ([masking](../bit_manipulation/04_masking.md#bitmask-dp)).
 - **N-Queens, Sudoku solver, Word Search II** — exhaustive search with pruning.
 - **Graph colouring**, when it appears, is usually restricted to 2 colours, which is bipartiteness checking and is in P.
 

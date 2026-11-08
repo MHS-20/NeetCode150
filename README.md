@@ -29,7 +29,11 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 - [Greedy](00_docs/techniques/greedy.md): when a locally best choice is globally optimal, and how to find a counterexample.
 - [Intervals](00_docs/techniques/intervals.md): sort, then sweep: merging, inserting, and counting overlaps.
 - [Backtracking](00_docs/techniques/backtracking.md): choose, explore, undo: subsets, permutations, and pruning.
-- [Bit manipulation](00_docs/techniques/bit_manipulation.md): bit tricks, XOR, and bitmask subsets and DP.
+- [Integer representation](00_docs/bit_manipulation/01_integer_representation.md): bit positions, two's complement, and integer type limits in each language.
+- [Overflow](00_docs/bit_manipulation/02_overflow.md): what each language does on overflow, negating the smallest value, and division of negative numbers.
+- [Operators and shifts](00_docs/bit_manipulation/03_operators_and_shifts.md): `& | ^ ~`, logical and arithmetic shifts, oversized shifts, and precedence.
+- [Masking](00_docs/bit_manipulation/04_masking.md): single-bit and multi-bit masks, 32-bit masking in Python, and an integer as a set.
+- [Bit tricks](00_docs/bit_manipulation/05_tricks.md): XOR cancellation, `x & (x - 1)`, `x & -x`, and step-by-step walkthroughs of the bit problems.
 - [Math and geometry](00_docs/techniques/math_and_geometry.md): matrix rotation, overflow, modular arithmetic, and other non-structural problems.
 - [Floyd's cycle detection](00_docs/techniques/floyd_cycle_detection.md): finding a cycle and its entrance in O(1) space, on lists, arrays and number sequences.
 
