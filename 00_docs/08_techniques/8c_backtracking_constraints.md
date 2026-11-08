@@ -102,7 +102,10 @@ bool dfs(vector<vector<char>> &board, const string &word, int idx, int row, int 
         int nr = row + dr, nc = col + dc;
         if (nr < 0 || nr >= board.size() || nc < 0 || nc >= board[0].size())
             continue;
-        if (dfs(board, word, idx + 1, nr, nc)) return true;
+        if (dfs(board, word, idx + 1, nr, nc)) {
+            board[row][col] = ch;                   // unmark before returning
+            return true;
+        }
     }
     board[row][col] = ch;                           // unmark: path backs out
     return false;
@@ -124,7 +127,7 @@ A D E E
 
 ### The unmark must run on every exit
 
-The repo's solution returns `true` as soon as the rest of the word is found, before `board[row][col] = ch` runs. Every cell on the successful path keeps its `#`. Running `"ABCCED"` leaves the board as:
+The function can leave a cell in two ways: by returning `true` when the rest of the word is found, or by returning `false` after trying all four neighbours. The cell has to be restored on both. If the `true` path returned straight away, every cell on the successful path would keep its `#`. After a search for `"ABCCED"`, the board would read:
 
 ```
 # # # E
@@ -132,7 +135,7 @@ S F # S
 A D # E
 ```
 
-LeetCode checks only the returned value, so the solution is accepted. But the board is not restored. A second search on the same board, for `"SEE"`, then returns false, because one of the E cells it needs is still marked. On a fresh board `"SEE"` is found. Restoring the cell before returning, on the success path too, keeps the board unchanged for the caller.
+LeetCode checks only the returned value, so that version is still accepted. But a second search on the same board, for `"SEE"`, would return false, because the E at (2, 2) it needs would still be marked. With the restore on both paths, the board is unchanged after every call, and `"SEE"` is found on the same board after `"ABCCED"`.
 
 ### Cost
 

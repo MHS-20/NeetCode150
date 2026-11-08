@@ -31,8 +31,10 @@ public:
       if (nr < 0 || nr >= board.size() || nc < 0 || nc >= board[0].size())
         continue;
 
-      if (dfs(board, word, idx + 1, nr, nc))
+      if (dfs(board, word, idx + 1, nr, nc)) {
+        board[row][col] = ch; // restore before returning, so the board is unchanged
         return true;
+      }
     }
 
     board[row][col] = ch;

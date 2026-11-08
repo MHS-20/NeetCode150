@@ -31,6 +31,7 @@ class Solution {
             }
 
             if (dfs(board, word, idx + 1, nr, nc)) {
+                board[row][col] = ch; // restore before returning, so the board is unchanged
                 return true;
             }
         }

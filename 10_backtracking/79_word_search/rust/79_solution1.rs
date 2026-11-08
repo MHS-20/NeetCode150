@@ -32,6 +32,7 @@ impl Solution {
             }
 
             if Self::dfs(board, word, idx + 1, nr as usize, nc as usize) {
+                board[row][col] = ch; // restore before returning, so the board is unchanged
                 return true;
             }
         }

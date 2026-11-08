@@ -19,8 +19,10 @@ static bool dfs(char **board, int rows, int cols, const char *word, int len,
     if (nr < 0 || nr >= rows || nc < 0 || nc >= cols)
       continue;
 
-    if (dfs(board, rows, cols, word, len, idx + 1, nr, nc))
+    if (dfs(board, rows, cols, word, len, idx + 1, nr, nc)) {
+      board[row][col] = ch; // restore before returning, so the board is unchanged
       return true;
+    }
   }
 
   board[row][col] = ch;

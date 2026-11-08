@@ -25,7 +25,10 @@ var exist = function (board, word) {
       if (nr < 0 || nr >= board.length || nc < 0 || nc >= board[0].length)
         continue;
 
-      if (dfs(idx + 1, nr, nc)) return true;
+      if (dfs(idx + 1, nr, nc)) {
+        board[row][col] = ch; // restore before returning, so the board is unchanged
+        return true;
+      }
     }
 
     board[row][col] = ch;
