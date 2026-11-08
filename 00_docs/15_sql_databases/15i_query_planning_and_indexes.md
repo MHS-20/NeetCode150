@@ -137,6 +137,31 @@ SELECT total  FROM orders WHERE customer_id = 7;   -- `total` not in the index â
 
 Because the clustered index defines physical row order, the choice of primary key matters: a sequential key (auto-increment) appends to the rightmost leaf, while a random key (UUID v4) inserts into random leaves, causing page splits and fragmentation across the whole tree.
 
+### PostgreSQL stores tables differently
+
+The description above is how MySQL's InnoDB stores tables. PostgreSQL, used in the rest of this series, does not cluster rows by primary key. Its tables are **heaps**: rows are stored in pages in no particular order, and each row has a physical address, its `ctid`, written as (page, position):
+
+```sql
+SELECT ctid, id, name FROM employees WHERE id <= 2;
+```
+```
+ ctid  | id | name
+-------+----+------
+ (0,1) |  1 | Ada
+ (0,2) |  2 | Bob
+```
+
+Every index, the primary key's included, is a separate B-tree whose leaves hold the key and a `ctid`. So a primary key lookup in PostgreSQL also takes two steps: down the index, then to the heap page. A random primary key does not fragment the table itself, only its index.
+
+Covering indexes work the same way. With an index on `employees(dept_id, salary)`, `SELECT salary FROM employees WHERE dept_id = 1` is answered from the index alone:
+
+```
+Index Only Scan using employees_dept_id_salary_idx on employees
+  Index Cond: (dept_id = 1)
+```
+
+PostgreSQL's `CLUSTER` command reorders a table by an index once, but later inserts do not keep that order.
+
 ## Composite indexes and the leftmost prefix
 
 An index on `(a, b, c)` sorts by `a`, then by `b` within equal `a`, then by `c`. It is usable only for a **leftmost prefix** of those columns.

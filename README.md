@@ -103,4 +103,12 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 
 ## Databases
 
-- [SQL query planning and indexes](00_docs/15_databases/15a_sql_query_planning_and_indexes.md): how a query becomes an execution plan, and how indexes change it.
+- [SQL basics](00_docs/15_sql_databases/15a_basics.md): the example schema, filtering and sorting, undefined order on ties, NULL and three-valued logic, and the order clauses are evaluated in.
+- [Joins](00_docs/15_sql_databases/15b_joins.md): inner, outer and self-joins, conditions in ON vs WHERE, anti-joins and the NOT IN trap, and joins that inflate totals.
+- [Grouping and aggregates](00_docs/15_sql_databases/15c_grouping.md): GROUP BY, aggregates and NULL, count(*) after a left join, WHERE vs HAVING, and FILTER.
+- [Subqueries, CTEs and set operations](00_docs/15_sql_databases/15d_subqueries_and_ctes.md): scalar and correlated subqueries, EXISTS, derived tables, CTE inlining, recursive CTEs, and UNION/EXCEPT.
+- [Window functions](00_docs/15_sql_databases/15e_window_functions.md): aggregates next to each row, ranking and top N per group, running totals, lag and lead, and frames.
+- [Views and virtual tables](00_docs/15_sql_databases/15f_views_and_virtual_tables.md): views, updatable views and CHECK OPTION, materialized views, temporary tables, VALUES, generate_series and LATERAL.
+- [Changing data and transactions](00_docs/15_sql_databases/15g_modifying_data_and_transactions.md): INSERT/UPDATE/DELETE with RETURNING, upserts, constraints, transactions and savepoints, isolation levels and lost updates.
+- [Triggers](00_docs/15_sql_databases/15h_triggers.md): BEFORE, AFTER and INSTEAD OF, row and statement level, audit logs, derived counters, recursion, and simpler alternatives.
+- [SQL query planning and indexes](00_docs/15_sql_databases/15i_query_planning_and_indexes.md): how a query becomes an execution plan, and how indexes change it.
