@@ -143,7 +143,7 @@ if (seenRows[i][d] || seenCols[j][d] || seenBoxes[box][d]) return false;
 seenRows[i][d] = seenCols[j][d] = seenBoxes[box][d] = true;
 ```
 
-The fourth solution stores each group's nine flags as the bits of one integer, `seenRows[i] |= 1 << d` ([masking](../11_bit_manipulation/11d_masking.md#an-integer-as-a-set)).
+The fourth solution stores each group's nine flags as the bits of one integer, `seenRows[i] |= 1 << d` ([masking](../13_bit_manipulation/13d_masking.md#an-integer-as-a-set)).
 
 The board is always 9 × 9, so every solution is O(81) = O(1). The difference between them is the number of passes and the memory layout.
 

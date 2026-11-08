@@ -2,7 +2,7 @@
 
 In the problems on this page, most branches of the decision tree break a rule long before they reach a leaf. Checking the rule when a choice is made, before recursing, skips the whole subtree below a bad choice. This is called **pruning**. A version that builds every complete candidate and checks it at the end does the full exponential work and keeps none of the savings.
 
-The template is in [backtracking basics](8a_backtracking_basics.md). The examples follow the C++ solutions in `10_backtracking/`, and every trace was produced by running the same steps on the input shown.
+The template is in [backtracking basics](8a_basics.md). The examples follow the C++ solutions in `10_backtracking/`, and every trace was produced by running the same steps on the input shown.
 
 ## Generate Parentheses (22): two counters as the rule
 
@@ -173,4 +173,4 @@ start 0:  "a"   palindrome → start 1:  "a"  → start 2: "b"  → done: [a, a,
 
 The result is `[["a", "a", "b"], ["aa", "b"]]`.
 
-`isPalindrome` scans the piece each time it is called, so the same piece can be checked many times. A table `pal[i][j]`, filled once in O(n²) as in [interval DP](../10_dynamic_programming/10e_interval_dp.md), turns each check into one lookup.
+`isPalindrome` scans the piece each time it is called, so the same piece can be checked many times. A table `pal[i][j]`, filled once in O(n²) as in [interval DP](../12_dynamic_programming/12e_interval_dp.md), turns each check into one lookup.

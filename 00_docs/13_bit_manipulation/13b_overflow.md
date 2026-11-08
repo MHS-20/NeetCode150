@@ -1,6 +1,6 @@
 # Overflow: What Each Language Does When a Value Does Not Fit
 
-An arithmetic result **overflows** when it lies outside the range of its type. `2147483647 + 1` needs 2 147 483 648, and a 32-bit signed integer stops at 2 147 483 647 ([integer representation](11a_integer_representation.md#the-range-of-a-signed-type)). The languages in this repo answer this in four different ways: wrap around, stop the program, give a wrong float, or never overflow at all. A port that copies the C++ arithmetic into another language can change its answer on the boundary tests without any change to the code's logic.
+An arithmetic result **overflows** when it lies outside the range of its type. `2147483647 + 1` needs 2 147 483 648, and a 32-bit signed integer stops at 2 147 483 647 ([integer representation](13a_integer_representation.md#the-range-of-a-signed-type)). The languages in this repo answer this in four different ways: wrap around, stop the program, give a wrong float, or never overflow at all. A port that copies the C++ arithmetic into another language can change its answer on the boundary tests without any change to the code's logic.
 
 Every result on this page was printed by a test program on x86-64 Linux: gcc for C and C++, OpenJDK for Java, the Go toolchain, rustc, Node.js and CPython.
 
@@ -18,7 +18,7 @@ The test adds 1 to the largest 32-bit signed value. The value was kept in a vari
 | JavaScript | `2147483647 + 1` | `2147483648` (no 32-bit type; floats) |
 | Python | `2**31 - 1 + 1` | `2147483648` (no overflow) |
 
-Wrapping means the bits are kept and the carry out of the top bit is dropped. The pattern `0111…1` plus 1 is `1000…0`, which reads as `-2^31`. This is the signed jump from 7 to -8 in the 4-bit table of [integer representation](11a_integer_representation.md#adding-1-pattern-by-pattern), at 32 bits.
+Wrapping means the bits are kept and the carry out of the top bit is dropped. The pattern `0111…1` plus 1 is `1000…0`, which reads as `-2^31`. This is the signed jump from 7 to -8 in the 4-bit table of [integer representation](13a_integer_representation.md#adding-1-pattern-by-pattern), at 32 bits.
 
 ### C and C++: signed overflow is undefined
 
@@ -50,13 +50,13 @@ Go checks **constant** expressions at compile time. Writing `int32(0xFFFFFFFF)` 
 
 ### JavaScript and Python: no 32-bit overflow in arithmetic
 
-In JavaScript, `+`, `-` and `*` work on 64-bit floats, so `2147483647 + 1` is `2147483648`. Only the bitwise operators work in 32 bits. Above `2^53` the floats lose precision and adding 1 can leave the value unchanged ([integer representation](11a_integer_representation.md#integer-types-in-each-language)).
+In JavaScript, `+`, `-` and `*` work on 64-bit floats, so `2147483647 + 1` is `2147483648`. Only the bitwise operators work in 32 bits. Above `2^53` the floats lose precision and adding 1 can leave the value unchanged ([integer representation](13a_integer_representation.md#integer-types-in-each-language)).
 
 Python integers never overflow. A problem that says "assume a 32-bit environment" has to check the limits by hand in Python, as Reverse Integer (7) does.
 
 ## Negating the smallest value
 
-The smallest 32-bit value, `-2^31 = -2147483648`, has no positive counterpart, because the largest is `2^31 - 1` ([two's complement](11a_integer_representation.md#negation-invert-and-add-one)). Negating it overflows:
+The smallest 32-bit value, `-2^31 = -2147483648`, has no positive counterpart, because the largest is `2^31 - 1` ([two's complement](13a_integer_representation.md#negation-invert-and-add-one)). Negating it overflows:
 
 | Language | Expression | Result |
 |---|---|---|
@@ -105,7 +105,7 @@ The literal `1` is a 32-bit `int` in C, C++ and Java. Shifting it into position 
 | Language | Expression | Result |
 |---|---|---|
 | Java | `1 << 31` | `-2147483648` (position 31 is the sign bit) |
-| Java | `1 << 32` | `1` (shift count taken mod 32; [shifts](11c_operators_and_shifts.md#shifting-by-the-full-width-or-more)) |
+| Java | `1 << 32` | `1` (shift count taken mod 32; [shifts](13c_operators_and_shifts.md#shifting-by-the-full-width-or-more)) |
 | Java | `1L << 40` | `1099511627776` |
 | C / C++ | `1LL << 40` | `1099511627776` |
 

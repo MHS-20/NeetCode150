@@ -61,7 +61,7 @@ The naive approach needs O(m + n) space for the row and column flags. The O(1) t
 
 ### Overflow and division of negative numbers
 
-What each language does when a result does not fit, the check-before-multiply guard used in Reverse Integer, and how `/` and `%` round negative numbers in each language are covered in [overflow](../11_bit_manipulation/11b_overflow.md). In short: test against the limit **before** the operation, and do not use Python's `//` or `%` where C-style rounding toward zero is required.
+What each language does when a result does not fit, the check-before-multiply guard used in Reverse Integer, and how `/` and `%` round negative numbers in each language are covered in [overflow](../13_bit_manipulation/13b_overflow.md). In short: test against the limit **before** the operation, and do not use Python's `//` or `%` where C-style rounding toward zero is required.
 
 ### Modular arithmetic
 
@@ -140,7 +140,7 @@ Testing a **single** number for primality needs only trial division up to `√n`
 
 **Palindrome Number without strings.** Reverse only the second half and compare it to the first, stopping when the reversed part is at least the remainder. Avoids overflow and halves the work.
 
-**Cycle detection in a numeric sequence.** Happy Number repeats forever if it never reaches 1. Detect the loop with a set of seen values, or with the fast/slow pointer trick from [`8g_floyd_cycle_detection.md`](../08_techniques/8g_floyd_cycle_detection.md) — the sequence is a linked list whose `next` is a computed function.
+**Cycle detection in a numeric sequence.** Happy Number repeats forever if it never reaches 1. Detect the loop with a set of seen values, or with the fast/slow pointer trick from [`6e_floyd_cycle_detection.md`](../06_linked_lists/6e_floyd_cycle_detection.md) — the sequence is a linked list whose `next` is a computed function.
 
 ## Combinatorics worth knowing
 
@@ -173,7 +173,7 @@ d² = (x₁ − x₂)² + (y₁ − y₂)²
 
 Use this rather than comparing slopes as `dy/dx`, which divides by zero on vertical lines and accumulates floating-point error. When slopes must be used as hash keys (Max Points on a Line), store the reduced fraction `(dy/g, dx/g)` with `g = gcd(dy, dx)` and a normalised sign — never a float.
 
-**Rectangle overlap.** Two axis-aligned rectangles overlap when they overlap on *both* axes independently, which is the interval condition from [`8f_intervals.md`](../08_techniques/8f_intervals.md) applied twice.
+**Rectangle overlap.** Two axis-aligned rectangles overlap when they overlap on *both* axes independently, which is the interval condition from [`10a_intervals.md`](../10_intervals/10a_intervals.md) applied twice.
 
 **Areas.** The shoelace formula gives a polygon's area from its vertices; triangle area is half the absolute cross product of two edge vectors.
 

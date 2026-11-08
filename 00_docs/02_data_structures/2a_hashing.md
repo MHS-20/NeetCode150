@@ -96,9 +96,9 @@ for i, x in enumerate(nums):
 
 **Grouping.** `defaultdict(list)` keyed by some canonical form — the sorted string for anagrams, `(row//3, col//3)` for Sudoku boxes.
 
-**Memoization.** Every top-down DP cache is a hash map from state tuple to answer (see [`10a_dynamic_programming.md`](../10_dynamic_programming/10a_dynamic_programming.md)).
+**Memoization.** Every top-down DP cache is a hash map from state tuple to answer (see [`12a_dynamic_programming.md`](../12_dynamic_programming/12a_dynamic_programming.md)).
 
-**Visited tracking.** Graph traversal, cycle detection, backtracking (see [`9a_graphs_bfs_dfs.md`](../09_graphs/9a_graphs_bfs_dfs.md)).
+**Visited tracking.** Graph traversal, cycle detection, backtracking (see [`11a_graphs_bfs_dfs.md`](../11_graphs/11a_graphs_bfs_dfs.md)).
 
 **Sliding window state.** A count map of the current window, updated as it moves rather than recomputed.
 

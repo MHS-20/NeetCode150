@@ -210,7 +210,7 @@ Brent's variant uses one moving pointer and one stationary pointer. The stationa
 
 ## When it's the wrong tool
 
-- **States with several successors**, as in general graphs. Floyd needs exactly one next state. Directed cycle detection in graphs uses three-colour DFS or Kahn's algorithm ([`9b_topological_sort.md`](../09_graphs/9b_topological_sort.md)). Undirected cycle detection uses Union-Find or a DFS with a parent check.
+- **States with several successors**, as in general graphs. Floyd needs exactly one next state. Directed cycle detection in graphs uses three-colour DFS or Kahn's algorithm ([`11b_topological_sort.md`](../11_graphs/11b_topological_sort.md)). Undirected cycle detection uses Union-Find or a DFS with a parent check.
 - **Memory is not constrained.** A hash set of visited states is easier to write and gives the same O(n) time.
 - **You need every repeated value**, not one cycle entrance. Each walk finds one entrance. Several duplicates need counting or marking.
 

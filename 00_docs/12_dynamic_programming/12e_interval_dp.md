@@ -2,7 +2,7 @@
 
 Interval DP solves problems about **one** sequence where the answer for a range `i..j` is built from the answers for shorter ranges inside it. The table is `dp[i][j]` for every pair `i ≤ j`, the answer for the whole input is `dp[0][n-1]`, and cells are filled from the shortest ranges up to the longest.
 
-It differs from [string DP](10d_string_dp.md) in what the two indices mean. In string DP, `i` and `j` are prefix lengths of two *different* strings. Here they are the two ends of a range in the *same* sequence, so only the upper triangle `i ≤ j` is used.
+It differs from [string DP](12d_string_dp.md) in what the two indices mean. In string DP, `i` and `j` are prefix lengths of two *different* strings. Here they are the two ends of a range in the *same* sequence, so only the upper triangle `i ≤ j` is used.
 
 Examples below, by LeetCode number. The first three have solutions in this repo:
 

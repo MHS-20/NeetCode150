@@ -153,7 +153,7 @@ Two pairs of words can produce the same edge `u → v`. Count it the same number
 
 ## When it's the wrong tool
 
-- **Undirected graphs.** There is no "before" to order by. For cycles or connectivity in undirected graphs, use DFS with a parent check or Union-Find ([`9c_union_find.md`](9c_union_find.md)).
+- **Undirected graphs.** There is no "before" to order by. For cycles or connectivity in undirected graphs, use DFS with a parent check or Union-Find ([`11c_union_find.md`](11c_union_find.md)).
 - **Graphs that are known to contain cycles**, where the cycle is part of the answer rather than a failure. Strongly connected components (Tarjan's or Kosaraju's) group the cycles first, and the resulting graph of components is a DAG that can then be sorted.
 - **Shortest paths with weights in a general graph.** Topological order gives O(V + E) shortest paths only in a DAG. Elsewhere, use Dijkstra or Bellman-Ford.
 

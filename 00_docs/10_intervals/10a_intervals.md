@@ -42,7 +42,7 @@ Both appear, and the choice is not arbitrary.
 
 **Sort by start** when you are building or combining intervals as you scan — merging, inserting, detecting any conflict. Processing in start order means each new interval either extends the current one or begins a fresh one.
 
-**Sort by end** when you are *choosing a subset* and want to leave as much room as possible for whatever comes next. Finishing earliest keeps the most remaining space, which is the greedy argument behind interval scheduling (see [`8d_greedy_proofs.md`](8d_greedy_proofs.md)).
+**Sort by end** when you are *choosing a subset* and want to leave as much room as possible for whatever comes next. Finishing earliest keeps the most remaining space, which is the greedy argument behind interval scheduling (see [`9a_proofs.md`](../09_greedy/9a_proofs.md)).
 
 ## Merge Overlapping Intervals
 
@@ -115,7 +115,7 @@ keep [1,2], last_end = 2
 removed: 1
 ```
 
-Sorting by *start* here gives wrong answers: a long early interval would be kept and block several short ones behind it. Ending soonest is what leaves the most room, and the exchange argument in [`8d_greedy_proofs.md`](8d_greedy_proofs.md) is why that is provably optimal.
+Sorting by *start* here gives wrong answers: a long early interval would be kept and block several short ones behind it. Ending soonest is what leaves the most room, and the exchange argument in [`9a_proofs.md`](../09_greedy/9a_proofs.md) is why that is provably optimal.
 
 ## Meeting Rooms
 

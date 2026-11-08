@@ -1,6 +1,6 @@
 # 1D vs 2D Dynamic Programming
 
-A companion to [`10a_dynamic_programming.md`](10a_dynamic_programming.md), which covers memoization, tabulation, and complexity. This file answers one question: **how many dimensions does the table need, and how do you shrink it afterwards?**
+A companion to [`12a_dynamic_programming.md`](12a_dynamic_programming.md), which covers memoization, tabulation, and complexity. This file answers one question: **how many dimensions does the table need, and how do you shrink it afterwards?**
 
 ## The rule
 
@@ -100,4 +100,4 @@ Collapsing keeps the optimal *value* and destroys the optimal *choices*. Reconst
 | an interval `(i, j)`, split at `k` | `dp[i][j]` | not collapsible, fill by length |
 | prefix + a small mode | `dp[i][k]` | a few scalars per mode |
 
-Interval DP splits in two. When `dp[i][j]` is built by shrinking the ends, as in Longest Palindromic Subsequence, it reads only `dp[i+1][…]` and `dp[i][j-1]`. Filling `i` from `n-1` down to 0 then needs only the row below, so two rows of length `n` are enough. When `dp[i][j]` tries every split point `k`, as in Burst Balloons, it reads the whole row `i` and the whole column `j` up to the split, so the full table has to stay ([interval DP](10e_interval_dp.md#space)).
+Interval DP splits in two. When `dp[i][j]` is built by shrinking the ends, as in Longest Palindromic Subsequence, it reads only `dp[i+1][…]` and `dp[i][j-1]`. Filling `i` from `n-1` down to 0 then needs only the row below, so two rows of length `n` are enough. When `dp[i][j]` tries every split point `k`, as in Burst Balloons, it reads the whole row `i` and the whole column `j` up to the split, so the full table has to stay ([interval DP](12e_interval_dp.md#space)).

@@ -6,7 +6,7 @@ Most backtracking problems list subsets, combinations or permutations, often wit
 - **Does order matter?** If not, a `start` index stops the tree from building the same set in different orders. If it does, every unused element is an option at every level.
 - **Does the input contain equal values?** If so, equal values have to be skipped in the right place, or the same answer is produced more than once.
 
-The template and the two tree shapes are in [backtracking basics](8a_backtracking_basics.md). The examples follow the C++ solutions in `10_backtracking/`, and every trace was produced by running the same steps on the input shown.
+The template and the two tree shapes are in [backtracking basics](8a_basics.md). The examples follow the C++ solutions in `10_backtracking/`, and every trace was produced by running the same steps on the input shown.
 
 ## Combination Sum (39): reuse allowed
 
@@ -77,7 +77,7 @@ Without the skip, `[1, 2]` and `[2]` each appear twice: once using the first 2, 
 
 ### The same rule in the loop shape
 
-The loop shape ([shape 2](8a_backtracking_basics.md#shape-2-choose-the-next-element-to-add)) writes the skip as a condition on the loop index:
+The loop shape ([shape 2](8a_basics.md#shape-2-choose-the-next-element-to-add)) writes the skip as a condition on the loop index:
 
 ```cpp
 sort(nums.begin(), nums.end());

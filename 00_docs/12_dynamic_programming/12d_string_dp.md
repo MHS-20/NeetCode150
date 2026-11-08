@@ -2,7 +2,7 @@
 
 Five problems in this repo share one table shape: Longest Common Subsequence (1143), Edit Distance (72), Distinct Subsequences (115), Interleaving String (97) and Regular Expression Matching (10). Each compares two strings, and each fills `dp[i][j]` from the same three neighbouring cells. They differ in three places: what a cell stores, which neighbours it reads, and what the first row and column hold. With the shared part learned once, a new problem in this family comes down to filling in those three choices.
 
-This file assumes the basics in [`10a_dynamic_programming.md`](10a_dynamic_programming.md) (memoization vs tabulation) and [`10b_dp_1d_vs_2d.md`](10b_dp_1d_vs_2d.md) (why two sequences need two dimensions, and how to collapse the table to one row).
+This file assumes the basics in [`12a_dynamic_programming.md`](12a_dynamic_programming.md) (memoization vs tabulation) and [`12b_dp_1d_vs_2d.md`](12b_dp_1d_vs_2d.md) (why two sequences need two dimensions, and how to collapse the table to one row).
 
 ## The state: prefix lengths, not positions
 
@@ -193,7 +193,7 @@ Then answer three questions to write the recurrence:
 
 All five run in O(n·m) time with O(n·m) space: `(n+1)(m+1)` cells, each computed in O(1). Regex is also O(1) per cell, since `*` only adds a fixed number of reads.
 
-Each cell reads only row `i` and row `i-1`, so the table can shrink to one or two rows of length `m+1`, O(m) space. The diagonal value has to be saved before it is overwritten; [`10b_dp_1d_vs_2d.md`](10b_dp_1d_vs_2d.md#collapsing-2d-to-1d) shows the pattern. Keep the full table when the problem asks for the actual subsequence or the actual list of edits, because rebuilding them means walking back from `dp[n][m]` through the cells.
+Each cell reads only row `i` and row `i-1`, so the table can shrink to one or two rows of length `m+1`, O(m) space. The diagonal value has to be saved before it is overwritten; [`12b_dp_1d_vs_2d.md`](12b_dp_1d_vs_2d.md#collapsing-2d-to-1d) shows the pattern. Keep the full table when the problem asks for the actual subsequence or the actual list of edits, because rebuilding them means walking back from `dp[n][m]` through the cells.
 
 ## Pitfalls
 

@@ -1,6 +1,6 @@
 # Bit Tricks and the Problems That Use Them
 
-Each trick on this page is a short expression with a specific effect on the bits, followed by a step-by-step run on a small input. The problems named are the ones in `18_bit_manipulation/`, and each walkthrough follows the C++ solution there. The operators and masks used are explained in [operators](11c_operators_and_shifts.md) and [masking](11d_masking.md).
+Each trick on this page is a short expression with a specific effect on the bits, followed by a step-by-step run on a small input. The problems named are the ones in `18_bit_manipulation/`, and each walkthrough follows the C++ solution there. The operators and masks used are explained in [operators](13c_operators_and_shifts.md) and [masking](13d_masking.md).
 
 ## XOR cancels pairs
 
@@ -127,7 +127,7 @@ The test `x > 0` is required, because `0 & -1` is also 0, and 0 is not a power o
 
 `x & -x` keeps the lowest set bit of `x` and clears everything else.
 
-In two's complement, `-x` is `~x + 1` ([integer representation](11a_integer_representation.md#negation-invert-and-add-one)). Inverting `x` turns its lowest 1 into a 0 and the zeros below it into ones. Adding 1 then carries through those ones and stops at the lowest set bit, which becomes 1 again. The bits above it stay inverted.
+In two's complement, `-x` is `~x + 1` ([integer representation](13a_integer_representation.md#negation-invert-and-add-one)). Inverting `x` turns its lowest 1 into a 0 and the zeros below it into ones. Adding 1 then carries through those ones and stops at the lowest set bit, which becomes 1 again. The bits above it stay inverted.
 
 For `x = 12`, in 8 bits:
 
@@ -194,9 +194,9 @@ i   bit i of x   res
 
 ### Swapping halves
 
-The divide-and-conquer solution swaps the two 16-bit halves, then the bytes inside each half, then the 4-bit groups, the 2-bit groups and finally single bits. It does five steps with no loop. The masks it uses and an 8-bit trace are in [masking](11d_masking.md#repeating-masks).
+The divide-and-conquer solution swaps the two 16-bit halves, then the bytes inside each half, then the 4-bit groups, the 2-bit groups and finally single bits. It does five steps with no loop. The masks it uses and an 8-bit trace are in [masking](13d_masking.md#repeating-masks).
 
-Both versions need **logical** shifts, because bit 31 has to move down as an ordinary bit and not as a sign ([shifts](11c_operators_and_shifts.md#right-shift-logical-and-arithmetic)). The C++ solution copies the input into a `uint32_t`. Java and JavaScript use `>>>`, and the JavaScript version ends with `>>> 0` to return an unsigned number.
+Both versions need **logical** shifts, because bit 31 has to move down as an ordinary bit and not as a sign ([shifts](13c_operators_and_shifts.md#right-shift-logical-and-arithmetic)). The C++ solution copies the input into a `uint32_t`. Java and JavaScript use `>>>`, and the JavaScript version ends with `>>> 0` to return an unsigned number.
 
 ## Adding without `+`: Sum of Two Integers (371)
 
@@ -243,11 +243,11 @@ The same steps work for negative numbers with no special case, because two's com
 
 The loop ends because the carry eventually moves past the top bit and is dropped. That requires a fixed width:
 
-- **C and C++** do the work in `unsigned`, because left-shifting a negative signed value is undefined behaviour ([overflow](11b_overflow.md#c-and-c-signed-overflow-is-undefined)).
+- **C and C++** do the work in `unsigned`, because left-shifting a negative signed value is undefined behaviour ([overflow](13b_overflow.md#c-and-c-signed-overflow-is-undefined)).
 - **Rust** casts to `u32`.
 - **Go** converts to `uint32`. Its `int` is 64 bits, so the carry would otherwise run on past bit 31.
 - **Java and JavaScript** keep the logic as it is. Java's `int` wraps, and JavaScript's bitwise operators work in 32 bits.
-- **Python** masks the sum and carry to 32 bits on every step, then converts the result back to signed ([masking](11d_masking.md#sum-of-two-integers-without-the-mask)).
+- **Python** masks the sum and carry to 32 bits on every step, then converts the result back to signed ([masking](13d_masking.md#sum-of-two-integers-without-the-mask)).
 
 ## Cost of bit operations
 

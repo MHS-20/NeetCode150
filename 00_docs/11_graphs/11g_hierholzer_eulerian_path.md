@@ -161,7 +161,7 @@ void dfs(int u) {
 
 - **Every node once, not every edge.** That is a Hamiltonian path, which is NP-hard. For small n, roughly n ≤ 16, use bitmask DP or backtracking.
 - **A path between two nodes, not through all edges.** Use BFS or Dijkstra.
-- **A dependency order.** That is topological sort ([`9b_topological_sort.md`](9b_topological_sort.md)). It shares the post-order-then-reverse step, but it visits each node once and never uses edges up.
+- **A dependency order.** That is topological sort ([`11b_topological_sort.md`](11b_topological_sort.md)). It shares the post-order-then-reverse step, but it visits each node once and never uses edges up.
 
 ## Pitfalls
 

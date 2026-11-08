@@ -2,7 +2,7 @@
 
 Backtracking lists every answer to a problem by making one decision at a time: choose an option, recurse to make the remaining decisions, then undo the choice and try the next option. The decisions form a tree, called the **decision tree**, and the recursion walks it depth first. The tree is never stored. It exists only as the pattern of recursive calls, and one shared path is changed and restored as the recursion moves through it.
 
-Backtracking fits when a problem asks for **all** answers (all subsets, all permutations, all valid boards), or for any answer to a puzzle with constraints. If the problem asks only for a count or a best value, DP is usually much faster ([dynamic programming](../10_dynamic_programming/10a_dynamic_programming.md)).
+Backtracking fits when a problem asks for **all** answers (all subsets, all permutations, all valid boards), or for any answer to a puzzle with constraints. If the problem asks only for a count or a best value, DP is usually much faster ([dynamic programming](../12_dynamic_programming/12a_dynamic_programming.md)).
 
 The examples follow the C++ solutions in `10_backtracking/`. Every trace was produced by running the same steps on the input shown.
 
@@ -138,8 +138,8 @@ The number of nodes is roughly the number of options per level raised to the num
 
 The factor `n` in the first rows is the cost of copying each answer into the output. Extra space is O(depth) for the recursion and the path, plus the output itself.
 
-When a problem asks for all subsets, there are `2ⁿ` of them, so any solution that lists them takes at least `2ⁿ` steps. Backtracking cannot beat that bound. Cutting branches early, covered in [constraints and pruning](8c_backtracking_constraints.md), makes it much faster when most branches cannot lead to an answer.
+When a problem asks for all subsets, there are `2ⁿ` of them, so any solution that lists them takes at least `2ⁿ` steps. Backtracking cannot beat that bound. Cutting branches early, covered in [constraints and pruning](8c_constraints.md), makes it much faster when most branches cannot lead to an answer.
 
 ## Backtracking and graph DFS
 
-Backtracking is a DFS, but it differs from DFS on a graph in one detail. A graph DFS marks a node as visited and never unmarks it, because reaching each node once is enough. Backtracking unmarks on the way back, because a different path may need the same element or cell. Word Search (79) shows this in [constraints and pruning](8c_backtracking_constraints.md#word-search-79).
+Backtracking is a DFS, but it differs from DFS on a graph in one detail. A graph DFS marks a node as visited and never unmarks it, because reaching each node once is enough. Backtracking unmarks on the way back, because a different path may need the same element or cell. Word Search (79) shows this in [constraints and pruning](8c_constraints.md#word-search-79).

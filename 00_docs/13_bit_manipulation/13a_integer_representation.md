@@ -42,7 +42,7 @@ An **unsigned** integer of width `n` uses all `n` bits for the value. Its range 
 | 32 bits | 0 | 4 294 967 295 | `0xFFFFFFFF` |
 | 64 bits | 0 | 18 446 744 073 709 551 615 | `0xFFFFFFFFFFFFFFFF` |
 
-The largest value is all ones. Adding 1 to it carries out of the top bit, and that carry has nowhere to go. The stored result is `0`. This wraparound is the defined behaviour for unsigned types in C, C++, Go and Rust's `wrapping_*` methods ([overflow](11b_overflow.md) covers each language).
+The largest value is all ones. Adding 1 to it carries out of the top bit, and that carry has nowhere to go. The stored result is `0`. This wraparound is the defined behaviour for unsigned types in C, C++, Go and Rust's `wrapping_*` methods ([overflow](13b_overflow.md) covers each language).
 
 ## Two's complement
 
@@ -121,7 +121,7 @@ The rule works because `x + ~x` is all ones, which is `-1`. So `~x = -1 - x`, an
 Two edge cases come straight from the circle:
 
 - **`-0` is `0`.** `~0000 0000 + 1` is `1 0000 0000`. The ninth bit is dropped and `0000 0000` remains.
-- **The smallest value is its own negative.** In 8 bits, `-(-128)` gives `~1000 0000 + 1 = 0111 1111 + 1 = 1000 0000`, which is `-128` again. `+128` does not fit in 8 bits. In 32 bits the same happens with `-2^31`, which is the source of the `abs(INT_MIN)` bug in [overflow](11b_overflow.md).
+- **The smallest value is its own negative.** In 8 bits, `-(-128)` gives `~1000 0000 + 1 = 0111 1111 + 1 = 1000 0000`, which is `-128` again. `+128` does not fit in 8 bits. In 32 bits the same happens with `-2^31`, which is the source of the `abs(INT_MIN)` bug in [overflow](13b_overflow.md).
 
 ### The range of a signed type
 
@@ -173,6 +173,6 @@ Converting between a signed and an unsigned type of the **same width** keeps the
 | JavaScript: `-1 >>> 0` | 32 ones | `4294967295` |
 | Python: `-1 & 0xFFFFFFFF` | 32 ones | `4294967295` |
 
-The C, Rust and Go rows are casts. JavaScript's `>>> 0` shifts by zero places, which leaves the bits alone and returns the unsigned reading. Python has no 32-bit type, so the mask keeps the low 32 bits and the result is the unsigned reading of them. The reverse direction in Python (unsigned back to signed) is in [masking](11d_masking.md#keeping-python-to-32-bits).
+The C, Rust and Go rows are casts. JavaScript's `>>> 0` shifts by zero places, which leaves the bits alone and returns the unsigned reading. Python has no 32-bit type, so the mask keeps the low 32 bits and the result is the unsigned reading of them. The reverse direction in Python (unsigned back to signed) is in [masking](13d_masking.md#keeping-python-to-32-bits).
 
 These conversions are how solutions that need unsigned arithmetic accept signed input. Sum of Two Integers (371) in C, Go and Rust converts both inputs to unsigned 32-bit, does the work there, and converts the result back to signed at the end.

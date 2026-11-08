@@ -114,9 +114,9 @@ merge sort:   n
 
 **Halving with constant work per level** is O(log n); **halving but following only one branch** is what makes binary search logarithmic while merge sort is linearithmic. The difference is whether you recurse into one half or both.
 
-**Tree and graph recursion** is O(V + E) — each node visited once, each edge examined once. For a binary tree that is O(n). See [`9a_graphs_bfs_dfs.md`](../09_graphs/9a_graphs_bfs_dfs.md).
+**Tree and graph recursion** is O(V + E) — each node visited once, each edge examined once. For a binary tree that is O(n). See [`11a_graphs_bfs_dfs.md`](../11_graphs/11a_graphs_bfs_dfs.md).
 
-**Memoized recursion** is the cleanest case: `number of distinct states × work per state`, because each state is computed once and thereafter read from the cache (see [`10a_dynamic_programming.md`](../10_dynamic_programming/10a_dynamic_programming.md)).
+**Memoized recursion** is the cleanest case: `number of distinct states × work per state`, because each state is computed once and thereafter read from the cache (see [`12a_dynamic_programming.md`](../12_dynamic_programming/12a_dynamic_programming.md)).
 
 ## Worst, average, and amortised
 

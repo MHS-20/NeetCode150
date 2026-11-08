@@ -2,7 +2,7 @@
 
 A **mask** is a number whose bits mark the positions an operation should touch. Combined with `&`, `|` or `^`, a mask reads, sets, clears or flips those positions and leaves every other bit as it was. The single-bit cases come first, then masks covering several bits, then the use of an integer as a set of small numbers.
 
-The behaviour of each operator on one bit is in [operators](11c_operators_and_shifts.md#how-each-operator-acts-on-one-bit). In short: `& 0` clears, `| 1` sets, `^ 1` flips, and `& 1`, `| 0`, `^ 0` leave the bit unchanged.
+The behaviour of each operator on one bit is in [operators](13c_operators_and_shifts.md#how-each-operator-acts-on-one-bit). In short: `& 0` clears, `| 1` sets, `^ 1` flips, and `& 1`, `| 0`, `^ 0` leave the bit unchanged.
 
 ## Single-bit masks
 
@@ -70,7 +70,7 @@ The second moves bit `d` down to position 0 first, then keeps only position 0, s
 
 A common mistake mixes the two: `(x & (1 << d)) == 1`. In the example above, `x & (1 << 3)` is `8`, and `8 == 1` is false even though the bit is set. The comparison works only for `d = 0`. Compare with `0`, or shift down first.
 
-The parentheses around `x & (1 << d)` are required in C, C++, Java and JavaScript ([precedence](11c_operators_and_shifts.md#operator-precedence)).
+The parentheses around `x & (1 << d)` are required in C, C++, Java and JavaScript ([precedence](13c_operators_and_shifts.md#operator-precedence)).
 
 ### Summary
 
@@ -94,7 +94,7 @@ The parentheses around `x & (1 << d)` are required in C, C++, Java and JavaScrip
 
 So `(1 << n) - 1` is `n` ones at the bottom. `x & ((1 << n) - 1)` keeps the low `n` bits of `x` and clears the rest. For non-negative `x`, that equals `x % 2^n`.
 
-For `n` equal to the type's width this breaks, because `1 << 32` on a 32-bit type is undefined or wrong ([shifts](11c_operators_and_shifts.md#shifting-by-the-full-width-or-more)). Write the all-ones constant directly instead: `0xFFFFFFFF`.
+For `n` equal to the type's width this breaks, because `1 << 32` on a 32-bit type is undefined or wrong ([shifts](13c_operators_and_shifts.md#shifting-by-the-full-width-or-more)). Write the all-ones constant directly instead: `0xFFFFFFFF`.
 
 ### Extracting a field: `(x >> k) & mask`
 
@@ -156,7 +156,7 @@ The result, `1000 1101`, is `1011 0001` read backwards. In each line, one mask p
 
 ## Keeping Python to 32 bits
 
-Python's integers have no width, so they never wrap ([integer representation](11a_integer_representation.md#integer-types-in-each-language)). Problems that assume 32-bit integers need the wrapping done by hand. It takes two steps.
+Python's integers have no width, so they never wrap ([integer representation](13a_integer_representation.md#integer-types-in-each-language)). Problems that assume 32-bit integers need the wrapping done by hand. It takes two steps.
 
 **Step 1, keep the low 32 bits.** `x & 0xFFFFFFFF` gives the unsigned reading of the low 32 bits. For `x = -2`, it gives `4294967294`, which is `0xFFFFFFFE`.
 
@@ -206,7 +206,7 @@ Set operations then become the bit operations from earlier on this page:
 | intersection | `a & b` |
 | difference `a \ b` | `a & ~b` |
 | is `a` a subset of `b` | `(a & b) == a` |
-| number of items | popcount ([tricks](11e_tricks.md#counting-set-bits-number-of-1-bits-191)) |
+| number of items | popcount ([tricks](13e_tricks.md#counting-set-bits-number-of-1-bits-191)) |
 | all `n` items | `(1 << n) - 1` |
 
 Each of these is one machine instruction on a 32- or 64-bit integer, as long as `n` fits in the type.
@@ -220,7 +220,7 @@ for mask in range(1 << n):
     subset = [items[i] for i in range(n) if (mask >> i) & 1]
 ```
 
-This produces the same subsets as the recursive version in [backtracking](../08_techniques/8a_backtracking_basics.md). Both take O(2^n · n) time.
+This produces the same subsets as the recursive version in [backtracking](../08_backtracking/8a_basics.md). Both take O(2^n · n) time.
 
 ### Every subset of a given set
 

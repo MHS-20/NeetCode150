@@ -150,7 +150,7 @@ The repo's second solution is recursive: the smaller head node is returned, with
 
 ## Fast and slow pointers
 
-A pointer that moves one node per step and another that moves two find the middle of a list in one pass, and detect a cycle. Both are covered in [Floyd's cycle detection](../08_techniques/8g_floyd_cycle_detection.md). Linked List Cycle (141) and Find the Duplicate Number (287) are covered there. The middle of a list is also the first step of Reorder List in [reorder and merge](6c_reorder_and_merge.md).
+A pointer that moves one node per step and another that moves two find the middle of a list in one pass, and detect a cycle. Both are covered in [Floyd's cycle detection](6e_floyd_cycle_detection.md). Linked List Cycle (141) and Find the Duplicate Number (287) are covered there. The middle of a list is also the first step of Reorder List in [reorder and merge](6c_reorder_and_merge.md).
 
 ## Common mistakes
 

@@ -1,6 +1,6 @@
 # Greedy Algorithms and How to Prove Them
 
-A greedy algorithm builds its answer one choice at a time, takes the choice that looks best at that moment, and never changes it. The code is usually one loop, often after a sort. Whether the code is correct is a separate question: a wrong greedy rule gives a plausible answer on most inputs, including the examples in the problem statement. This page covers the two standard ways to prove a greedy rule correct, and the small counterexamples that show when a rule is wrong. The repo's greedy problems are worked through in [greedy problems](8e_greedy_problems.md).
+A greedy algorithm builds its answer one choice at a time, takes the choice that looks best at that moment, and never changes it. The code is usually one loop, often after a sort. Whether the code is correct is a separate question: a wrong greedy rule gives a plausible answer on most inputs, including the examples in the problem statement. This page covers the two standard ways to prove a greedy rule correct, and the small counterexamples that show when a rule is wrong. The repo's greedy problems are worked through in [greedy problems](9b_problems.md).
 
 ## What has to be true
 
@@ -71,11 +71,11 @@ A different greedy rule, "always take the longest jump from the current index", 
 
 The fastest test of a greedy rule is to look for a small input where it fails. Two or three elements are usually enough.
 
-**Coin change with coins 1, 3 and 4, amount 6.** Taking the largest coin that fits gives `4 + 1 + 1`, three coins. `3 + 3` uses two. Taking the 4 left a remainder of 2, which only 1-coins can make. Coin Change needs DP ([knapsack](../10_dynamic_programming/10c_knapsack.md)). With coins 1, 5, 10 and 25 the same greedy rule happens to be optimal, but that depends on those particular values.
+**Coin change with coins 1, 3 and 4, amount 6.** Taking the largest coin that fits gives `4 + 1 + 1`, three coins. `3 + 3` uses two. Taking the 4 left a remainder of 2, which only 1-coins can make. Coin Change needs DP ([knapsack](../12_dynamic_programming/12c_knapsack.md)). With coins 1, 5, 10 and 25 the same greedy rule happens to be optimal, but that depends on those particular values.
 
 **0/1 knapsack, capacity 10.** Items: weight 6 value 30, and two items of weight 5 value 20. Taking the best value per weight first takes the weight-6 item (5 per unit). Neither weight-5 item fits after it, so greedy ends with 30. The two weight-5 items give 40. If items could be cut into fractions, the greedy rule would be optimal. With whole items it is not.
 
-**Dijkstra with a negative edge.** Dijkstra's algorithm is greedy: it fixes the distance of the closest unfinished node and never changes it. A negative edge found later can make a route to that node shorter, and the fixed distance is then wrong. Dijkstra needs non-negative weights, and Bellman-Ford handles negative ones ([Bellman-Ford](../09_graphs/9e_bellman_ford.md)).
+**Dijkstra with a negative edge.** Dijkstra's algorithm is greedy: it fixes the distance of the closest unfinished node and never changes it. A negative edge found later can make a route to that node shorter, and the fixed distance is then wrong. Dijkstra needs non-negative weights, and Bellman-Ford handles negative ones ([Bellman-Ford](../11_graphs/11e_bellman_ford.md)).
 
 In all three, an early choice removed an option that a later step needed.
 
@@ -84,7 +84,7 @@ In all three, an early choice removed an option that a later step needed.
 1. **Write down the greedy rule.** Smallest first, earliest end, furthest reach, cheapest so far.
 2. **Look for a counterexample of two to four elements.** Try inputs designed to make the rule's first choice bad, like the coin and knapsack examples above.
 3. **If none is found, try an exchange argument or a stays-ahead argument.** If either goes through, the rule is correct.
-4. **If a counterexample is found, use DP**, which tries every choice instead of one ([dynamic programming](../10_dynamic_programming/10a_dynamic_programming.md)).
+4. **If a counterexample is found, use DP**, which tries every choice instead of one ([dynamic programming](../12_dynamic_programming/12a_dynamic_programming.md)).
 
 Greedy fits most often when the answer is a feasibility check or a single number computed in one scan, and the input has a natural order, such as times, positions or sizes. It fits least often when items are chosen from a set under a capacity or an exact target, which is the knapsack shape.
 

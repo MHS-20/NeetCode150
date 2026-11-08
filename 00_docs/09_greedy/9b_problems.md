@@ -1,6 +1,6 @@
 # Greedy Problems, with Proofs and Traces
 
-Each problem below has a one-pass greedy solution, a short argument for why the greedy choice is safe, and a trace on a small input. The two proof styles, the exchange argument and "greedy stays ahead", are explained in [greedy proofs](8d_greedy_proofs.md).
+Each problem below has a one-pass greedy solution, a short argument for why the greedy choice is safe, and a trace on a small input. The two proof styles, the exchange argument and "greedy stays ahead", are explained in [greedy proofs](9a_proofs.md).
 
 The examples follow the C++ solutions in `15_greedy/`. Every trace was produced by running the same steps on the input shown.
 
@@ -49,7 +49,7 @@ Kadane's algorithm can also be read as a DP whose table has collapsed to one var
 
 The task: `nums[i]` is the longest jump from index `i`. Decide whether the last index can be reached from index 0.
 
-The solution keeps `mx`, the furthest index reachable so far. Its proof is the stays-ahead example in [greedy proofs](8d_greedy_proofs.md#example-jump-game-55).
+The solution keeps `mx`, the furthest index reachable so far. Its proof is the stays-ahead example in [greedy proofs](9a_proofs.md#example-jump-game-55).
 
 ```cpp
 int mx = 0;

@@ -39,13 +39,13 @@ a        1 1 0 0 1 0 1 0
 ~a       0 0 1 1 0 1 0 1
 ```
 
-For a signed type, `~x` equals `-x - 1`, from the two's complement rule `~x + 1 = -x` ([integer representation](11a_integer_representation.md#negation-invert-and-add-one)). So `~5` is `-6` in every language here. Python gives `-6` too, even though its integers have no fixed width. For an 8-bit unsigned value, `~5` is `250`: in C, `(uint8_t)~5` printed `250`.
+For a signed type, `~x` equals `-x - 1`, from the two's complement rule `~x + 1 = -x` ([integer representation](13a_integer_representation.md#negation-invert-and-add-one)). So `~5` is `-6` in every language here. Python gives `-6` too, even though its integers have no fixed width. For an 8-bit unsigned value, `~5` is `250`: in C, `(uint8_t)~5` printed `250`.
 
 Two languages spell NOT differently. Rust uses `!` (`!5i32` is `-6`), and Go uses unary `^` (`^x` with `x := 5` is `-6`).
 
 ## How each operator acts on one bit
 
-The masking techniques in [masking](11d_masking.md) depend on what each operator does when one input bit is fixed. Here `x` is any bit:
+The masking techniques in [masking](13d_masking.md) depend on what each operator does when one input bit is fixed. Here `x` is any bit:
 
 | Operation | Result | Effect on `x` |
 |---|---|---|
@@ -70,7 +70,7 @@ x << 2   0 0 1 1 0 1 0 0      (52)
 
 Each position is worth twice the one to its right, so `x << k` multiplies by `2^k` as long as no `1` is pushed out at the top. `1 << k` is a number with only bit `k` set. It is the starting point for every single-bit mask.
 
-When a `1` reaches the top bit of a signed type, the result reads as negative: `1 << 31` is `-2147483648` in Java ([overflow](11b_overflow.md#shifting-a-32-bit-1)).
+When a `1` reaches the top bit of a signed type, the result reads as negative: `1 << 31` is `-2147483648` in Java ([overflow](13b_overflow.md#shifting-a-32-bit-1)).
 
 ## Right shift: logical and arithmetic
 
@@ -98,7 +98,7 @@ Which shift `>>` performs depends on the language and the type:
 | Go | arithmetic | logical | convert to `uint32` / `uint64` first |
 | Rust | arithmetic | logical | cast to `u32` / `u64` first |
 | JavaScript | arithmetic | (no unsigned types) | `>>>` |
-| Python | arithmetic | (no unsigned types) | mask first ([masking](11d_masking.md#keeping-python-to-32-bits)) |
+| Python | arithmetic | (no unsigned types) | mask first ([masking](13d_masking.md#keeping-python-to-32-bits)) |
 
 All six printed `-8 >> 1 = -4`. For C, the result of right-shifting a negative value is implementation-defined, and gcc documents it as an arithmetic shift. C++20 defines it as arithmetic for every compiler.
 
@@ -117,7 +117,7 @@ Reverse Bits (190) needs logical shifts, because it moves the top bit to the bot
 | `-7 >> 1` | `-4` | toward minus infinity |
 | `-7 / 2` | `-3` | toward zero (C, C++, Java, Go, Rust) |
 
-The arithmetic shift drops the lowest bit, and dropping bits always rounds down, toward minus infinity. In 8 bits, `-7` is `1111 1001`. Shifting gives `1111 1100`, which is `-4`. Division in C-family languages rounds toward zero instead ([overflow](11b_overflow.md#division-and-remainder-of-negative-numbers)).
+The arithmetic shift drops the lowest bit, and dropping bits always rounds down, toward minus infinity. In 8 bits, `-7` is `1111 1001`. Shifting gives `1111 1100`, which is `-4`. Division in C-family languages rounds toward zero instead ([overflow](13b_overflow.md#division-and-remainder-of-negative-numbers)).
 
 For non-negative values the two match. `i >> 1` in Counting Bits (338) is safe, because `i` is never negative.
 
