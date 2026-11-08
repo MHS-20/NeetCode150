@@ -2,7 +2,7 @@
 
 ## What a graph is, and how it's stored
 
-Nodes (vertices, `V`) connected by edges (`E`). A tree is a graph with no cycles and exactly `V − 1` edges; everything in [`7a_binary_trees.md`](../07_trees/7a_binary_trees.md) is the special case where each node has at most two neighbours and there is no way to revisit a node.
+Nodes (vertices, `V`) connected by edges (`E`). A tree is a graph with no cycles and exactly `V − 1` edges; everything in [`7a_basics_and_traversals.md`](../07_trees/7a_basics_and_traversals.md) is the special case where each node has at most two neighbours and there is no way to revisit a node.
 
 Edges may be **directed** (one-way) or **undirected**, **weighted** or not. Those two axes decide which algorithm applies, so establish them before writing anything.
 

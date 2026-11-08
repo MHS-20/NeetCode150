@@ -84,7 +84,7 @@ Four consequences, each of them a design decision:
 
 ### Why the height is 3 or 4, not 30
 
-A binary tree over a million rows is about 20 levels deep ([`7a_binary_trees.md`](../07_trees/7a_binary_trees.md)), and if each level were a separate disk read that would be 20 reads per lookup. A B+ tree node holding a few hundred keys has a fan-out of a few hundred, so the height is `log₍fanout₎ n` rather than `log₂ n`:
+A binary tree over a million rows is about 20 levels deep ([`7a_basics_and_traversals.md`](../07_trees/7a_basics_and_traversals.md#how-many-nodes-fit-in-a-given-height)), and if each level were a separate disk read that would be 20 reads per lookup. A B+ tree node holding a few hundred keys has a fan-out of a few hundred, so the height is `log₍fanout₎ n` rather than `log₂ n`:
 
 ```
 fan-out 400:

@@ -43,7 +43,10 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 
 ## Trees
 
-- [Binary trees](00_docs/07_trees/7a_binary_trees.md): traversals, recursion on trees, and binary search trees.
+- [Tree basics and traversals](00_docs/07_trees/7a_basics_and_traversals.md): terms, height in nodes or edges, iterative DFS with a stack, BFS by level, and Right Side View.
+- [Recursion on trees](00_docs/07_trees/7b_recursion_patterns.md): passing information down or up, a special return value for Balanced Tree, and Diameter and Max Path Sum.
+- [Binary search trees](00_docs/07_trees/7c_binary_search_trees.md): the ordering rule, Validate BST with bounds, Kth Smallest by inorder, and LCA in a BST.
+- [Building and serialising trees](00_docs/07_trees/7d_build_and_serialize.md): rebuilding from preorder and inorder, and preorder with null markers.
 
 ## Techniques
 
