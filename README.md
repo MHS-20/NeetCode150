@@ -17,7 +17,8 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 - [Monotonic stack](00_docs/02_data_structures/2e_monotonic_stack.md): nearest greater or smaller element in one pass; Daily Temperatures, Largest Rectangle, Trapping Rain Water, Car Fleet and Max Chunks.
 - [Queues and deques](00_docs/02_data_structures/2f_queues_and_deques.md): FIFO, BFS queues, and deques.
 - [Heaps and priority queues](00_docs/02_data_structures/2g_heaps_and_priority_queues.md): binary heaps, top-K, two-heap medians, and lazy deletion.
-- [Tries](00_docs/02_data_structures/2h_tries.md): prefix trees for word and prefix lookups.
+- [Heap problems](00_docs/02_data_structures/2h_heap_problems.md): a heap kept at size k, Last Stone Weight, Task Scheduler with its formula, two heaps for the median, and merging feeds in Design Twitter.
+- [Tries](00_docs/02_data_structures/2i_tries.md): prefix trees for word and prefix lookups.
 
 ## Two pointers
 
