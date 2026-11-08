@@ -63,76 +63,9 @@ The naive approach needs O(m + n) space for the row and column flags. The O(1) t
 
 What each language does when a result does not fit, the check-before-multiply guard used in Reverse Integer, and how `/` and `%` round negative numbers in each language are covered in [overflow](../13_bit_manipulation/13b_overflow.md). In short: test against the limit **before** the operation, and do not use Python's `//` or `%` where C-style rounding toward zero is required.
 
-### Modular arithmetic
+### Formulas, GCD, modular arithmetic and primes
 
-When a problem says "return the answer modulo 10⁹ + 7", the modulus is there to keep results inside 64 bits. Apply it as you go, not at the end — the intermediate value is what overflows.
-
-```
-(a + b) % m  =  ((a % m) + (b % m)) % m
-(a · b) % m  =  ((a % m) · (b % m)) % m
-```
-
-Division does not distribute this way. It needs a modular inverse, which is beyond what these problems ask.
-
-### GCD and LCM
-
-Euclid's algorithm: repeatedly replace the larger number by its remainder against the smaller.
-
-```
-gcd(48, 18):  48 % 18 = 12
-              18 % 12 = 6
-              12 % 6  = 0   →  gcd = 6
-```
-
-```python
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
-
-lcm = a * b // gcd(a, b)      # divide first in fixed-width languages, to avoid overflow
-```
-
-O(log(min(a, b))) — each step at least halves one operand. Available as `math.gcd`.
-
-### Fast exponentiation
-
-Computing `xⁿ` by multiplying `n` times is O(n). Squaring repeatedly makes it O(log n):
-
-```
-x¹³ = x⁸ · x⁴ · x¹          13 = 1101 in binary
-
-square x each step, multiply into the result where the bit is set
-```
-
-```python
-def power(x, n):
-    if n < 0:
-        x, n = 1 / x, -n
-    result = 1
-    while n:
-        if n & 1:
-            result *= x
-        x *= x
-        n >>= 1
-    return result
-```
-
-The same halving idea appears in binary search and in merge sort — reducing `n` by a constant factor per step is what produces every logarithm in this field.
-
-### Primes
-
-The **sieve of Eratosthenes** finds every prime below `n` in O(n log log n): mark multiples of each prime, starting at `p·p` because everything smaller has already been marked by a smaller factor.
-
-```
-n = 30
-
-2  3  4  5  6  7  8  9 10 ...
-   ↑ mark 4, 6, 8, 10, ... then 9, 15, 21, ... then 25
-remaining unmarked: 2 3 5 7 11 13 17 19 23 29
-```
-
-Testing a **single** number for primality needs only trial division up to `√n`: if `n = a·b` with `a ≤ b`, then `a ≤ √n`, so a factor above the square root implies one below it that was already checked.
+Integer formulas such as ceiling division, an overflow-free midpoint and flattening a grid index are in [integer formulas](14b_integer_formulas.md). GCD and LCM, arithmetic modulo 10⁹ + 7, fast exponentiation, and primes are in [number theory](14c_number_theory.md).
 
 ## Digit and number tricks
 

@@ -98,6 +98,8 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 ## Math and geometry
 
 - [Math and geometry](00_docs/14_math_and_geometry/14a_math_and_geometry.md): matrix rotation, overflow, modular arithmetic, and other non-structural problems.
+- [Integer formulas](00_docs/14_math_and_geometry/14b_integer_formulas.md): splitting a count in halves, ceiling division, an overflow-free midpoint, flattening a grid index, counting formulas, and the k-largest heap rule.
+- [Number theory](00_docs/14_math_and_geometry/14c_number_theory.md): Euclid's GCD and why it works, LCM without overflow, modular arithmetic and the modular inverse, fast exponentiation, and primes.
 
 ## Databases
 
