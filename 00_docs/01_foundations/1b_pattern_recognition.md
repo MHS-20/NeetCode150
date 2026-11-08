@@ -35,16 +35,16 @@ What the problem *asks for* narrows the technique more than what it is about.
 |---|---|---|
 | **All** solutions, every combination/permutation/arrangement | backtracking | [`8a_backtracking.md`](../08_techniques/8a_backtracking.md) |
 | **How many ways**, count of arrangements | DP (counting) | [`10a_dynamic_programming.md`](../10_dynamic_programming/10a_dynamic_programming.md) |
-| **Minimum / maximum** value over a sequence of choices | DP, or greedy if a safe rule exists | [`10a_dynamic_programming.md`](../10_dynamic_programming/10a_dynamic_programming.md), [`8b_greedy.md`](../08_techniques/8b_greedy.md) |
+| **Minimum / maximum** value over a sequence of choices | DP, or greedy if a safe rule exists | [`10a_dynamic_programming.md`](../10_dynamic_programming/10a_dynamic_programming.md), [`8b_greedy_proofs.md`](../08_techniques/8b_greedy_proofs.md) |
 | **Fewest steps / shortest path**, unweighted | BFS | [`9a_graphs_bfs_dfs.md`](../09_graphs/9a_graphs_bfs_dfs.md) |
 | **Shortest path with weights** | Dijkstra (heap) | [`2e_heaps_and_priority_queues.md`](../02_data_structures/2e_heaps_and_priority_queues.md) |
 | **Is it possible / can it reach** | DFS, or greedy feasibility | [`9a_graphs_bfs_dfs.md`](../09_graphs/9a_graphs_bfs_dfs.md) |
 | **Kth largest / smallest, top K** | bounded heap or quickselect | [`2e_heaps_and_priority_queues.md`](../02_data_structures/2e_heaps_and_priority_queues.md) |
-| **Best contiguous subarray/substring** | sliding window, or Kadane's | [variable-size windows](../04_sliding_window/4b_variable_size.md), [`8b_greedy.md`](../08_techniques/8b_greedy.md) |
+| **Best contiguous subarray/substring** | sliding window, or Kadane's | [variable-size windows](../04_sliding_window/4b_variable_size.md), [`8b_greedy_proofs.md`](../08_techniques/8b_greedy_proofs.md) |
 | **A pair or triple summing to a target** | sort + two pointers, or a hash map | [two pointers](../03_two_pointers/3a_opposite_ends.md), [`2a_hashing.md`](../02_data_structures/2a_hashing.md) |
 | **Next greater / smaller element, spans** | monotonic stack | [monotonic stack](../02_data_structures/2c_monotonic_stack.md) |
 | **Max/min over a moving window** | monotonic deque | [window maximum](../04_sliding_window/4c_window_max_and_min.md), [`2d_queues_and_deques.md`](../02_data_structures/2d_queues_and_deques.md) |
-| **Merge, overlap, schedule, rooms** | sort intervals, sweep | [`8c_intervals.md`](../08_techniques/8c_intervals.md) |
+| **Merge, overlap, schedule, rooms** | sort intervals, sweep | [`8d_intervals.md`](../08_techniques/8d_intervals.md) |
 | **Prefix matching, dictionary of words** | trie | [`2f_tries.md`](../02_data_structures/2f_tries.md) |
 | **Ordering under dependencies** | topological sort | [`9a_graphs_bfs_dfs.md`](../09_graphs/9a_graphs_bfs_dfs.md) |
 | **Are these connected / how many groups** | DFS, BFS, or union-find | [`9a_graphs_bfs_dfs.md`](../09_graphs/9a_graphs_bfs_dfs.md) |
@@ -86,7 +86,7 @@ Phrases that reliably point somewhere. Not proof, but a strong first guess.
 
 **Backtracking vs. DP.** Same decision tree underneath. Backtracking *lists* the solutions; DP *counts or optimises* over them without listing. If the output is a list of arrangements you must enumerate — exponential is unavoidable. If the output is one number, look for a state that collapses many arrangements into one table cell.
 
-**Greedy vs. DP.** Greedy commits to a choice and never revisits it; DP tries all choices and keeps the best. Try greedy first because it is far simpler, but only after you have spent thirty seconds trying to build a counterexample. If one appears, it is DP. See [`8b_greedy.md`](../08_techniques/8b_greedy.md).
+**Greedy vs. DP.** Greedy commits to a choice and never revisits it; DP tries all choices and keeps the best. Try greedy first because it is far simpler, but only after you have spent thirty seconds trying to build a counterexample. If one appears, it is DP. See [`8b_greedy_proofs.md`](../08_techniques/8b_greedy_proofs.md).
 
 **BFS vs. DFS.** BFS for *fewest* anything, DFS for *existence*, structure, and per-subtree answers. Weighted edges break BFS's guarantee entirely.
 

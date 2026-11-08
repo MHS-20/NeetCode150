@@ -51,9 +51,10 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 ## Techniques
 
 - [Backtracking](00_docs/08_techniques/8a_backtracking.md): choose, explore, undo: subsets, permutations, and pruning.
-- [Greedy](00_docs/08_techniques/8b_greedy.md): when a locally best choice is globally optimal, and how to find a counterexample.
-- [Intervals](00_docs/08_techniques/8c_intervals.md): sort, then sweep: merging, inserting, and counting overlaps.
-- [Floyd's cycle detection](00_docs/08_techniques/8d_floyd_cycle_detection.md): finding a cycle and its entrance in O(1) space, on lists, arrays and number sequences.
+- [Greedy and how to prove it](00_docs/08_techniques/8b_greedy_proofs.md): the exchange argument and greedy-stays-ahead, with counterexamples that break wrong greedy rules.
+- [Greedy problems](00_docs/08_techniques/8c_greedy_problems.md): Kadane, Jump Game I and II, Gas Station, Hand of Straights, Merge Triplets, Partition Labels and Valid Parenthesis String, each proved and traced.
+- [Intervals](00_docs/08_techniques/8d_intervals.md): sort, then sweep: merging, inserting, and counting overlaps.
+- [Floyd's cycle detection](00_docs/08_techniques/8e_floyd_cycle_detection.md): finding a cycle and its entrance in O(1) space, on lists, arrays and number sequences.
 
 ## Graphs
 

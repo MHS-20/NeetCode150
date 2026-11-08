@@ -103,7 +103,7 @@ The loop runs while `l <= r`, not `l < r`, because the last remaining element st
 
 ## Fast and slow pointers
 
-A slow pointer that moves one step and a fast one that moves two steps find the middle of a linked list, and detect a cycle in a list or in a number sequence such as Happy Number (202). Both cases are covered in [Floyd's cycle detection](../08_techniques/8d_floyd_cycle_detection.md).
+A slow pointer that moves one step and a fast one that moves two steps find the middle of a linked list, and detect a cycle in a list or in a number sequence such as Happy Number (202). Both cases are covered in [Floyd's cycle detection](../08_techniques/8e_floyd_cycle_detection.md).
 
 ## From same-direction pointers to a sliding window
 

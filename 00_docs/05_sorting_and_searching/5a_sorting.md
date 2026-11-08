@@ -4,7 +4,7 @@
 
 You will almost never implement a sort. You will constantly *use* one, and three things about it affect your answers: the O(n log n) it adds to your complexity, whether it is stable, and the fact that sorting is itself the solution to a surprising number of problems.
 
-Sorting converts an unstructured array into one where binary search, two pointers, and single-pass sweeps all become available. Paying O(n log n) up front to make the rest of the algorithm O(n) or O(log n) is one of the most common trades in the whole field — every problem in [`8c_intervals.md`](../08_techniques/8c_intervals.md) and half of [`8b_greedy.md`](../08_techniques/8b_greedy.md) opens with a sort.
+Sorting converts an unstructured array into one where binary search, two pointers, and single-pass sweeps all become available. Paying O(n log n) up front to make the rest of the algorithm O(n) or O(log n) is one of the most common trades in the whole field — every problem in [`8d_intervals.md`](../08_techniques/8d_intervals.md) and half of [`8b_greedy_proofs.md`](../08_techniques/8b_greedy_proofs.md) opens with a sort.
 
 ## The O(n log n) barrier
 
@@ -91,7 +91,7 @@ The tuple key is the idiom for multi-level ordering, and negating a number rever
 
 **Sort to enable two pointers.** 3Sum sorts first, then fixes one element and walks two pointers inward — the sorted order is what makes "too big, move left" meaningful. O(n²) overall, with the sort disappearing into it.
 
-**Sort to enable a sweep.** All of [`8c_intervals.md`](../08_techniques/8c_intervals.md).
+**Sort to enable a sweep.** All of [`8d_intervals.md`](../08_techniques/8d_intervals.md).
 
 **Sort as a canonical form.** Sorted characters as an anagram key; sorting both arrays to compare multisets.
 
