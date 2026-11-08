@@ -1,4 +1,4 @@
-/* Tabs for pymdownx.tabbed (alternate style), which the Dracula theme does not style. */
+/* Tabs for pymdownx.tabbed (up to 12 per set) (alternate style), which the Dracula theme does not style. */
 .tabbed-set { display: flex; flex-wrap: wrap; margin: 1em 0; }
 .tabbed-set > input { position: absolute; opacity: 0; pointer-events: none; }
 .tabbed-labels { display: flex; flex-wrap: wrap; width: 100%; border-bottom: 1px solid #44475a; }
@@ -15,7 +15,11 @@
 .tabbed-set > input:nth-child(5):checked ~ .tabbed-labels > :nth-child(5),
 .tabbed-set > input:nth-child(6):checked ~ .tabbed-labels > :nth-child(6),
 .tabbed-set > input:nth-child(7):checked ~ .tabbed-labels > :nth-child(7),
-.tabbed-set > input:nth-child(8):checked ~ .tabbed-labels > :nth-child(8) {
+.tabbed-set > input:nth-child(8):checked ~ .tabbed-labels > :nth-child(8),
+.tabbed-set > input:nth-child(9):checked ~ .tabbed-labels > :nth-child(9),
+.tabbed-set > input:nth-child(10):checked ~ .tabbed-labels > :nth-child(10),
+.tabbed-set > input:nth-child(11):checked ~ .tabbed-labels > :nth-child(11),
+.tabbed-set > input:nth-child(12):checked ~ .tabbed-labels > :nth-child(12) {
   color: #50fa7b; border-bottom-color: #50fa7b;
 }
 .tabbed-set > input:nth-child(1):checked ~ .tabbed-content > :nth-child(1),
@@ -25,9 +29,16 @@
 .tabbed-set > input:nth-child(5):checked ~ .tabbed-content > :nth-child(5),
 .tabbed-set > input:nth-child(6):checked ~ .tabbed-content > :nth-child(6),
 .tabbed-set > input:nth-child(7):checked ~ .tabbed-content > :nth-child(7),
-.tabbed-set > input:nth-child(8):checked ~ .tabbed-content > :nth-child(8) {
+.tabbed-set > input:nth-child(8):checked ~ .tabbed-content > :nth-child(8),
+.tabbed-set > input:nth-child(9):checked ~ .tabbed-content > :nth-child(9),
+.tabbed-set > input:nth-child(10):checked ~ .tabbed-content > :nth-child(10),
+.tabbed-set > input:nth-child(11):checked ~ .tabbed-content > :nth-child(11),
+.tabbed-set > input:nth-child(12):checked ~ .tabbed-content > :nth-child(12) {
   display: block;
 }
 
 /* The theme's font draws ligatures such as 0x as 0×, which misreads in code. */
 body, code, pre { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+
+/* File name above each solution when a language has several. */
+.tabbed-block > p > code:only-child { color: #ffb86c; }

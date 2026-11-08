@@ -60,32 +60,38 @@ def pretty(folder):
 
 
 def code_files(problem):
-    """(tab label, language, file) for every source file in the folder or its language subfolders."""
-    found = []
+    """{tab label: [(language, file), ...]} for the source files in the folder or its language subfolders."""
+    tabs = {}
     for f in sorted(problem.rglob("*")):
         if f.suffix not in CODE_EXT or "__pycache__" in f.parts:
             continue
         sub = f.relative_to(problem).parts
         lang = LANGS.get(sub[0]) if len(sub) > 1 else None
         label, hl = lang or LANGS.get(f.suffix[1:], (f.suffix[1:], f.suffix[1:]))
-        found.append((label, hl, f))
-    counts = {}
-    for lbl, _, _ in found:
-        counts[lbl] = counts.get(lbl, 0) + 1
-    return [((f"{lbl}: {f.name}" if counts[lbl] > 1 else lbl), hl, f) for lbl, hl, f in found]
+        tabs.setdefault(label, []).append((hl, f))
+    for files in tabs.values():  # solutions before follow-ups, then by name
+        files.sort(key=lambda t: ("solution" not in t[1].name, t[1].name))
+    return tabs
+
+
+def fenced(code, hl, indent):
+    fence = "~~~~" if "~~~" in code else "~~~"
+    body = "\n".join(indent + line if line else "" for line in code.split("\n"))
+    return f"{indent}{fence}{hl}\n{body}\n{indent}{fence}\n"
 
 
 def problem_page(problem, heading):
     readme = problem / "README.md"
     text = fix_dir_links(readme.read_text(), readme).rstrip() + "\n\n" if readme.exists() else f"# {heading}\n\n"
-    files = code_files(problem)
-    if files:
+    tabs = code_files(problem)
+    if tabs:
         text += "## Solutions\n\n" if readme.exists() else ""
-        for label, hl, f in files:
-            code = f.read_text().rstrip("\n")
-            fence = "~~~~" if "~~~" in code else "~~~"
-            body = "\n".join("    " + line if line else "" for line in code.split("\n"))
-            text += f'=== "{label}"\n\n    {fence}{hl}\n{body}\n    {fence}\n\n'
+        for label, files in tabs.items():
+            text += f'=== "{label}"\n\n'
+            for hl, f in files:
+                if len(files) > 1:
+                    text += f"    `{f.name}`\n\n"
+                text += fenced(f.read_text().rstrip("\n"), hl, "    ") + "\n"
     path = f"{problem.relative_to(ROOT)}/README.md"
     write(path, text)
     return path
