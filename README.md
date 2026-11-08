@@ -50,11 +50,13 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 
 ## Techniques
 
-- [Backtracking](00_docs/08_techniques/8a_backtracking.md): choose, explore, undo: subsets, permutations, and pruning.
-- [Greedy and how to prove it](00_docs/08_techniques/8b_greedy_proofs.md): the exchange argument and greedy-stays-ahead, with counterexamples that break wrong greedy rules.
-- [Greedy problems](00_docs/08_techniques/8c_greedy_problems.md): Kadane, Jump Game I and II, Gas Station, Hand of Straights, Merge Triplets, Partition Labels and Valid Parenthesis String, each proved and traced.
-- [Intervals](00_docs/08_techniques/8d_intervals.md): sort, then sweep: merging, inserting, and counting overlaps.
-- [Floyd's cycle detection](00_docs/08_techniques/8e_floyd_cycle_detection.md): finding a cycle and its entrance in O(1) space, on lists, arrays and number sequences.
+- [Backtracking basics](00_docs/08_techniques/8a_backtracking_basics.md): choose, explore, undo; the decision tree drawn two ways for Subsets; why paths are copied; and the cost.
+- [Combinations, permutations and duplicates](00_docs/08_techniques/8b_backtracking_subsets_and_permutations.md): reuse with `i` vs `i + 1`, skipping equal values in Subsets II and Combination Sum II, and permutations by swapping.
+- [Backtracking with constraints](00_docs/08_techniques/8c_backtracking_constraints.md): pruning in Generate Parentheses, N-Queens diagonals, Word Search marking, and Palindrome Partitioning.
+- [Greedy and how to prove it](00_docs/08_techniques/8d_greedy_proofs.md): the exchange argument and greedy-stays-ahead, with counterexamples that break wrong greedy rules.
+- [Greedy problems](00_docs/08_techniques/8e_greedy_problems.md): Kadane, Jump Game I and II, Gas Station, Hand of Straights, Merge Triplets, Partition Labels and Valid Parenthesis String, each proved and traced.
+- [Intervals](00_docs/08_techniques/8f_intervals.md): sort, then sweep: merging, inserting, and counting overlaps.
+- [Floyd's cycle detection](00_docs/08_techniques/8g_floyd_cycle_detection.md): finding a cycle and its entrance in O(1) space, on lists, arrays and number sequences.
 
 ## Graphs
 

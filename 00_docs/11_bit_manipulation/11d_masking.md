@@ -220,7 +220,7 @@ for mask in range(1 << n):
     subset = [items[i] for i in range(n) if (mask >> i) & 1]
 ```
 
-This produces the same subsets as the recursive version in [backtracking](../08_techniques/8a_backtracking.md). Both take O(2^n · n) time.
+This produces the same subsets as the recursive version in [backtracking](../08_techniques/8a_backtracking_basics.md). Both take O(2^n · n) time.
 
 ### Every subset of a given set
 

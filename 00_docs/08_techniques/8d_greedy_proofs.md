@@ -1,6 +1,6 @@
 # Greedy Algorithms and How to Prove Them
 
-A greedy algorithm builds its answer one choice at a time, takes the choice that looks best at that moment, and never changes it. The code is usually one loop, often after a sort. Whether the code is correct is a separate question: a wrong greedy rule gives a plausible answer on most inputs, including the examples in the problem statement. This page covers the two standard ways to prove a greedy rule correct, and the small counterexamples that show when a rule is wrong. The repo's greedy problems are worked through in [greedy problems](8c_greedy_problems.md).
+A greedy algorithm builds its answer one choice at a time, takes the choice that looks best at that moment, and never changes it. The code is usually one loop, often after a sort. Whether the code is correct is a separate question: a wrong greedy rule gives a plausible answer on most inputs, including the examples in the problem statement. This page covers the two standard ways to prove a greedy rule correct, and the small counterexamples that show when a rule is wrong. The repo's greedy problems are worked through in [greedy problems](8e_greedy_problems.md).
 
 ## What has to be true
 

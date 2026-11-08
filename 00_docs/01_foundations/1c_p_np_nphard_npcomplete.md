@@ -120,7 +120,7 @@ The relationship in one line: **NP-complete = NP ∩ NP-hard.**
 
 Recognising NP-hardness is not a dead end; it tells you to stop looking for an exact polynomial algorithm and choose a compromise instead. Five standard escapes:
 
-**Exponential but smart.** Brute force with heavy pruning ([`8a_backtracking.md`](../08_techniques/8a_backtracking.md)) or bitmask DP. TSP by dynamic programming is O(2ⁿ · n²) rather than O(n!) — still exponential, but 20 cities become feasible where 20! would not.
+**Exponential but smart.** Brute force with heavy pruning ([`8a_backtracking_basics.md`](../08_techniques/8a_backtracking_basics.md)) or bitmask DP. TSP by dynamic programming is O(2ⁿ · n²) rather than O(n!) — still exponential, but 20 cities become feasible where 20! would not.
 
 **Pseudo-polynomial DP.** Knapsack is NP-complete, yet the standard DP runs in O(n·W) ([`10b_dp_1d_vs_2d.md`](../10_dynamic_programming/10b_dp_1d_vs_2d.md)). There is no contradiction: W is a *value*, and writing it takes only log W bits, so O(n·W) is exponential in the input's actual size. It is fast whenever W happens to be small, and hopeless when W is 10¹⁸.
 

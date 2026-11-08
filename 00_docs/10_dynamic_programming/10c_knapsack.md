@@ -11,9 +11,9 @@ The variants differ in how many times each item can be used:
 | **0/1** | at most once | Partition Equal Subset Sum (416), Target Sum (494), Last Stone Weight II (1049) |
 | **Unbounded** | any number of times | Coin Change (322), Coin Change II (518), Perfect Squares (279) |
 | **Bounded** | at most `k[i]` times | reduces to 0/1 (see below) |
-| **Fractional** | any fraction | greedy by value/weight, no DP ([`8b_greedy_proofs.md`](../08_techniques/8b_greedy_proofs.md)) |
+| **Fractional** | any fraction | greedy by value/weight, no DP ([`8d_greedy_proofs.md`](../08_techniques/8d_greedy_proofs.md)) |
 
-Greedy fails for 0/1: taking the best value-per-weight item first can block a better combination ([`8b_greedy_proofs.md`](../08_techniques/8b_greedy_proofs.md) has a counterexample). Trying every subset is O(2ⁿ). The DP below runs in O(n · W).
+Greedy fails for 0/1: taking the best value-per-weight item first can block a better combination ([`8d_greedy_proofs.md`](../08_techniques/8d_greedy_proofs.md) has a counterexample). Trying every subset is O(2ⁿ). The DP below runs in O(n · W).
 
 ## The 0/1 recurrence
 
