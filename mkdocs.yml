@@ -1,0 +1,31 @@
+site_name: NeetCode150
+site_description: NeetCode 150 solutions in seven languages, lessons, SQL and practical interview exercises
+site_url: https://mhs-20.github.io/NeetCode150/
+repo_url: https://github.com/MHS-20/NeetCode150
+docs_dir: site_src
+
+theme:
+  name: dracula
+
+markdown_extensions:
+  - tables
+  - toc
+  - pymdownx.highlight:
+      use_pygments: false
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+  - gen-files:
+      scripts:
+        - site_src/gen_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+
+extra_css:
+  - extra.css
+
+exclude_docs: |
+  gen_pages.py

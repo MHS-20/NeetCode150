@@ -1,6 +1,6 @@
 # NeetCode150
 
-Interview preparation: solutions for NeetCode 150 problems, solved in multiple languages (Java, Python, C++, Javascript, Go Rust, C). Detailed lessons about the topics, techniques and algorithms are included.
+Solutions for NeetCode 150 problems, solved in multiple languages (Java, Python, C++, Javascript, Go Rust, C). Detailed lessons about the topics, techniques and algorithms are included.
 The repo covers also SQL, Databases, Storage internal data structures and Business logic mocks.
 
 ## Lessons

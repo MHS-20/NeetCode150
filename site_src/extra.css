@@ -1,0 +1,33 @@
+/* Tabs for pymdownx.tabbed (alternate style), which the Dracula theme does not style. */
+.tabbed-set { display: flex; flex-wrap: wrap; margin: 1em 0; }
+.tabbed-set > input { position: absolute; opacity: 0; pointer-events: none; }
+.tabbed-labels { display: flex; flex-wrap: wrap; width: 100%; border-bottom: 1px solid #44475a; }
+.tabbed-labels > label {
+  padding: 0.4em 1em; cursor: pointer; color: #bd93f9; font-weight: 600;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.tabbed-content { width: 100%; }
+.tabbed-block { display: none; }
+.tabbed-set > input:nth-child(1):checked ~ .tabbed-labels > :nth-child(1),
+.tabbed-set > input:nth-child(2):checked ~ .tabbed-labels > :nth-child(2),
+.tabbed-set > input:nth-child(3):checked ~ .tabbed-labels > :nth-child(3),
+.tabbed-set > input:nth-child(4):checked ~ .tabbed-labels > :nth-child(4),
+.tabbed-set > input:nth-child(5):checked ~ .tabbed-labels > :nth-child(5),
+.tabbed-set > input:nth-child(6):checked ~ .tabbed-labels > :nth-child(6),
+.tabbed-set > input:nth-child(7):checked ~ .tabbed-labels > :nth-child(7),
+.tabbed-set > input:nth-child(8):checked ~ .tabbed-labels > :nth-child(8) {
+  color: #50fa7b; border-bottom-color: #50fa7b;
+}
+.tabbed-set > input:nth-child(1):checked ~ .tabbed-content > :nth-child(1),
+.tabbed-set > input:nth-child(2):checked ~ .tabbed-content > :nth-child(2),
+.tabbed-set > input:nth-child(3):checked ~ .tabbed-content > :nth-child(3),
+.tabbed-set > input:nth-child(4):checked ~ .tabbed-content > :nth-child(4),
+.tabbed-set > input:nth-child(5):checked ~ .tabbed-content > :nth-child(5),
+.tabbed-set > input:nth-child(6):checked ~ .tabbed-content > :nth-child(6),
+.tabbed-set > input:nth-child(7):checked ~ .tabbed-content > :nth-child(7),
+.tabbed-set > input:nth-child(8):checked ~ .tabbed-content > :nth-child(8) {
+  display: block;
+}
+
+/* The theme's font draws ligatures such as 0x as 0×, which misreads in code. */
+body, code, pre { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
