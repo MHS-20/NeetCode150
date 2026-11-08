@@ -42,7 +42,7 @@ What the problem *asks for* narrows the technique more than what it is about.
 | **Kth largest / smallest, top K** | bounded heap or quickselect | [`heaps_and_priority_queues.md`](../data_structures/heaps_and_priority_queues.md) |
 | **Best contiguous subarray/substring** | sliding window, or Kadane's | [variable-size windows](../sliding_window/02_variable_size.md), [`greedy.md`](../techniques/greedy.md) |
 | **A pair or triple summing to a target** | sort + two pointers, or a hash map | [two pointers](../two_pointers/01_opposite_ends.md), [`hashing.md`](../data_structures/hashing.md) |
-| **Next greater / smaller element, spans** | monotonic stack | [`stacks.md`](../data_structures/stacks.md) |
+| **Next greater / smaller element, spans** | monotonic stack | [monotonic stack](../data_structures/monotonic_stack.md) |
 | **Max/min over a moving window** | monotonic deque | [window maximum](../sliding_window/03_window_max_and_min.md), [`queues_and_deques.md`](../data_structures/queues_and_deques.md) |
 | **Merge, overlap, schedule, rooms** | sort intervals, sweep | [`intervals.md`](../techniques/intervals.md) |
 | **Prefix matching, dictionary of words** | trie | [`tries.md`](../data_structures/tries.md) |

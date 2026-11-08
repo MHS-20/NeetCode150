@@ -80,28 +80,9 @@ DFS is a stack; BFS is a queue. Swapping the container swaps the traversal order
 
 **Deferred evaluation.** Evaluate Reverse Polish Notation, Basic Calculator. Push operands; an operator pops the operands it needs and pushes the result. Nesting is handled by pushing the outer context before descending into a parenthesis.
 
-**Monotonic stack.** The one worth practising. Keep the stack's values sorted (increasing or decreasing) by popping anything that would break the order before pushing. Each popped element has just met the first later element greater (or smaller) than itself.
-
-```
-Next Greater Element in [2, 1, 5, 3]      decreasing stack, holds indices
-
-x=2:  stack empty        push 2        [2]
-x=1:  1 < 2, no pop      push 1        [2,1]
-x=5:  5 > 1 → pop 1, answer for 1 is 5
-      5 > 2 → pop 2, answer for 2 is 5
-                         push 5        [5]
-x=3:  3 < 5, no pop      push 3        [5,3]
-
-leftovers 5 and 3 have no next greater → -1
-```
-
-Every element is pushed once and popped once, so the whole scan is **O(n)** despite the nested `while`. This is the pattern behind Daily Temperatures, Largest Rectangle in Histogram, Trapping Rain Water, and Car Fleet. Store indices rather than values whenever the answer needs a distance or a width.
-
-The monotonic *stack* answers "nearest greater/smaller element"; the monotonic *deque* answers "max/min over a sliding window". Same popping logic, different ends available.
+**Monotonic stack.** The stack holds the elements still waiting for their nearest greater (or smaller) element, sorted so that each new element pops and answers every waiting element it beats. One pass answers the question for every element in O(n). Daily Temperatures, Largest Rectangle in Histogram, Car Fleet and Trapping Rain Water use it. Traces and the O(n) argument are in [monotonic stack](monotonic_stack.md).
 
 ## Pitfalls
 
 - Popping or peeking an empty stack. Guard with `if st` — in Python `st[-1]` raises `IndexError`, and in C++ `top()` on an empty stack is undefined behaviour that will not announce itself.
 - Forgetting the final emptiness check in matching problems. `"((("` pushes cleanly and never fails a comparison; the leftovers are the error.
-- Storing values in a monotonic stack when the problem asks for a distance or a width — the index is unrecoverable afterwards.
-- Reading the nested `while` in a monotonic stack as O(n²). Count total pops, not loop nesting: n elements, at most n pops.

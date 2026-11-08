@@ -101,17 +101,7 @@ def bfs(start, neighbors):
 
 Process the queue one level at a time by capturing `len(q)` before the inner loop — everything currently in the queue is exactly one level.
 
-**Monotonic deque — sliding window max/min.** The signature deque problem (LeetCode 239). Keep indices in the deque ordered so their values are decreasing. Before pushing a new index, pop from the **back** every index whose value is smaller — they can never be the maximum again, because the new element is both larger and stays in the window longer. Pop from the **front** when an index falls out of the window. The front is always the answer for the current window.
-
-```
-nums = [1, 3, -1, -3, 5], k = 3
-
-window [1,3,-1]   deque(idx): [1, 2]   values 3, -1   → max = 3
-window [3,-1,-3]  deque(idx): [1, 2, 3] values 3,-1,-3 → max = 3
-window [-1,-3,5]  5 evicts everything → [4]           → max = 5
-```
-
-Each index is pushed once and popped once, so the whole scan is O(n) despite the nested `while`. This needs *both* ends, which is precisely why a queue is not enough.
+**Monotonic deque — sliding window max/min.** LeetCode 239. The deque holds the indices of the window's elements whose values decrease from front to back. New elements pop smaller ones from the back, and indices that leave the window are popped from the front, so the front is always the window's maximum. It needs both ends, which a queue or a stack alone does not give. The full trace and the O(n) argument are in [window maximum](../sliding_window/03_window_max_and_min.md).
 
 **Sliding window in general.** Any window where elements leave from the left as they enter from the right.
 

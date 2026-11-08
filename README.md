@@ -12,8 +12,9 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 
 - [Hashing](00_docs/data_structures/hashing.md): hash maps and sets, collisions, load factor, and the ordered versions.
 - [Linked lists](00_docs/data_structures/linked_lists.md): dummy heads, fast and slow pointers, and in-place reversal.
-- [Stacks](00_docs/data_structures/stacks.md): LIFO, matching brackets, and monotonic stacks.
-- [Queues and deques](00_docs/data_structures/queues_and_deques.md): FIFO, BFS queues, and monotonic deques for sliding windows.
+- [Stacks](00_docs/data_structures/stacks.md): LIFO, matching brackets, undo, and deferred evaluation.
+- [Monotonic stack](00_docs/data_structures/monotonic_stack.md): nearest greater or smaller element in one pass; Daily Temperatures, Largest Rectangle, Trapping Rain Water, Car Fleet and Max Chunks.
+- [Queues and deques](00_docs/data_structures/queues_and_deques.md): FIFO, BFS queues, and deques.
 - [Heaps and priority queues](00_docs/data_structures/heaps_and_priority_queues.md): binary heaps, top-K, two-heap medians, and lazy deletion.
 - [Binary trees](00_docs/data_structures/binary_trees.md): traversals, recursion on trees, and binary search trees.
 - [Tries](00_docs/data_structures/tries.md): prefix trees for word and prefix lookups.

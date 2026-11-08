@@ -69,3 +69,5 @@ The deque holds at most `k` indices, so the extra space is O(k).
 For the minimum, the comparison in step 2 is reversed: pop from the back while `nums[i] < nums[dq.back()]`. The deque then increases from front to back, and the front is the smallest element in the window.
 
 The same deque works for windows whose size changes, as long as both ends only move forward. Step 1 then pops from the front while the front index is less than `left`, instead of checking against `i - k + 1`.
+
+Without the pops from the front, the same structure is a monotonic stack, which finds the nearest greater or smaller element for every position of an array. It is covered in [monotonic stack](../data_structures/monotonic_stack.md).
