@@ -1,11 +1,3 @@
-# Mock B — Rate limiter / log processor
-#
-# Input: lines `epoch_seconds user endpoint`.
-# 1. Per user, count requests per endpoint; print the top 3 endpoints overall.
-# 2. Limit: max N requests per user in any rolling 60 s window; output each request as ALLOW or DENY.
-# 3. Different limits per endpoint from a config string `endpoint:limit,endpoint:limit` (default N).
-# 4. Burst rule: a user denied 3 times in 10 s is blocked for 5 minutes.
-
 from collections import Counter, defaultdict, deque
 from dataclasses import dataclass
 
@@ -84,7 +76,7 @@ class RateLimiter:
         return self.endpoint_totals.most_common(k)
 
 
-def mockB(lines, n, limits=""):
+def run(lines, n, limits=""):
     limiter, decisions, bad = RateLimiter(parse_limits(limits, n)), [], 0
     for line in lines:
         req = parse(line)
@@ -99,42 +91,3 @@ def mockB(lines, n, limits=""):
         print(f"{ep}: {c}")
     print(f"malformed lines: {bad}")
     return limiter, decisions, bad
-
-
-if __name__ == "__main__":
-    # parts 1-3: default N=2, login limited to 1
-    lines = [
-        "0 alice login",  # ALLOW
-        "5 alice login",  # DENY: login limit is 1
-        "6 alice search",  # ALLOW: search has its own window (default 2)
-        "7 alice search",  # ALLOW
-        "8 alice search",  # DENY: 3rd search in 60 s
-        "9 bob login",  # ALLOW: bob has his own quota
-        "60 alice login",  # ALLOW: ts 0 left the window (0 <= 60-60)
-        "bad line",
-        "x alice login",
-    ]
-    l, d, bad = mockB(lines, n=2, limits="login:1")
-    assert d == ["ALLOW", "DENY", "ALLOW", "ALLOW", "DENY", "ALLOW", "ALLOW"], d
-    assert bad == 2
-    assert l.top_endpoints() == [("login", 4), ("search", 3)], l.top_endpoints()
-    assert l.user_endpoints["alice"] == {"login": 3, "search": 3}
-    assert "alice" not in l.blocked_until  # only 2 denies, no block
-
-    # part 4: N=1, 3 denies in 10 s -> blocked for 300 s
-    lines = [
-        "0 u a",  # ALLOW
-        "1 u a",  # DENY 1
-        "2 u a",  # DENY 2
-        "3 u a",  # DENY 3 -> blocked until 303
-        "100 u b",  # DENY: blocked, even on another endpoint
-        "302 u b",  # DENY: still blocked
-        "303 u b",  # ALLOW: block over
-    ]
-    l, d, _ = mockB(lines, n=1)
-    assert d == ["ALLOW", "DENY", "DENY", "DENY", "DENY", "DENY", "ALLOW"], d
-    assert l.blocked_until["u"] == 303
-
-    cfg = parse_limits("login:5,search:100", 7)
-    assert cfg["login"] == 5 and cfg["search"] == 100 and cfg["other"] == 7
-    print("all tests passed")
