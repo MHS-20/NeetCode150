@@ -112,3 +112,9 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 - [Changing data and transactions](00_docs/15_sql_databases/15g_modifying_data_and_transactions.md): INSERT/UPDATE/DELETE with RETURNING, upserts, constraints, transactions and savepoints, isolation levels and lost updates.
 - [Triggers](00_docs/15_sql_databases/15h_triggers.md): BEFORE, AFTER and INSTEAD OF, row and statement level, audit logs, derived counters, recursion, and simpler alternatives.
 - [SQL query planning and indexes](00_docs/15_sql_databases/15i_query_planning_and_indexes.md): how a query becomes an execution plan, and how indexes change it.
+
+# Other problem sets
+
+- [SQL problems](19_sql/): LeetCode database problems solved in PostgreSQL, each linked to its lesson.
+- [Practical coding problems](20_practical/): staged specs for non-algorithmic interviews, with solutions and tests per stage. Business logic in Python, storage in Java.
+- [HackerRank problems](hackerrank/): three HackerRank problems, each with the nearest LeetCode problem.
