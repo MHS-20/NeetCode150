@@ -19,6 +19,7 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 - [Heaps and priority queues](00_docs/02_data_structures/2g_heaps_and_priority_queues.md): binary heaps, top-K, two-heap medians, and lazy deletion.
 - [Heap problems](00_docs/02_data_structures/2h_heap_problems.md): a heap kept at size k, Last Stone Weight, Task Scheduler with its formula, two heaps for the median, and merging feeds in Design Twitter.
 - [Tries](00_docs/02_data_structures/2i_tries.md): prefix trees for word and prefix lookups.
+- [Trie problems](00_docs/02_data_structures/2j_trie_problems.md): Implement Trie, wildcard search that branches at each `.`, and Word Search II with one grid search pruned by the trie.
 
 ## Two pointers
 

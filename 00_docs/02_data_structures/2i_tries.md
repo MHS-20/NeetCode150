@@ -114,7 +114,7 @@ grid path "ca"  →  trie node exists  →  keep exploring
 grid path "cz"  →  no child 'z'      →  prune immediately
 ```
 
-Thousands of separate searches collapse into one pruned traversal. This is the general pattern: **a trie turns "check against a dictionary" into a pruning test that costs O(1) per step.**
+Thousands of separate searches collapse into one pruned traversal. A traced version is in [trie problems](2j_trie_problems.md#word-search-ii-212). This is the general pattern: **a trie turns "check against a dictionary" into a pruning test that costs O(1) per step.**
 
 **Other uses.** IP routing tables (longest-prefix match), word break with a dictionary, and — with bits instead of characters — maximum XOR pair problems, where a binary trie over 32-bit integers finds the best partner in 32 steps.
 
