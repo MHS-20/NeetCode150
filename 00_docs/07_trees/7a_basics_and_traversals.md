@@ -248,4 +248,4 @@ right(i)  = 2i + 2
 parent(i) = (i - 1) / 2       (integer division)
 ```
 
-Binary heaps are stored this way ([heaps](../02_data_structures/2e_heaps_and_priority_queues.md)). The layout only works for complete trees. A tree with gaps would leave empty slots in the array, and a skewed tree of `n` nodes would need about `2^n` slots.
+Binary heaps are stored this way ([heaps](../02_data_structures/2g_heaps_and_priority_queues.md)). The layout only works for complete trees. A tree with gaps would leave empty slots in the array, and a skewed tree of `n` nodes would need about `2^n` slots.

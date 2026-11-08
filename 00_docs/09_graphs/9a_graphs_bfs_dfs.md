@@ -77,7 +77,7 @@ def dfs(node, seen):
             dfs(nxt, seen)
 ```
 
-Recursive is the natural form; the call stack *is* the path back. Iterative uses an explicit stack (see [`2b_stacks.md`](../02_data_structures/2b_stacks.md)) and is the fix when depth may exceed the recursion limit — O(V) frames on a path graph.
+Recursive is the natural form; the call stack *is* the path back. Iterative uses an explicit stack (see [`2d_stacks.md`](../02_data_structures/2d_stacks.md)) and is the fix when depth may exceed the recursion limit — O(V) frames on a path graph.
 
 Use DFS for: connected components, cycle detection, topological sort, flood fill, anything asking about *existence* of a path, and anything where a node's answer depends on its subtree.
 
@@ -112,7 +112,7 @@ def bfs(start):
 
 **BFS finds shortest paths in unweighted graphs, and DFS does not.** The reason is the visiting order: BFS reaches every node in order of increasing distance from the source, so the first time it arrives at a node it has arrived by a shortest route. DFS may reach the same node by a long detour first and mark it visited, locking in the wrong distance.
 
-That guarantee dies the moment edges carry different weights — three cheap edges can beat one expensive one, and BFS counts hops, not cost. Weighted shortest paths need Dijkstra, which is BFS with a min-heap in place of the queue so that the *cheapest* frontier node is expanded next rather than the nearest in hops (see [`2e_heaps_and_priority_queues.md`](../02_data_structures/2e_heaps_and_priority_queues.md)).
+That guarantee dies the moment edges carry different weights — three cheap edges can beat one expensive one, and BFS counts hops, not cost. Weighted shortest paths need Dijkstra, which is BFS with a min-heap in place of the queue so that the *cheapest* frontier node is expanded next rather than the nearest in hops (see [`2g_heaps_and_priority_queues.md`](../02_data_structures/2g_heaps_and_priority_queues.md)).
 
 Use BFS for: shortest path / minimum steps in an unweighted graph or grid, level-order processing, and multi-source spread (rotting oranges, walls and gates — seed the queue with *all* sources before the loop and the level count is the answer for every one of them at once).
 

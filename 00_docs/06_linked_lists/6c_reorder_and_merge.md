@@ -135,7 +135,7 @@ while (!minHeap.empty()) {
 }
 ```
 
-The heap never holds more than `k` nodes, so each push and pop costs O(log k). Every node is pushed and popped once, for O(N log k) time and O(k) extra space. Heaps are covered in [heaps](../02_data_structures/2e_heaps_and_priority_queues.md).
+The heap never holds more than `k` nodes, so each push and pop costs O(log k). Every node is pushed and popped once, for O(N log k) time and O(k) extra space. Heaps are covered in [heaps](../02_data_structures/2g_heaps_and_priority_queues.md).
 
 ### Solution 3: merge in pairs
 

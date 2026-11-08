@@ -33,7 +33,7 @@ The direct edge `0→1` costs 4, but `0→2→1` costs 3. Node 1 is first discov
 
 ### Stale entries
 
-C++ `priority_queue`, Python `heapq` and Java `PriorityQueue` have no way to lower the priority of an element already in the heap (no "decrease-key"). Dijkstra works around this with **lazy deletion**: when `dist[v]` improves, push a new entry and leave the old one in the heap ([`2e_heaps_and_priority_queues.md`](../02_data_structures/2e_heaps_and_priority_queues.md)). A node can then sit in the heap several times. The `d > dist[u]` check discards every entry except the one matching the current best distance.
+C++ `priority_queue`, Python `heapq` and Java `PriorityQueue` have no way to lower the priority of an element already in the heap (no "decrease-key"). Dijkstra works around this with **lazy deletion**: when `dist[v]` improves, push a new entry and leave the old one in the heap ([`2g_heaps_and_priority_queues.md`](../02_data_structures/2g_heaps_and_priority_queues.md)). A node can then sit in the heap several times. The `d > dist[u]` check discards every entry except the one matching the current best distance.
 
 Without that check, the algorithm still gives correct distances. However, each stale pop re-relaxes all of the node's edges, and on dense graphs this repeated work dominates the running time. A `visited` set, marked when a node is popped, does the same job as the `d > dist[u]` check.
 

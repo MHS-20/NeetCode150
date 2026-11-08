@@ -2,7 +2,7 @@
 
 Many array problems ask, for every element, about the **nearest** element to one side that is larger or smaller: the next warmer day, the first shorter bar, the next taller wall. Scanning outward from each element costs O(n) per element and O(n²) in total. A **monotonic stack** answers the question for every element in one O(n) pass. It holds the elements still waiting for an answer, and keeps them sorted so that the newest element can settle all of the ones it answers in a single run of pops.
 
-What a stack is and how it is implemented is in [`2b_stacks.md`](2b_stacks.md). The examples here follow the C++ solutions in `04_stacks/` and `02_two_pointers/`, and every trace was produced by running the loop shown.
+What a stack is and how it is implemented is in [`2d_stacks.md`](2d_stacks.md). The examples here follow the C++ solutions in `04_stacks/` and `02_two_pointers/`, and every trace was produced by running the loop shown.
 
 ## Next greater element
 

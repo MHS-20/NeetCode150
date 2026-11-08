@@ -123,7 +123,7 @@ Sorting by *start* here gives wrong answers: a long early interval would be kept
 
 **Meeting Rooms II** — how many rooms are needed at once? This is the maximum number of intervals overlapping at any instant. Two standard solutions.
 
-*Min-heap of end times.* Sort by start; for each meeting, discard every heap entry that has already finished, then push this meeting's end. The heap size is the number of concurrent rooms, and its maximum is the answer. O(n log n) — see [`2e_heaps_and_priority_queues.md`](../02_data_structures/2e_heaps_and_priority_queues.md).
+*Min-heap of end times.* Sort by start; for each meeting, discard every heap entry that has already finished, then push this meeting's end. The heap size is the number of concurrent rooms, and its maximum is the answer. O(n log n) — see [`2g_heaps_and_priority_queues.md`](../02_data_structures/2g_heaps_and_priority_queues.md).
 
 *Sweep line / chronological events.* Split each interval into a `+1` at its start and a `−1` at its end, sort all events by time, and scan keeping a running count.
 

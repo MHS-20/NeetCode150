@@ -11,11 +11,13 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 ## Data structures
 
 - [Hashing](00_docs/02_data_structures/2a_hashing.md): hash maps and sets, collisions, load factor, and the ordered versions.
-- [Stacks](00_docs/02_data_structures/2b_stacks.md): LIFO, matching brackets, undo, and deferred evaluation.
-- [Monotonic stack](00_docs/02_data_structures/2c_monotonic_stack.md): nearest greater or smaller element in one pass; Daily Temperatures, Largest Rectangle, Trapping Rain Water, Car Fleet and Max Chunks.
-- [Queues and deques](00_docs/02_data_structures/2d_queues_and_deques.md): FIFO, BFS queues, and deques.
-- [Heaps and priority queues](00_docs/02_data_structures/2e_heaps_and_priority_queues.md): binary heaps, top-K, two-heap medians, and lazy deletion.
-- [Tries](00_docs/02_data_structures/2f_tries.md): prefix trees for word and prefix lookups.
+- [Array and hashing problems](00_docs/02_data_structures/2b_array_problems.md): Product Except Self, Longest Consecutive Sequence, length-prefixed encoding, the Sudoku box index, anagram keys, and four ways to find the top K.
+- [Prefix sums](00_docs/02_data_structures/2c_prefix_sums.md): range sums with one subtraction, Subarray Sum Equals K with a hash map, prefix products, and 2D prefix sums.
+- [Stacks](00_docs/02_data_structures/2d_stacks.md): LIFO, matching brackets, undo, and deferred evaluation.
+- [Monotonic stack](00_docs/02_data_structures/2e_monotonic_stack.md): nearest greater or smaller element in one pass; Daily Temperatures, Largest Rectangle, Trapping Rain Water, Car Fleet and Max Chunks.
+- [Queues and deques](00_docs/02_data_structures/2f_queues_and_deques.md): FIFO, BFS queues, and deques.
+- [Heaps and priority queues](00_docs/02_data_structures/2g_heaps_and_priority_queues.md): binary heaps, top-K, two-heap medians, and lazy deletion.
+- [Tries](00_docs/02_data_structures/2h_tries.md): prefix trees for word and prefix lookups.
 
 ## Two pointers
 

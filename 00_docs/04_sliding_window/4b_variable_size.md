@@ -247,4 +247,4 @@ x     prefix   prefix - k   times seen before   count
  3        6         3              1               3      [3]
 ```
 
-This works for any sign and runs in O(n) with O(n) extra space. If every number is positive, adding an element always raises the sum and removing one always lowers it, so the window works again and needs no map.
+This works for any sign and runs in O(n) with O(n) extra space. Prefix sums are covered in [prefix sums](../02_data_structures/2c_prefix_sums.md). If every number is positive, adding an element always raises the sum and removing one always lowers it, so the window works again and needs no map.

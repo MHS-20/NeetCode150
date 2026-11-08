@@ -67,7 +67,7 @@ for right in range(n):
     stack.append(nums[right])
 ```
 
-This looks quadratic and is **O(n)**. Each element is pushed exactly once and popped at most once, so there are at most `n` pops across the entire run. Count the total work, not the nesting depth. The same argument makes the monotonic stack ([`2b_stacks.md`](../02_data_structures/2b_stacks.md)), the monotonic deque ([`2d_queues_and_deques.md`](../02_data_structures/2d_queues_and_deques.md)), and the sliding window linear.
+This looks quadratic and is **O(n)**. Each element is pushed exactly once and popped at most once, so there are at most `n` pops across the entire run. Count the total work, not the nesting depth. The same argument makes the monotonic stack ([`2d_stacks.md`](../02_data_structures/2d_stacks.md)), the monotonic deque ([`2f_queues_and_deques.md`](../02_data_structures/2f_queues_and_deques.md)), and the sliding window linear.
 
 **Work proportional to something other than `n`.** String operations are the usual surprise. `s[i:j]` costs O(j − i), not O(1), so slicing inside a loop adds a factor. Comparing two strings costs up to their length, so sorting `n` strings of length `L` is O(L · n log n).
 

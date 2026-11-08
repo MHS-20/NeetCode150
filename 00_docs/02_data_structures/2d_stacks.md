@@ -80,7 +80,7 @@ DFS is a stack; BFS is a queue. Swapping the container swaps the traversal order
 
 **Deferred evaluation.** Evaluate Reverse Polish Notation, Basic Calculator. Push operands; an operator pops the operands it needs and pushes the result. Nesting is handled by pushing the outer context before descending into a parenthesis.
 
-**Monotonic stack.** The stack holds the elements still waiting for their nearest greater (or smaller) element, sorted so that each new element pops and answers every waiting element it beats. One pass answers the question for every element in O(n). Daily Temperatures, Largest Rectangle in Histogram, Car Fleet and Trapping Rain Water use it. Traces and the O(n) argument are in [monotonic stack](2c_monotonic_stack.md).
+**Monotonic stack.** The stack holds the elements still waiting for their nearest greater (or smaller) element, sorted so that each new element pops and answers every waiting element it beats. One pass answers the question for every element in O(n). Daily Temperatures, Largest Rectangle in Histogram, Car Fleet and Trapping Rain Water use it. Traces and the O(n) argument are in [monotonic stack](2e_monotonic_stack.md).
 
 ## Pitfalls
 

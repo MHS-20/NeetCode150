@@ -33,7 +33,7 @@ A sort that only ever compares elements cannot learn enough from fewer compariso
 
 **Quicksort** picks a pivot, partitions everything smaller to its left and larger to its right, and recurses on both sides. Average O(n log n), but a pivot that always lands at an extreme gives partitions of size `n-1` and `0`, producing `n` levels of O(n) work — O(n²). Randomising the pivot makes that case astronomically unlikely rather than merely rare. Quicksort still wins in practice because partitioning is a tight in-place scan with excellent locality.
 
-**Heapsort** builds a heap in O(n), then pops `n` times at O(log n) each (see [`2e_heaps_and_priority_queues.md`](../02_data_structures/2e_heaps_and_priority_queues.md)). Worst-case O(n log n) with O(1) extra space, which sounds ideal, but jumping around the heap array misses cache constantly and it loses to quicksort on real data.
+**Heapsort** builds a heap in O(n), then pops `n` times at O(log n) each (see [`2g_heaps_and_priority_queues.md`](../02_data_structures/2g_heaps_and_priority_queues.md)). Worst-case O(n log n) with O(1) extra space, which sounds ideal, but jumping around the heap array misses cache constantly and it loses to quicksort on real data.
 
 **Insertion sort** is O(n²) and still matters: on an array that is already nearly sorted, each element moves a constant distance and the whole thing runs in O(n). Every production sort switches to it for subarrays below roughly 16 elements, where the recursion overhead exceeds the quadratic cost.
 
@@ -95,7 +95,7 @@ The tuple key is the idiom for multi-level ordering, and negating a number rever
 
 **Sort as a canonical form.** Sorted characters as an anagram key; sorting both arrays to compare multisets.
 
-**Partial sorting.** When only the top K matter, do not sort everything. A bounded heap is O(n log k) and quickselect averages O(n) — both beat O(n log n). See [`2e_heaps_and_priority_queues.md`](../02_data_structures/2e_heaps_and_priority_queues.md).
+**Partial sorting.** When only the top K matter, do not sort everything. A bounded heap is O(n log k) and quickselect averages O(n) — both beat O(n log n). See [`2g_heaps_and_priority_queues.md`](../02_data_structures/2g_heaps_and_priority_queues.md).
 
 ## Quickselect
 
