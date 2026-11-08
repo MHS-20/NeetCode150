@@ -96,7 +96,8 @@ Collapsing keeps the optimal *value* and destroys the optimal *choices*. Reconst
 | prefix of one array + a budget | `dp[i][c]` | O(W), one row, mind the direction |
 | prefixes of two sequences | `dp[i][j]` | O(m), stash the diagonal |
 | a cell in a grid | `dp[r][c]` | O(C), one row |
-| an interval `(i, j)` | `dp[i][j]` | **not collapsible** — fill by length |
+| an interval `(i, j)`, shrinking the ends | `dp[i][j]` | O(n), two rows, `i` descending |
+| an interval `(i, j)`, split at `k` | `dp[i][j]` | not collapsible, fill by length |
 | prefix + a small mode | `dp[i][k]` | a few scalars per mode |
 
-Interval DP is the exception: `dp[i][j]` depends on shorter ranges scattered across the table rather than on a single adjacent row, so there is no row to discard.
+Interval DP splits in two. When `dp[i][j]` is built by shrinking the ends, as in Longest Palindromic Subsequence, it reads only `dp[i+1][…]` and `dp[i][j-1]`. Filling `i` from `n-1` down to 0 then needs only the row below, so two rows of length `n` are enough. When `dp[i][j]` tries every split point `k`, as in Burst Balloons, it reads the whole row `i` and the whole column `j` up to the split, so the full table has to stay ([interval DP](10e_interval_dp.md#space)).

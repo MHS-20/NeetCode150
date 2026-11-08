@@ -59,26 +59,9 @@ The naive approach needs O(m + n) space for the row and column flags. The O(1) t
 
 ## Integer arithmetic
 
-### Overflow
+### Overflow and division of negative numbers
 
-Python integers are arbitrary precision and never overflow. C++, Java, and Go integers do. Problems that constrain results to a 32-bit range (Reverse Integer, Divide Two Integers, String to Integer) are testing exactly this, and the check must happen **before** the operation:
-
-```
-safe to append digit d to x  ⟺  x < (INT_MAX − d) / 10
-```
-
-Checking after the fact is too late — the overflow has already occurred and, in C++, is undefined behaviour rather than a wrapped value.
-
-### Integer division and negative numbers
-
-Python's `//` floors toward negative infinity; C, C++, and Java truncate toward zero.
-
-```
--7 // 2  ==  -4     (Python, floor)
--7 /  2  ==  -3     (C/Java, truncate)
-```
-
-Likewise `-7 % 3` is `2` in Python and `-1` in C. Problems specifying truncation need `int(a / b)` or an explicit sign fix, not `//`.
+What each language does when a result does not fit, the check-before-multiply guard used in Reverse Integer, and how `/` and `%` round negative numbers in each language are covered in [overflow](../11_bit_manipulation/11b_overflow.md). In short: test against the limit **before** the operation, and do not use Python's `//` or `%` where C-style rounding toward zero is required.
 
 ### Modular arithmetic
 
