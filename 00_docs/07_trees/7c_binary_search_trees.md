@@ -71,6 +71,7 @@ Inorder traversal visits the values in increasing order, so the answer is the `k
 void dfs(TreeNode *node, int &k, int &res) {
     if (!node || k == 0) return;
     dfs(node->left, k, res);
+    if (k == 0) return;               // answer found in the left subtree
     k--;                              // node is visited here, in sorted order
     if (k == 0) {
         res = node->val;
@@ -86,25 +87,17 @@ On this tree with `k = 3`:
 
 ```
           5
-         / \
-        3   6
-       / \
-      2   4
+         /         3   6
+       /       2   4
      /
     1
 ```
 
-Inorder visits 1, 2, 3, 4, 5, 6, and the third value visited is 3. The counter goes 2, 1, 0 at nodes 1, 2 and 3, and `res` is set to 3.
+Inorder visits 1, 2, 3, 4, 5, 6. The counter goes 2, 1, 0 at nodes 1, 2 and 3, and `res` is set to 3. The call for node 3 returns to node 5, which finds `k == 0` right after its left call and returns too. Nodes 4, 5 and 6 are never counted.
 
-The traversal does not stop there. The call for node 3 returns, and its caller, node 5, runs `k--` without checking whether the answer was already found. `k` becomes -1, and the `k == 0` check at the top no longer stops anything, so the traversal goes on to node 6 with `k = -2`. `res` is only set when `k` is exactly 0, so the answer stays 3, but the rest of the tree is visited for nothing. Checking right after the left call fixes this:
+The check after the left call is what stops the traversal. Without it, node 5 would run `k--` after the answer was found, `k` would become -1, and the `k == 0` check at the top would never stop anything again: the traversal would go on through node 6 with `k = -2`. The answer would still be 3, because `res` is only set when `k` is exactly 0, but every remaining node would be visited.
 
-```cpp
-dfs(node->left, k, res);
-if (k == 0) return;               // answer found in the left subtree
-k--;
-```
-
-With that check, the traversal stops once the answer is found and costs O(height + k): it walks down to the smallest value, then visits `k` nodes. Without it, the cost is O(n).
+With the check, the cost is O(height + k): the traversal walks down to the smallest value, then visits `k` nodes.
 
 ## Lowest Common Ancestor of a BST (235)
 

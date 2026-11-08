@@ -20,6 +20,9 @@ impl Solution {
         let n = n.borrow();
 
         Self::dfs(&n.left, idx, res);
+        if *idx == 0 {
+            return; // answer found in the left subtree
+        }
         *idx -= 1;
 
         if *idx == 0 {

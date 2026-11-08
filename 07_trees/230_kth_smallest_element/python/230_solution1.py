@@ -13,6 +13,8 @@ class Solution:
                 return
 
             dfs(node.left)
+            if idx == 0:
+                return  # answer found in the left subtree
             idx -= 1
 
             if idx == 0:

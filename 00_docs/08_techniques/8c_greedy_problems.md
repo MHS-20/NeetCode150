@@ -41,7 +41,7 @@ x     sum after adding   reset?   sum after   mx
 
 The answer is 6, from `[4, -1, 2, 1]`.
 
-The repo's version resets with `sum = nums[i] < 0 ? 0 : nums[i]`. The `nums[i]` branch never runs. `sum` is never negative before `nums[i]` is added, because of the previous reset, so if `sum` is negative afterwards, `nums[i]` itself must be negative and the reset sets 0. Over 20 000 random arrays the branch was taken 0 times, and the results matched a brute-force check every time. `sum = 0` alone behaves the same.
+The reset sets `sum` to 0 and never to the current element. `sum` is never negative before `nums[i]` is added, because of the previous reset. So if `sum` is negative afterwards, `nums[i]` itself is negative, and starting the next subarray from it would only lower the total.
 
 Kadane's algorithm can also be read as a DP whose table has collapsed to one variable: `best ending at i = max(nums[i], best ending at i-1 + nums[i])`.
 

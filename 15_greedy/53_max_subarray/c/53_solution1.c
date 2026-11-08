@@ -9,7 +9,7 @@ int maxSubArray(int *nums, int numsSize) {
     if (sum > mx)
       mx = sum;
     if (sum < 0)
-      sum = nums[i] < 0 ? 0 : nums[i];
+      sum = 0; // a negative prefix only lowers what follows
   }
 
   return mx;

@@ -7,7 +7,7 @@ class Solution {
             sum += n;
             mx = Math.max(sum, mx);
             if (sum < 0)
-                sum = n < 0 ? 0 : n;
+                sum = 0; // a negative prefix only lowers what follows
         }
 
         return mx;

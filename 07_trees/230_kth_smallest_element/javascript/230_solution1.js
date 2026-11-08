@@ -7,6 +7,7 @@ var kthSmallest = function (root, k) {
     if (!node || k === 0) return;
 
     dfs(node.left);
+    if (k === 0) return; // answer found in the left subtree
     k--;
 
     if (k === 0) {

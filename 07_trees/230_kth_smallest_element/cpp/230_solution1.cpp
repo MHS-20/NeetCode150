@@ -14,6 +14,8 @@ public:
     }
 
     dfs(root->left, idx, res);
+    if (idx == 0)
+      return; // answer found in the left subtree
     idx--;
 
     if (idx == 0) {

@@ -10,11 +10,7 @@ func maxSubArray(nums []int) int {
 		sum += n
 		mx = max(sum, mx)
 		if sum < 0 {
-			if n < 0 {
-				sum = 0
-			} else {
-				sum = n
-			}
+			sum = 0 // a negative prefix only lowers what follows
 		}
 	}
 

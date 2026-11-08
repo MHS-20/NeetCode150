@@ -7,7 +7,7 @@ impl Solution {
             sum += n;
             mx = mx.max(sum);
             if sum < 0 {
-                sum = if n < 0 { 0 } else { n };
+                sum = 0; // a negative prefix only lowers what follows
             }
         }
 

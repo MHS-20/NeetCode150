@@ -9,7 +9,7 @@ var maxSubArray = function (nums) {
   for (const n of nums) {
     sum += n;
     mx = Math.max(sum, mx);
-    if (sum < 0) sum = n < 0 ? 0 : n;
+    if (sum < 0) sum = 0; // a negative prefix only lowers what follows
   }
 
   return mx;

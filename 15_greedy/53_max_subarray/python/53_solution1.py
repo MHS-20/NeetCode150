@@ -10,6 +10,6 @@ class Solution:
             total += n
             mx = max(total, mx)
             if total < 0:
-                total = 0 if n < 0 else n
+                total = 0  # a negative prefix only lowers what follows
 
         return mx
