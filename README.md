@@ -64,7 +64,8 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 
 ## Intervals
 
-- [Intervals](00_docs/10_intervals/10a_intervals.md): sort, then sweep: merging, inserting, and counting overlaps.
+- [Overlap, merging and inserting](00_docs/10_intervals/10a_overlap_and_merge.md): the overlap test, touching intervals, Merge Intervals, Insert Interval in one pass, and Meeting Rooms.
+- [Scheduling, rooms and queries](00_docs/10_intervals/10b_scheduling_and_rooms.md): Non-overlapping Intervals, Meeting Rooms II with a heap or a sweep, and offline queries with lazy deletion.
 
 ## Graphs
 

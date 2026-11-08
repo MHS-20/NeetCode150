@@ -173,7 +173,7 @@ d² = (x₁ − x₂)² + (y₁ − y₂)²
 
 Use this rather than comparing slopes as `dy/dx`, which divides by zero on vertical lines and accumulates floating-point error. When slopes must be used as hash keys (Max Points on a Line), store the reduced fraction `(dy/g, dx/g)` with `g = gcd(dy, dx)` and a normalised sign — never a float.
 
-**Rectangle overlap.** Two axis-aligned rectangles overlap when they overlap on *both* axes independently, which is the interval condition from [`10a_intervals.md`](../10_intervals/10a_intervals.md) applied twice.
+**Rectangle overlap.** Two axis-aligned rectangles overlap when they overlap on *both* axes independently, which is the interval condition from [`10a_overlap_and_merge.md`](../10_intervals/10a_overlap_and_merge.md) applied twice.
 
 **Areas.** The shoelace formula gives a polygon's area from its vertices; triangle area is half the absolute cross product of two edge vectors.
 

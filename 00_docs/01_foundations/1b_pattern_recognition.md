@@ -44,7 +44,7 @@ What the problem *asks for* narrows the technique more than what it is about.
 | **A pair or triple summing to a target** | sort + two pointers, or a hash map | [two pointers](../03_two_pointers/3a_opposite_ends.md), [`2a_hashing.md`](../02_data_structures/2a_hashing.md) |
 | **Next greater / smaller element, spans** | monotonic stack | [monotonic stack](../02_data_structures/2e_monotonic_stack.md) |
 | **Max/min over a moving window** | monotonic deque | [window maximum](../04_sliding_window/4c_window_max_and_min.md), [`2f_queues_and_deques.md`](../02_data_structures/2f_queues_and_deques.md) |
-| **Merge, overlap, schedule, rooms** | sort intervals, sweep | [`10a_intervals.md`](../10_intervals/10a_intervals.md) |
+| **Merge, overlap, schedule, rooms** | sort intervals, sweep | [`10a_overlap_and_merge.md`](../10_intervals/10a_overlap_and_merge.md) |
 | **Prefix matching, dictionary of words** | trie | [`2h_tries.md`](../02_data_structures/2h_tries.md) |
 | **Ordering under dependencies** | topological sort | [`11a_graphs_bfs_dfs.md`](../11_graphs/11a_graphs_bfs_dfs.md) |
 | **Are these connected / how many groups** | DFS, BFS, or union-find | [`11a_graphs_bfs_dfs.md`](../11_graphs/11a_graphs_bfs_dfs.md) |
