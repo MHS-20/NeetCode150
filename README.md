@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/ascent.png" alt="TheGrind" width="75%">
+</p>
+
 # TheGrind
 
 Coding interview preparation: lessons, solved problems and exercises, organised by topic.
