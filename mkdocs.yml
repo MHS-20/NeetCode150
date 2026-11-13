@@ -5,8 +5,7 @@ repo_url: https://github.com/MHS-20/TheGrind
 docs_dir: site_src
 
 theme:
-  name: dracula
-  show_footer: false
+  name: sorrow
 
 markdown_extensions:
   - tables

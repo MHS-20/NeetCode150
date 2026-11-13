@@ -1,9 +1,9 @@
-/* Tabs for pymdownx.tabbed (up to 12 per set) (alternate style), which the Dracula theme does not style. */
+/* Tabs for pymdownx.tabbed (up to 12 per set) (alternate style), which the Sorrow theme does not style. */
 .tabbed-set { display: flex; flex-wrap: wrap; margin: 1em 0; }
 .tabbed-set > input { position: absolute; opacity: 0; pointer-events: none; }
-.tabbed-labels { display: flex; flex-wrap: wrap; width: 100%; border-bottom: 1px solid #44475a; }
+.tabbed-labels { display: flex; flex-wrap: wrap; width: 100%; border-bottom: 1px solid var(--greySecondary); }
 .tabbed-labels > label {
-  padding: 0.4em 1em; cursor: pointer; color: #bd93f9; font-weight: 600;
+  padding: 0.4em 1em; cursor: pointer; color: var(--greyTernary); font-weight: 600;
   border-bottom: 2px solid transparent; margin-bottom: -1px;
 }
 .tabbed-content { width: 100%; }
@@ -20,7 +20,7 @@
 .tabbed-set > input:nth-child(10):checked ~ .tabbed-labels > :nth-child(10),
 .tabbed-set > input:nth-child(11):checked ~ .tabbed-labels > :nth-child(11),
 .tabbed-set > input:nth-child(12):checked ~ .tabbed-labels > :nth-child(12) {
-  color: #50fa7b; border-bottom-color: #50fa7b;
+  color: var(--red); border-bottom-color: var(--red);
 }
 .tabbed-set > input:nth-child(1):checked ~ .tabbed-content > :nth-child(1),
 .tabbed-set > input:nth-child(2):checked ~ .tabbed-content > :nth-child(2),
@@ -41,8 +41,7 @@
 body, code, pre { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
 
 /* File name above each solution when a language has several. */
-.tabbed-block > p > code:only-child { color: #ffb86c; }
+.tabbed-block > p > code:only-child { color: var(--orange); }
 
-/* Plain grey frame: the top bar and the strip beside the sidebar match the sidebar. */
-.navbar.drac-bg-purple { background: #21222c !important; }
-.divider.drac-bg-purple-cyan { background: #21222c !important; }
+/* Plain frame: the top bar matches the sidebar, like the strip beside it. */
+.navbar.sorrow-bg-purple { background: var(--black) !important; }
