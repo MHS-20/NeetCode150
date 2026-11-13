@@ -1,7 +1,7 @@
-site_name: NeetCode150
-site_description: NeetCode 150 solutions in seven languages, lessons, SQL and practical interview exercises
-site_url: https://mhs-20.github.io/NeetCode150/
-repo_url: https://github.com/MHS-20/NeetCode150
+site_name: TheGrind
+site_description: Coding interview preparation: algorithm solutions in seven languages, lessons, SQL, practical exercises and low-level design
+site_url: https://mhs-20.github.io/TheGrind/
+repo_url: https://github.com/MHS-20/TheGrind
 docs_dir: site_src
 
 theme:

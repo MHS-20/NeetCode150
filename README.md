@@ -1,7 +1,12 @@
-# NeetCode150
+# TheGrind
 
-Solutions for NeetCode 150 problems, solved in multiple languages (Java, Python, C++, Javascript, Go Rust, C). Detailed lessons about the topics, techniques and algorithms are included.
-The repo covers also SQL, Databases, Storage internal data structures and Business logic mocks.
+Coding interview preparation: lessons, solved problems and exercises, organised by topic.
+
+- **Algorithms and data structures:** the NeetCode 150 problems, solved in Java, Python, C++, JavaScript, Go, Rust and C, and being extended towards NeetCode 250 and beyond.
+- **Lessons:** the techniques behind the problems, from complexity analysis to dynamic programming and bit manipulation, with worked examples.
+- **SQL and databases:** a PostgreSQL lesson series and LeetCode database problems.
+- **Practical problems:** staged specs for non-algorithmic rounds, such as a ledger, a rate limiter, a B+ tree and write-ahead log recovery, with tests for each stage.
+- **Low-level design:** object-oriented design lessons and LLD problems in Java (in progress).
 
 ## Lessons
 
@@ -118,8 +123,19 @@ To pick a technique for a new problem, start with [pattern recognition](00_docs/
 - [Triggers](00_docs/15_sql_databases/15h_triggers.md): BEFORE, AFTER and INSTEAD OF, row and statement level, audit logs, derived counters, recursion, and simpler alternatives.
 - [SQL query planning and indexes](00_docs/15_sql_databases/15i_query_planning_and_indexes.md): how a query becomes an execution plan, and how indexes change it.
 
+### Object-oriented design
+
+- [The LLD round](00_docs/16_object_oriented_design/16a_the_lld_round.md): an order of work for the round, from requirements to entities to code, and how to absorb an extension. (draft)
+- [OOP principles and SOLID](00_docs/16_object_oriented_design/16b_oop_and_solid.md): the four pillars, and each SOLID principle as a violation and its fix. (draft)
+- [Class diagrams](00_docs/16_object_oriented_design/16c_class_diagrams.md): the small part of UML needed in an interview. (draft)
+- [Creational patterns](00_docs/16_object_oriented_design/16d_creational_patterns.md): factory, builder and singleton. (draft)
+- [Structural patterns](00_docs/16_object_oriented_design/16e_structural_patterns.md): decorator, adapter, facade and composite. (draft)
+- [Behavioral patterns](00_docs/16_object_oriented_design/16f_behavioral_patterns.md): strategy, observer, state, command and chain of responsibility. (draft)
+- [Concurrency for LLD](00_docs/16_object_oriented_design/16g_concurrency_basics.md): races, locks and atomics, blocking queues, and testing concurrent code. (draft)
+
 ### Other problem sets
 
 - [SQL problems](19_sql/): LeetCode database problems solved in PostgreSQL, each linked to its lesson.
 - [Practical coding problems](20_practical/): staged specs for non-algorithmic interviews, with solutions and tests per stage. Business logic in Python, storage in Java.
+- [Low-level design problems](21_lld/): object-oriented design problems in Java, with staged requirements and checks per stage.
 - [HackerRank problems](hackerrank/): three HackerRank problems, each with the nearest LeetCode problem.
