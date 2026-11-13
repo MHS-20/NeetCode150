@@ -144,6 +144,13 @@ for group in sorted(p for p in (ROOT / "20_practical").iterdir() if p.is_dir()):
     for ex in sorted(p for p in group.iterdir() if p.is_dir()):
         nav.append(f"        * [{title_of(ex / 'README.md')}]({problem_page(ex, ex.name)})")
 
+# LLD problems: a folder appears in the nav once it has a README
+nav.append("* LLD")
+copy_md("21_lld/README.md")
+nav.append("    * [Overview](21_lld/README.md)")
+for problem in sorted(p for p in (ROOT / "21_lld").iterdir() if (p / "README.md").exists()):
+    nav.append(f"    * [{title_of(problem / 'README.md')}]({problem_page(problem, problem.name)})")
+
 # HackerRank
 nav.append("* HackerRank")
 copy_md("hackerrank/README.md")
