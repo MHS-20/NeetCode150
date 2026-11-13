@@ -42,6 +42,3 @@ body, code, pre { font-variant-ligatures: none; font-feature-settings: "liga" 0,
 
 /* File name above each solution when a language has several. */
 .tabbed-block > p > code:only-child { color: var(--orange); }
-
-/* Plain frame: the top bar matches the sidebar, like the strip beside it. */
-.navbar.sorrow-bg-purple { background: var(--black) !important; }
